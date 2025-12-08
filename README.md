@@ -1,282 +1,285 @@
 # Minimal Design System - Claude Skill
 
-A minimalist black & white design system for Claude AI. Clean, modern, and production-ready with generous whitespace and Inter UI typography.
+A minimalist black-and-white design system with generous whitespace for HTML artifacts, dashboards, and websites. Built with Tailwind CSS and Inter UI font.
 
-## 🎨 Design Philosophy
+🌐 **[View Demo Website](https://your-username.github.io/minimal-design-system-skill/)**
 
-- **Generous Whitespace**: Large gaps and breathing room for clarity
-- **Typography First**: Clear hierarchy through size and weight
-- **Minimal Color**: Black, white, and subtle grays with semantic colors for feedback
-- **Dark Mode Ready**: Perfect symmetry between light and dark
-- **Tailwind CSS**: Rapid development with utility classes
-- **Inter UI Font**: Professional, readable typography
+## What is a Claude Skill?
 
-## 🧩 Components Included
+A Claude Skill is a folder containing instructions, scripts, and resources that Claude loads dynamically when needed. Skills teach Claude how to complete specific tasks in a repeatable way, improving consistency and performance.
+
+The Minimal Design System Skill gives Claude precise instructions on how to create professional, minimalist websites and components with consistent styling, generous whitespace, and clear hierarchy.
+
+**Claude automatically invokes Skills based on your task—no manual selection needed.** When you describe a task that matches a Skill's description, Claude recognizes it and loads the Skill automatically.
+
+## Features
+
+- ✨ **Generous Whitespace** - Large gaps between sections for breathing room
+- 📐 **Clear Hierarchy** - Typography-driven visual hierarchy
+- 🎨 **Minimal Colors** - Black, white, and subtle grays only
+- 📖 **Readable** - Max 65-75 characters per line for text content
+- 🌓 **Dark Mode** - Perfect light/dark mode symmetry
+- ⚡ **Tailwind CSS** - Fast, consistent development
+
+## File Structure
+
+The complete skill includes:
+
+```
+minimal-design-system/
+├── SKILL.md                           # Main skill file with instructions
+├── assets/
+│   ├── base-template.html            # Complete working template
+│   └── showcase.html                 # Full showcase with all components
+└── references/
+    ├── design-tokens.md              # Color system, typography, spacing
+    ├── button-components.md          # Button variations and usage
+    └── components.md                 # Complete component library
+```
+
+## Quick Start
+
+### Using in Claude.ai (Web & Desktop App)
+
+#### Option 1: Download from GitHub (Recommended - includes all files)
+
+1. **Clone or Download this Repository**
+   ```bash
+   git clone https://github.com/your-username/minimal-design-system-skill.git
+   ```
+   Or download as ZIP from GitHub
+
+2. **Create the Skill ZIP**
+   ```bash
+   cd minimal-design-system-skill
+   zip -r minimal-design-system.zip minimal-design-system/
+   ```
+
+3. **Upload to Claude**
+   - Go to `Settings → Capabilities → Skills`
+   - Click "Upload skill"
+   - Select the `minimal-design-system.zip` file
+
+#### Option 2: Quick Start (SKILL.md only)
+
+If you just want to try the basic skill without all templates:
+
+1. Download [SKILL.md](SKILL.md)
+2. Create a folder named `minimal-design-system` and place SKILL.md inside
+3. ZIP the folder
+4. Upload to Claude via `Settings → Capabilities → Skills`
+
+**Note:** The full skill with templates and references provides Claude with more examples and detailed documentation.
+
+### Using in Claude Code (Terminal)
+
+1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/your-username/minimal-design-system-skill.git
+   ```
+
+2. **Copy to Claude Skills Directory**
+   ```bash
+   cp -r minimal-design-system-skill/minimal-design-system ~/.claude/skills/
+   ```
+
+3. **Restart Claude Code**
+   - The Skill will be automatically available in all sessions
+
+### Using in Other LLMs
+
+**ChatGPT:**
+1. Go to Settings → Personalization → Custom Instructions
+2. Paste the [SKILL.md](SKILL.md) content into the bottom text field
+3. Enable "Enable for new chats"
+
+**Google Gemini:**
+1. Open a new chat
+2. Paste the [SKILL.md](SKILL.md) content as your first message
+3. Ask Gemini to follow these instructions
+
+**Other LLMs:**
+- Paste the SKILL.md content as a system prompt or at the beginning of your conversation
+
+## Design Principles
+
+### Core Philosophy
+
+1. **Generous Whitespace**: Large gaps between sections for breathing room
+2. **Clear Hierarchy**: Typography-driven visual hierarchy (size, weight)
+3. **Minimal Color**: Black, white, and subtle grays only
+4. **Readable**: Max 65-75 characters per line for text content
+5. **Reversible**: Perfect light/dark mode symmetry
+
+### Layout Guidelines
+
+- **Max width**: 1280px (max-w-5xl or max-w-6xl)
+- **Content width**: 672px (max-w-2xl) for reading text
+- **Padding**: 24px on mobile, 32px on desktop
+- **Section gaps**: 64px (space-y-16) between major sections
+- **Element gaps**: 24px (space-y-6) within sections
+
+### Typography Scale
+
+```
+Headings:
+- h1: text-4xl sm:text-5xl (36px/48px)
+- h2: text-2xl sm:text-3xl (24px/30px)
+- h3: text-xl sm:text-2xl (20px/24px)
+
+Body:
+- Default: text-base (16px)
+- Large: text-lg (18px)
+- Small: text-sm (14px)
+- Muted: text-muted (gray-600/gray-400)
+```
+
+## Components
+
+The design system includes a comprehensive component library:
 
 ### Buttons
 - Primary, Secondary, Ghost, Link variants
-- Small, Default, Large sizes
-- Icon support (leading, trailing, icon-only)
+- Three sizes (small, default, large)
 - Disabled and loading states
+- Icon integration
 
 ### Forms
-- Text inputs, email, password, textarea
+- Input fields (text, email, password, textarea)
 - Checkboxes and radio buttons
-- Complete login form template
+- Complete login form example
 
 ### Cards
 - Basic cards with hover states
-- Stats cards for metrics and KPIs
+- Stats cards for metrics
 - Image cards with content
 
 ### Tables
 - Responsive table layouts
 - Hover states and striped rows
-- Status badge integration
+- Status badges integration
 
-### Lists
+### Lists & Badges
 - Checklists with icons
-- Feature lists with descriptions
-- Simple ordered/unordered lists
-
-### Badges & Alerts
-- Status badges: Success, Info, Warning, Error, Neutral
-- Category tags
-- Alert components with icons
+- Feature lists
+- Status badges (success, info, warning, error)
+- Tags for categories
 
 ### Charts
 - Horizontal bar charts
 - Progress indicators
-- Simple data visualization
+- Data visualization patterns
 
-### Navigation
-- Clean navigation bars
-- Mobile-responsive
+## Implementation Example
 
-## 🎨 Color System
-
-### Base Colors
-- Background & Foreground (perfect black/white)
-- Muted text colors
-- Subtle borders and backgrounds
-
-### Semantic Colors
-- **Success** (Green): Confirmations, positive states
-- **Info** (Blue): Informational messages, tips
-- **Warning** (Yellow): Cautions, important notices
-- **Danger** (Red): Errors, destructive actions
-- **Neutral** (Gray): Inactive states, neutral info
-
-## 📥 Installation
-
-### For Claude.ai (Web & Mobile)
-
-1. **Download the Skill**
-   - Download [`minimal-design-system.skill`](minimal-design-system.skill)
-
-2. **Upload to Claude**
-   - Go to [Claude.ai](https://claude.ai)
-   - Navigate to **Skills** (in sidebar or settings)
-   - Click **"Upload Skill"** or **"+"**
-   - Select the downloaded `.skill` file
-
-3. **Activate the Skill**
-   - In your project, go to project settings
-   - Enable "Minimal Design System" skill
-   - Click "Save"
-
-### For Claude Desktop App
-
-1. **Download the Skill**
-   - Download [`minimal-design-system.skill`](minimal-design-system.skill)
-
-2. **Open Skills Manager**
-   - Open Claude Desktop app
-   - Go to **Settings** (⚙️ icon)
-   - Navigate to **Skills** tab
-
-3. **Add the Skill**
-   - Click **"Add Skill"** or **"Import Skill"**
-   - Select the downloaded `.skill` file
-   - The skill will be installed automatically
-
-4. **Enable in Project**
-   - Create a new project or open existing one
-   - Open project settings
-   - Enable "Minimal Design System" from available skills
-   - The skill is now ready to use!
-
-## 🚀 Usage
-
-### Triggering the Skill
-
-The skill activates automatically when you use these phrases:
-
-**German:**
-```
-"Nutze mein Designsystem"
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-bg: #ffffff;
+      --color-fg: #000000;
+      --color-muted: #737373;
+      --color-border: #e5e7eb;
+      --color-hover: #f5f5f5;
+    }
+    
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-bg: #000000;
+        --color-fg: #ffffff;
+        --color-muted: #a3a3a3;
+        --color-border: #262626;
+        --color-hover: #171717;
+      }
+    }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--color-bg);
+      color: var(--color-fg);
+    }
+  </style>
+</head>
+<body class="antialiased">
+  <div class="max-w-5xl mx-auto px-6 py-12">
+    <header class="mb-16">
+      <h1 class="text-4xl font-bold mb-4">Welcome</h1>
+      <p class="text-lg text-[var(--color-muted)]">A minimalist design approach</p>
+    </header>
+    
+    <main class="space-y-16">
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">Section Title</h2>
+        <p class="text-[var(--color-muted)]">Your content here...</p>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
 ```
 
-**English:**
-```
-"use minimal design system"
-"apply my design system"
-```
+## Usage Examples
 
-Or when you request:
-- Minimal, clean design
-- Professional layouts
-- Black & white interfaces
-
-### Example Prompts
-
+### Creating a Landing Page
 ```
-"Create a dashboard using my design system"
+"Use minimal design system and create a landing page for my SaaS product"
 ```
 
+### Building a Dashboard
 ```
-"Build a login page with minimal design system"
-```
-
-```
-"Design a landing page. Use minimal design system."
+"Use minimal design system and build a dashboard with user statistics"
 ```
 
+### Designing Components
 ```
-"Make a contact form with my design system, include validation"
-```
-
-## 💡 Usage Tips
-
-### Starting Fresh
-- Claude will use the base template as foundation
-- All components will follow design tokens
-- Consistent spacing and typography applied automatically
-
-### Applying to Existing Projects
-- The skill won't overwrite existing custom styles
-- It layers the design system underneath
-- You can customize colors while keeping structure
-
-### Best Practices
-1. **Be specific**: "Create a stats dashboard with 3 cards"
-2. **Reference components**: "Add a login form with the design system buttons"
-3. **Iterate**: Ask for adjustments after initial creation
-4. **Combine**: "Use tables and charts together"
-
-## 📚 What's Included in the Skill
-
-### Documentation
-- **SKILL.md**: Main instructions and workflows
-- **design-tokens.md**: All colors, typography, spacing
-- **components.md**: Complete component library
-- **button-components.md**: Detailed button documentation
-
-### Assets
-- **base-template.html**: Ready-to-use HTML starter
-- **showcase.html**: Full component showcase (this website!)
-
-## 🎯 Use Cases
-
-- **Dashboards**: Admin panels, analytics views
-- **Landing Pages**: Product pages, marketing sites
-- **Web Apps**: SaaS interfaces, tools
-- **Documentation**: Clean, readable docs
-- **Portfolios**: Minimal personal sites
-- **Forms**: Login, signup, contact forms
-
-## 🔧 Customization
-
-The skill provides a foundation. You can:
-- Add your brand colors as accents
-- Extend components with variants
-- Adjust spacing for your needs
-- Add custom components following the patterns
-
-## 📖 Documentation
-
-Visit the showcase website to see all components in action:
-- [Live Demo](#) (add your deployed URL here)
-
-## 🌐 Publishing Your Website
-
-This website can be deployed to:
-
-### Vercel (Recommended)
-```bash
-cd /path/to/minimal-design-system-skill
-vercel deploy
+"Use minimal design system and create a login form"
 ```
 
-### Netlify
-1. Drag & drop folder to [netlify.com](https://netlify.com)
-2. Or connect to Git repository
+## How Skills Work
 
-### GitHub Pages
-```bash
-git init
-git add .
-git commit -m "Initial commit"
-git push -u origin main
-# Enable GitHub Pages in repository settings
-```
+Claude automatically discovers and uses Skills based on your request:
 
-## 📁 File Structure
+1. **Progressive Disclosure**: Claude scans skill metadata (name and description) first
+2. **Automatic Invocation**: When your task matches a skill's description, Claude loads it
+3. **No Manual Selection**: You don't need to explicitly activate skills
+4. **Composable**: Multiple skills can work together automatically
 
-```
-minimal-design-system-skill/
-├── index.html                    # Showcase website
-├── minimal-design-system.skill   # Claude skill file
-└── README.md                     # This file
-```
+## Browser Support
 
-## 🆘 Troubleshooting
+- Chrome/Edge (latest)
+- Firefox (latest)
+- Safari (latest)
+- Supports both light and dark mode automatically
 
-### Skill not activating?
-- Make sure it's enabled in your project settings
-- Try using the exact trigger phrases
-- Check if skill shows as "Active" in skills list
+## Contributing
 
-### Colors not showing?
-- Hard refresh browser: `Cmd + Shift + R` (Mac) or `Ctrl + Shift + R` (Windows)
-- Clear browser cache
-- Try in incognito/private mode
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-### Download button not working?
-- Make sure `minimal-design-system.skill` is in same folder as `index.html`
-- Check file permissions
-- Try downloading from outputs folder directly
+## License
 
-## 🤝 Contributing
+MIT License - feel free to use this skill in your projects.
 
-Feel free to:
-- Report issues
-- Suggest improvements
-- Share your projects built with this skill
+## Author
 
-## 📄 License
+Created by Holger Könemann
 
-Open source and free to use.
+## Links
 
-## 🙏 Credits
-
-Created with ❤️ for the Claude AI community.
-
-Built using:
-- [Tailwind CSS](https://tailwindcss.com)
-- [Inter Font](https://rsms.me/inter/)
+- [Demo Website](https://your-username.github.io/minimal-design-system-skill/)
 - [Claude AI](https://claude.ai)
+- [Claude Skills Documentation](https://docs.claude.com/en/docs/agents-and-tools/agent-skills/overview)
+
+## Resources
+
+- [What are Skills?](https://support.claude.com/en/articles/12512176-what-are-skills)
+- [Using Skills in Claude](https://support.claude.com/en/articles/12512180-using-skills-in-claude)
+- [How to create custom Skills](https://support.claude.com/en/articles/12512198-how-to-create-custom-skills)
+- [Skills GitHub Repository](https://github.com/anthropics/skills)
 
 ---
 
-**Demo**: [View Live Demo](#) (Update after deployment)  
-**Download**: [minimal-design-system.skill](minimal-design-system.skill)  
-**Support**: Open an issue or contact via email
-
-## 📮 Feedback
-
-Found a bug or have a feature request? We'd love to hear from you!
-
----
-
-Made with minimal design and maximum care 🖤🤍
+**Note**: Replace `your-username` in URLs with your actual GitHub username when you publish this repository.

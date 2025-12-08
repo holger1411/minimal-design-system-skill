@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design System - Minimal Design System</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-bg: #ffffff;
+      --color-fg: #000000;
+      --color-muted: #737373;
+      --color-border: #e5e5e5;
+      --color-hover: #f5f5f5;
+    }
+    
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-bg: #000000;
+        --color-fg: #ffffff;
+        --color-muted: #a3a3a3;
+        --color-border: #262626;
+        --color-hover: #171717;
+      }
+    }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--color-bg);
+      color: var(--color-fg);
+    }
+    
+    .section-border {
+      border-top: 1px solid var(--color-border);
+    }
+
+    .feature-card {
+      border: 1px solid var(--color-border);
+      transition: border-color 0.15s ease;
+    }
+    
+    .feature-card:hover {
+      border-color: var(--color-fg);
+    }
+    
+    .step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background-color: var(--color-fg);
+      color: var(--color-bg);
+      font-weight: 600;
+      font-size: 14px;
+      margin-right: 12px;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body class="antialiased">
+  <!-- Sticky Header -->
+  <header class="sticky top-0 z-50 bg-[var(--color-bg)] border-b border-[var(--color-border)]">
+    <div class="max-w-6xl mx-auto px-6 py-6">
+      <div class="flex items-center justify-between">
+        <div>
+          <a href="index.html" class="text-xl font-bold">Minimal Design System Skill</a>
+        </div>
+        <nav class="flex items-center gap-8">
+          <a href="index.html" class="text-[var(--color-muted)] hover:text-[var(--color-fg)] transition-colors">Home</a>
+          <a href="design-system.html" class="font-medium border-b-2 border-[var(--color-fg)]">Design System</a>
+          <a href="how-to-use.html" class="text-[var(--color-muted)] hover:text-[var(--color-fg)] transition-colors">How to Use</a>
+        </nav>
+        <div>
+          <a href="minimal-design-system.zip" download class="px-6 py-3 bg-black dark:bg-white text-white dark:text-black font-medium rounded-full hover:opacity-90 transition-opacity">
+            Download
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="max-w-6xl mx-auto px-6 py-16">
+    <div class="max-w-3xl">
+      <h1 class="text-5xl font-bold mb-6">Design System</h1>
+      <p class="text-xl text-[var(--color-muted)]">
+        Explore the complete component library and design principles of the Minimal Design System.
+      </p>
+    </div>
+  </section>
+  <!-- Features Section -->
+  <section class="max-w-6xl mx-auto px-6 py-16 section-border">
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold mb-4">Design Principles</h2>
+      <p class="text-[var(--color-muted)] max-w-3xl">
+        The Minimal Design System follows clear design principles for modern, professional interfaces.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="feature-card p-6 rounded-lg">
+        <h3 class="text-xl font-semibold mb-2">Generous Whitespace</h3>
+        <p class="text-[var(--color-muted)]">Large gaps between sections create clarity and focus</p>
+      </div>
+
+      <div class="feature-card p-6 rounded-lg">
+        <h3 class="text-xl font-semibold mb-2">Clear Hierarchy</h3>
+        <p class="text-[var(--color-muted)]">Typography-driven visual hierarchy through size and weight</p>
+      </div>
+
+      <div class="feature-card p-6 rounded-lg">
+        <h3 class="text-xl font-semibold mb-2">Minimal Colors</h3>
+        <p class="text-[var(--color-muted)]">Only black, white, and subtle grays for maximum clarity</p>
+      </div>
+
+      <div class="feature-card p-6 rounded-lg">
+        <h3 class="text-xl font-semibold mb-2">Readability</h3>
+        <p class="text-[var(--color-muted)]">Optimal line length of 65-75 characters for text content</p>
+      </div>
+
+      <div class="feature-card p-6 rounded-lg">
+        <h3 class="text-xl font-semibold mb-2">Dark Mode</h3>
+        <p class="text-[var(--color-muted)]">Perfect light/dark mode symmetry with automatic detection</p>
+      </div>
+
+      <div class="feature-card p-6 rounded-lg">
+        <h3 class="text-xl font-semibold mb-2">Tailwind CSS</h3>
+        <p class="text-[var(--color-muted)]">Built with Tailwind CSS for fast, consistent development</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Examples Section -->
+  <section id="examples" class="max-w-6xl mx-auto px-6 py-16 section-border">
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold mb-4">Example Components</h2>
+      <p class="text-[var(--color-muted)] max-w-3xl">
+        This page itself is built with the Minimal Design System. Here are all included components:
+      </p>
+    </div>
+
+    <div class="space-y-16">
+      <!-- Buttons -->
+      <div>
+        <h3 class="text-2xl font-semibold mb-6">Buttons</h3>
+        <div class="space-y-6">
+          <div>
+            <p class="text-sm text-[var(--color-muted)] mb-4">Button Variants</p>
+            <div class="flex flex-wrap gap-4">
+              <button class="px-6 py-3 bg-black dark:bg-white text-white dark:text-black font-medium rounded-lg hover:opacity-90 transition-opacity">
+                Primary
+              </button>
+              <button class="px-6 py-3 border border-[var(--color-border)] font-medium rounded-lg hover:border-[var(--color-fg)] transition-colors">
+                Secondary
+              </button>
+              <button class="px-6 py-3 font-medium hover:bg-[var(--color-hover)] rounded-lg transition-colors">
+                Ghost
+              </button>
+              <button class="px-2 py-1 font-medium underline-offset-4 hover:underline">
+                Link
+              </button>
+            </div>
+          </div>
+          
+          <div>
+            <p class="text-sm text-[var(--color-muted)] mb-4">Button Sizes</p>
+            <div class="flex flex-wrap items-center gap-4">
+              <button class="px-4 py-2 text-sm bg-black dark:bg-white text-white dark:text-black font-medium rounded-lg">
+                Small
+              </button>
+              <button class="px-6 py-3 bg-black dark:bg-white text-white dark:text-black font-medium rounded-lg">
+                Default
+              </button>
+              <button class="px-8 py-4 text-lg bg-black dark:bg-white text-white dark:text-black font-medium rounded-lg">
+                Large
+              </button>
+            </div>
+          </div>
+
+          <div>
+            <p class="text-sm text-[var(--color-muted)] mb-4">With Icons</p>
+            <div class="flex flex-wrap gap-4">
+              <button class="px-6 py-3 bg-black dark:bg-white text-white dark:text-black font-medium rounded-lg flex items-center gap-2">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+                </svg>
+                Add Item
+              </button>
+              <button class="px-6 py-3 border border-[var(--color-border)] font-medium rounded-lg flex items-center gap-2">
+                Download
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                </svg>
+              </button>
+              <button class="p-3 rounded-lg hover:bg-[var(--color-hover)] transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form Elements -->
+      <div>
+        <h3 class="text-2xl font-semibold mb-6">Form Elements</h3>
+        <div class="max-w-2xl space-y-6">
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-sm font-medium mb-2">First Name</label>
+              <input 
+                type="text" 
+                placeholder="John"
+                class="w-full px-4 py-3 bg-transparent border border-[var(--color-border)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--color-fg)] focus:border-transparent"
+              >
+            </div>
+            <div>
+              <label class="block text-sm font-medium mb-2">Last Name</label>
+              <input 
+                type="text" 
+                placeholder="Doe"
+                class="w-full px-4 py-3 bg-transparent border border-[var(--color-border)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--color-fg)] focus:border-transparent"
+              >
+            </div>
+          </div>
+          
+          <div>
+            <label class="block text-sm font-medium mb-2">Email</label>
+            <input 
+              type="email" 
+              placeholder="your@email.com"
+              class="w-full px-4 py-3 bg-transparent border border-[var(--color-border)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--color-fg)] focus:border-transparent"
+            >
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium mb-2">Select Option</label>
+            <select class="w-full px-4 py-3 bg-transparent border border-[var(--color-border)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--color-fg)] focus:border-transparent">
+              <option>Option 1</option>
+              <option>Option 2</option>
+              <option>Option 3</option>
+            </select>
+          </div>
+          
+          <div>
+            <label class="block text-sm font-medium mb-2">Message</label>
+            <textarea 
+              placeholder="Your message..."
+              rows="4"
+              class="w-full px-4 py-3 bg-transparent border border-[var(--color-border)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--color-fg)] focus:border-transparent resize-none"
+            ></textarea>
+          </div>
+
+          <div class="space-y-3">
+            <label class="flex items-center gap-3 cursor-pointer">
+              <input type="checkbox" class="w-5 h-5 rounded border-[var(--color-border)]">
+              <span class="text-sm">I agree to the terms and conditions</span>
+            </label>
+            <label class="flex items-center gap-3 cursor-pointer">
+              <input type="checkbox" class="w-5 h-5 rounded border-[var(--color-border)]">
+              <span class="text-sm">Subscribe to newsletter</span>
+            </label>
+          </div>
+
+          <div class="space-y-3">
+            <p class="text-sm font-medium">Preferred Contact Method</p>
+            <label class="flex items-center gap-3 cursor-pointer">
+              <input type="radio" name="contact" class="w-5 h-5 border-[var(--color-border)]">
+              <span class="text-sm">Email</span>
+            </label>
+            <label class="flex items-center gap-3 cursor-pointer">
+              <input type="radio" name="contact" class="w-5 h-5 border-[var(--color-border)]">
+              <span class="text-sm">Phone</span>
+            </label>
+          </div>
+
+          <button class="w-full px-6 py-3 bg-black dark:bg-white text-white dark:text-black font-medium rounded-lg hover:opacity-90 transition-opacity">
+            Submit Form
+          </button>
+        </div>
+      </div>
+
+      <!-- Cards -->
+      <div>
+        <h3 class="text-2xl font-semibold mb-6">Cards</h3>
+        <div class="space-y-8">
+          <div>
+            <p class="text-sm text-[var(--color-muted)] mb-4">Stats Cards</p>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div class="border border-[var(--color-border)] rounded-lg p-6 hover:border-[var(--color-fg)] transition-colors">
+                <div class="text-3xl font-bold mb-2">2.4k</div>
+                <div class="text-sm text-[var(--color-muted)]">Active Users</div>
+              </div>
+              <div class="border border-[var(--color-border)] rounded-lg p-6 hover:border-[var(--color-fg)] transition-colors">
+                <div class="text-3xl font-bold mb-2">98%</div>
+                <div class="text-sm text-[var(--color-muted)]">Satisfaction</div>
+              </div>
+              <div class="border border-[var(--color-border)] rounded-lg p-6 hover:border-[var(--color-fg)] transition-colors">
+                <div class="text-3xl font-bold mb-2">24/7</div>
+                <div class="text-sm text-[var(--color-muted)]">Support</div>
+              </div>
+              <div class="border border-[var(--color-border)] rounded-lg p-6 hover:border-[var(--color-fg)] transition-colors">
+                <div class="text-3xl font-bold mb-2">$1.2M</div>
+                <div class="text-sm text-[var(--color-muted)]">Revenue</div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <p class="text-sm text-[var(--color-muted)] mb-4">Feature Cards</p>
+            <div class="grid md:grid-cols-3 gap-6">
+              <div class="border border-[var(--color-border)] rounded-lg p-6 hover:border-[var(--color-fg)] transition-colors">
+                <div class="w-12 h-12 bg-[var(--color-fg)] text-[var(--color-bg)] rounded-lg flex items-center justify-center mb-4">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                  </svg>
+                </div>
+                <h4 class="font-semibold mb-2">Fast Performance</h4>
+                <p class="text-sm text-[var(--color-muted)]">Lightning quick load times and smooth interactions</p>
+              </div>
+              <div class="border border-[var(--color-border)] rounded-lg p-6 hover:border-[var(--color-fg)] transition-colors">
+                <div class="w-12 h-12 bg-[var(--color-fg)] text-[var(--color-bg)] rounded-lg flex items-center justify-center mb-4">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                  </svg>
+                </div>
+                <h4 class="font-semibold mb-2">Secure by Default</h4>
+                <p class="text-sm text-[var(--color-muted)]">Enterprise-grade security built into every layer</p>
+              </div>
+              <div class="border border-[var(--color-border)] rounded-lg p-6 hover:border-[var(--color-fg)] transition-colors">
+                <div class="w-12 h-12 bg-[var(--color-fg)] text-[var(--color-bg)] rounded-lg flex items-center justify-center mb-4">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/>
+                  </svg>
+                </div>
+                <h4 class="font-semibold mb-2">Fully Responsive</h4>
+                <p class="text-sm text-[var(--color-muted)]">Perfect experience on any device or screen size</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tables -->
+      <div>
+        <h3 class="text-2xl font-semibold mb-6">Tables</h3>
+        <div class="overflow-x-auto border border-[var(--color-border)] rounded-lg">
+          <table class="w-full">
+            <thead>
+              <tr class="border-b border-[var(--color-border)]">
+                <th class="px-6 py-4 text-left text-sm font-semibold">Name</th>
+                <th class="px-6 py-4 text-left text-sm font-semibold">Status</th>
+                <th class="px-6 py-4 text-left text-sm font-semibold">Role</th>
+                <th class="px-6 py-4 text-left text-sm font-semibold">Email</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b border-[var(--color-border)] hover:bg-[var(--color-hover)] transition-colors">
+                <td class="px-6 py-4 text-sm">John Doe</td>
+                <td class="px-6 py-4 text-sm">
+                  <span class="px-3 py-1 text-xs bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-100 rounded-full">Active</span>
+                </td>
+                <td class="px-6 py-4 text-sm text-[var(--color-muted)]">Admin</td>
+                <td class="px-6 py-4 text-sm text-[var(--color-muted)]">john@example.com</td>
+              </tr>
+              <tr class="border-b border-[var(--color-border)] hover:bg-[var(--color-hover)] transition-colors">
+                <td class="px-6 py-4 text-sm">Jane Smith</td>
+                <td class="px-6 py-4 text-sm">
+                  <span class="px-3 py-1 text-xs bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-100 rounded-full">Active</span>
+                </td>
+                <td class="px-6 py-4 text-sm text-[var(--color-muted)]">Editor</td>
+                <td class="px-6 py-4 text-sm text-[var(--color-muted)]">jane@example.com</td>
+              </tr>
+              <tr class="border-b border-[var(--color-border)] hover:bg-[var(--color-hover)] transition-colors">
+                <td class="px-6 py-4 text-sm">Bob Johnson</td>
+                <td class="px-6 py-4 text-sm">
+                  <span class="px-3 py-1 text-xs bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-100 rounded-full">Pending</span>
+                </td>
+                <td class="px-6 py-4 text-sm text-[var(--color-muted)]">Viewer</td>
+                <td class="px-6 py-4 text-sm text-[var(--color-muted)]">bob@example.com</td>
+              </tr>
+              <tr class="hover:bg-[var(--color-hover)] transition-colors">
+                <td class="px-6 py-4 text-sm">Alice Williams</td>
+                <td class="px-6 py-4 text-sm">
+                  <span class="px-3 py-1 text-xs bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-100 rounded-full">Inactive</span>
+                </td>
+                <td class="px-6 py-4 text-sm text-[var(--color-muted)]">Viewer</td>
+                <td class="px-6 py-4 text-sm text-[var(--color-muted)]">alice@example.com</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Lists -->
+      <div>
+        <h3 class="text-2xl font-semibold mb-6">Lists</h3>
+        <div class="grid md:grid-cols-2 gap-8">
+          <div>
+            <p class="text-sm text-[var(--color-muted)] mb-4">Feature List</p>
+            <div class="space-y-3">
+              <div class="flex items-start gap-3">
+                <svg class="w-5 h-5 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                <div>
+                  <div class="font-medium mb-1">Easy Integration</div>
+                  <div class="text-sm text-[var(--color-muted)]">Simple setup in minutes</div>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <svg class="w-5 h-5 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                <div>
+                  <div class="font-medium mb-1">Full Customization</div>
+                  <div class="text-sm text-[var(--color-muted)]">Adapt to your brand</div>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <svg class="w-5 h-5 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                <div>
+                  <div class="font-medium mb-1">24/7 Support</div>
+                  <div class="text-sm text-[var(--color-muted)]">Always here to help</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <p class="text-sm text-[var(--color-muted)] mb-4">Ordered List</p>
+            <div class="space-y-3">
+              <div class="flex items-start gap-3">
+                <span class="flex-shrink-0 w-6 h-6 bg-[var(--color-fg)] text-[var(--color-bg)] rounded-full flex items-center justify-center text-sm font-medium">1</span>
+                <div>
+                  <div class="font-medium mb-1">Sign Up</div>
+                  <div class="text-sm text-[var(--color-muted)]">Create your account</div>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <span class="flex-shrink-0 w-6 h-6 bg-[var(--color-fg)] text-[var(--color-bg)] rounded-full flex items-center justify-center text-sm font-medium">2</span>
+                <div>
+                  <div class="font-medium mb-1">Configure</div>
+                  <div class="text-sm text-[var(--color-muted)]">Set up your preferences</div>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <span class="flex-shrink-0 w-6 h-6 bg-[var(--color-fg)] text-[var(--color-bg)] rounded-full flex items-center justify-center text-sm font-medium">3</span>
+                <div>
+                  <div class="font-medium mb-1">Launch</div>
+                  <div class="text-sm text-[var(--color-muted)]">Go live immediately</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Badges & Alerts -->
+      <div>
+        <h3 class="text-2xl font-semibold mb-6">Badges & Alerts</h3>
+        <div class="space-y-8">
+          <div>
+            <p class="text-sm text-[var(--color-muted)] mb-4">Status Badges</p>
+            <div class="flex flex-wrap gap-3">
+              <span class="px-3 py-1 text-sm bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-100 rounded-full">Active</span>
+              <span class="px-3 py-1 text-sm bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-100 rounded-full">Info</span>
+              <span class="px-3 py-1 text-sm bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-100 rounded-full">Warning</span>
+              <span class="px-3 py-1 text-sm bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-100 rounded-full">Error</span>
+              <span class="px-3 py-1 text-sm bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-100 rounded-full">Neutral</span>
+            </div>
+          </div>
+
+          <div>
+            <p class="text-sm text-[var(--color-muted)] mb-4">Alert Messages</p>
+            <div class="space-y-4 max-w-2xl">
+              <div class="border-l-4 border-green-500 bg-green-50 dark:bg-green-900/20 p-4 rounded">
+                <div class="flex items-start gap-3">
+                  <svg class="w-5 h-5 text-green-600 dark:text-green-400 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                  </svg>
+                  <div>
+                    <div class="font-medium text-green-800 dark:text-green-200 mb-1">Success</div>
+                    <div class="text-sm text-green-700 dark:text-green-300">Your changes have been saved successfully.</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="border-l-4 border-blue-500 bg-blue-50 dark:bg-blue-900/20 p-4 rounded">
+                <div class="flex items-start gap-3">
+                  <svg class="w-5 h-5 text-blue-600 dark:text-blue-400 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  </svg>
+                  <div>
+                    <div class="font-medium text-blue-800 dark:text-blue-200 mb-1">Information</div>
+                    <div class="text-sm text-blue-700 dark:text-blue-300">New features are now available in settings.</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="border-l-4 border-yellow-500 bg-yellow-50 dark:bg-yellow-900/20 p-4 rounded">
+                <div class="flex items-start gap-3">
+                  <svg class="w-5 h-5 text-yellow-600 dark:text-yellow-400 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                  </svg>
+                  <div>
+                    <div class="font-medium text-yellow-800 dark:text-yellow-200 mb-1">Warning</div>
+                    <div class="text-sm text-yellow-700 dark:text-yellow-300">Please review your settings before proceeding.</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="border-l-4 border-red-500 bg-red-50 dark:bg-red-900/20 p-4 rounded">
+                <div class="flex items-start gap-3">
+                  <svg class="w-5 h-5 text-red-600 dark:text-red-400 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                  </svg>
+                  <div>
+                    <div class="font-medium text-red-800 dark:text-red-200 mb-1">Error</div>
+                    <div class="text-sm text-red-700 dark:text-red-300">There was an error processing your request.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Charts -->
+      <div>
+        <h3 class="text-2xl font-semibold mb-6">Data Visualization</h3>
+        <div class="space-y-8 max-w-2xl">
+          <div>
+            <p class="text-sm text-[var(--color-muted)] mb-4">Progress Bars</p>
+            <div class="space-y-6">
+              <div>
+                <div class="flex justify-between text-sm mb-2">
+                  <span class="font-medium">Project Alpha</span>
+                  <span class="text-[var(--color-muted)]">85%</span>
+                </div>
+                <div class="h-2 bg-gray-200 dark:bg-gray-800 rounded-full overflow-hidden">
+                  <div class="h-full bg-black dark:bg-white rounded-full" style="width: 85%"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between text-sm mb-2">
+                  <span class="font-medium">Project Beta</span>
+                  <span class="text-[var(--color-muted)]">60%</span>
+                </div>
+                <div class="h-2 bg-gray-200 dark:bg-gray-800 rounded-full overflow-hidden">
+                  <div class="h-full bg-black dark:bg-white rounded-full" style="width: 60%"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between text-sm mb-2">
+                  <span class="font-medium">Project Gamma</span>
+                  <span class="text-[var(--color-muted)]">40%</span>
+                </div>
+                <div class="h-2 bg-gray-200 dark:bg-gray-800 rounded-full overflow-hidden">
+                  <div class="h-full bg-black dark:bg-white rounded-full" style="width: 40%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <p class="text-sm text-[var(--color-muted)] mb-4">Bar Chart</p>
+            <div class="space-y-4">
+              <div class="flex items-center gap-4">
+                <span class="text-sm font-medium w-20">Q1 2024</span>
+                <div class="flex-1 h-10 bg-gray-200 dark:bg-gray-800 rounded overflow-hidden">
+                  <div class="h-full bg-black dark:bg-white flex items-center justify-end pr-3 text-white dark:text-black text-sm font-medium" style="width: 75%">
+                    $75k
+                  </div>
+                </div>
+              </div>
+              <div class="flex items-center gap-4">
+                <span class="text-sm font-medium w-20">Q2 2024</span>
+                <div class="flex-1 h-10 bg-gray-200 dark:bg-gray-800 rounded overflow-hidden">
+                  <div class="h-full bg-black dark:bg-white flex items-center justify-end pr-3 text-white dark:text-black text-sm font-medium" style="width: 90%">
+                    $90k
+                  </div>
+                </div>
+              </div>
+              <div class="flex items-center gap-4">
+                <span class="text-sm font-medium w-20">Q3 2024</span>
+                <div class="flex-1 h-10 bg-gray-200 dark:bg-gray-800 rounded overflow-hidden">
+                  <div class="h-full bg-black dark:bg-white flex items-center justify-end pr-3 text-white dark:text-black text-sm font-medium" style="width: 95%">
+                    $95k
+                  </div>
+                </div>
+              </div>
+              <div class="flex items-center gap-4">
+                <span class="text-sm font-medium w-20">Q4 2024</span>
+                <div class="flex-1 h-10 bg-gray-200 dark:bg-gray-800 rounded overflow-hidden">
+                  <div class="h-full bg-black dark:bg-white flex items-center justify-end pr-3 text-white dark:text-black text-sm font-medium" style="width: 100%">
+                    $100k
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <p class="text-sm text-[var(--color-muted)] mb-4">Metrics Grid</p>
+            <div class="grid grid-cols-2 gap-4">
+              <div class="border border-[var(--color-border)] rounded-lg p-4">
+                <div class="text-sm text-[var(--color-muted)] mb-1">Total Revenue</div>
+                <div class="text-2xl font-bold">$360k</div>
+                <div class="text-xs text-green-600 dark:text-green-400 mt-1">↑ 12.5%</div>
+              </div>
+              <div class="border border-[var(--color-border)] rounded-lg p-4">
+                <div class="text-sm text-[var(--color-muted)] mb-1">New Customers</div>
+                <div class="text-2xl font-bold">1,234</div>
+                <div class="text-xs text-green-600 dark:text-green-400 mt-1">↑ 8.3%</div>
+              </div>
+              <div class="border border-[var(--color-border)] rounded-lg p-4">
+                <div class="text-sm text-[var(--color-muted)] mb-1">Avg. Order</div>
+                <div class="text-2xl font-bold">$292</div>
+                <div class="text-xs text-red-600 dark:text-red-400 mt-1">↓ 3.2%</div>
+              </div>
+              <div class="border border-[var(--color-border)] rounded-lg p-4">
+                <div class="text-sm text-[var(--color-muted)] mb-1">Conversion</div>
+                <div class="text-2xl font-bold">3.2%</div>
+                <div class="text-xs text-green-600 dark:text-green-400 mt-1">↑ 0.5%</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Footer -->
+  <footer class="border-t border-[var(--color-border)] mt-20">
+    <div class="max-w-6xl mx-auto px-6 py-12">
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+        <div>
+          <h3 class="font-semibold mb-2">Minimal Design System Skill</h3>
+          <p class="text-sm text-[var(--color-muted)]">A Claude AI Skill by <a href="https://holgerkoenemann.com" target="_blank" rel="noopener" class="hover:text-[var(--color-fg)] transition-colors underline">Holger Könemann</a></p>
+        </div>
+        <div class="flex gap-6 text-sm">
+          <a href="index.html" class="text-[var(--color-muted)] hover:text-[var(--color-fg)] transition-colors">Home</a>
+          <a href="design-system.html" class="text-[var(--color-muted)] hover:text-[var(--color-fg)] transition-colors">Design System</a>
+          <a href="how-to-use.html" class="text-[var(--color-muted)] hover:text-[var(--color-fg)] transition-colors">How to Use</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

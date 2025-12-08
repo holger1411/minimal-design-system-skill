@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Use - Minimal Design System</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-bg: #ffffff;
+      --color-fg: #000000;
+      --color-muted: #737373;
+      --color-border: #e5e5e5;
+      --color-hover: #f5f5f5;
+    }
+    
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-bg: #000000;
+        --color-fg: #ffffff;
+        --color-muted: #a3a3a3;
+        --color-border: #262626;
+        --color-hover: #171717;
+      }
+    }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--color-bg);
+      color: var(--color-fg);
+    }
+    
+    .section-border {
+      border-top: 1px solid var(--color-border);
+    }
+
+    .feature-card {
+      border: 1px solid var(--color-border);
+      transition: border-color 0.15s ease;
+    }
+    
+    .feature-card:hover {
+      border-color: var(--color-fg);
+    }
+    
+    .step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background-color: var(--color-fg);
+      color: var(--color-bg);
+      font-weight: 600;
+      font-size: 14px;
+      margin-right: 12px;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body class="antialiased">
+  <!-- Sticky Header -->
+  <header class="sticky top-0 z-50 bg-[var(--color-bg)] border-b border-[var(--color-border)]">
+    <div class="max-w-6xl mx-auto px-6 py-6">
+      <div class="flex items-center justify-between">
+        <div>
+          <a href="index.html" class="text-xl font-bold">Minimal Design System Skill</a>
+        </div>
+        <nav class="flex items-center gap-8">
+          <a href="index.html" class="text-[var(--color-muted)] hover:text-[var(--color-fg)] transition-colors">Home</a>
+          <a href="design-system.html" class="text-[var(--color-muted)] hover:text-[var(--color-fg)] transition-colors">Design System</a>
+          <a href="how-to-use.html" class="font-medium border-b-2 border-[var(--color-fg)]">How to Use</a>
+        </nav>
+        <div>
+          <a href="minimal-design-system.zip" download class="px-6 py-3 bg-black dark:bg-white text-white dark:text-black font-medium rounded-full hover:opacity-90 transition-opacity">
+            Download
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="max-w-6xl mx-auto px-6 py-16">
+    <div class="max-w-3xl">
+      <h1 class="text-5xl font-bold mb-6">How to Use</h1>
+      <p class="text-xl text-[var(--color-muted)]">
+        Learn how to install and use the Minimal Design System Skill in Claude AI and other LLMs.
+      </p>
+    </div>
+  </section>
+  <!-- Usage Section -->
+  <section id="usage" class="max-w-6xl mx-auto px-6 py-16 section-border">
+    <div class="max-w-3xl">
+      <h2 class="text-3xl font-bold mb-6">How to Use This Skill</h2>
+      
+      <div class="space-y-8">
+        <div>
+          <h3 class="text-xl font-semibold mb-4">In Claude.ai (Web & Desktop App)</h3>
+          
+          <div class="space-y-6">
+            <div class="flex items-start">
+              <span class="step-number">1</span>
+              <div>
+                <h4 class="font-semibold mb-2">Enable Skills Feature</h4>
+                <p class="text-[var(--color-muted)]">
+                  Go to <strong class="text-[var(--color-fg)]">Settings → Capabilities</strong> and ensure "Skills" is enabled. 
+                  (Note: Skills require Code execution to be enabled)
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-start">
+              <span class="step-number">2</span>
+              <div>
+                <h4 class="font-semibold mb-2">Download the Complete Skill</h4>
+                <p class="text-[var(--color-muted)] mb-3">
+                  Click the <strong class="text-[var(--color-fg)]">"Download Complete Skill"</strong> button in the header above. 
+                  This downloads a ready-to-upload ZIP file with all templates and references.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-start">
+              <span class="step-number">3</span>
+              <div>
+                <h4 class="font-semibold mb-2">Upload to Claude</h4>
+                <p class="text-[var(--color-muted)] mb-2">
+                  In Claude, go to <strong class="text-[var(--color-fg)]">Settings → Capabilities → Skills</strong>
+                </p>
+                <p class="text-[var(--color-muted)]">
+                  Click <strong class="text-[var(--color-fg)]">"Upload skill"</strong> and select the ZIP file
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-start">
+              <span class="step-number">4</span>
+              <div>
+                <h4 class="font-semibold mb-2">Use the Skill</h4>
+                <p class="text-[var(--color-muted)] mb-3">
+                  Simply describe your task in natural language. Claude will automatically recognize when to use the Skill:
+                </p>
+                <div class="code-block">
+"Create a landing page for my product"
+"Build a minimal dashboard"
+"Use minimal design system for this website"</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="border-t border-[var(--color-border)] pt-8">
+          <h3 class="text-xl font-semibold mb-4">In Claude Code (Terminal)</h3>
+          
+          <div class="space-y-6">
+            <div class="flex items-start">
+              <span class="step-number">1</span>
+              <div>
+                <h4 class="font-semibold mb-2">Download and Extract</h4>
+                <p class="text-[var(--color-muted)] mb-2">
+                  Download the ZIP file and extract it
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-start">
+              <span class="step-number">2</span>
+              <div>
+                <h4 class="font-semibold mb-2">Copy to Claude Skills Directory</h4>
+                <div class="code-block">cp -r minimal-design-system ~/.claude/skills/</div>
+              </div>
+            </div>
+
+            <div class="flex items-start">
+              <span class="step-number">3</span>
+              <div>
+                <h4 class="font-semibold mb-2">Restart Claude Code</h4>
+                <p class="text-[var(--color-muted)]">
+                  Restart Claude Code to load the new Skill. It will be automatically available in all your sessions.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Use in Other LLMs Section -->
+  <section id="other-llms" class="max-w-6xl mx-auto px-6 py-16 section-border">
+    <div class="max-w-3xl">
+      <h2 class="text-3xl font-bold mb-6">Using in Other LLMs</h2>
+      <p class="text-[var(--color-muted)] mb-8">
+        This skill can also be used in other AI assistants like ChatGPT, Gemini, or others. 
+        The skill consists of multiple files that work together, so you'll need to provide them to your AI assistant.
+      </p>
+      
+      <div class="space-y-8">
+        <div>
+          <h3 class="text-xl font-semibold mb-4">General Setup Instructions</h3>
+          
+          <div class="space-y-6">
+            <div class="flex items-start">
+              <span class="step-number">1</span>
+              <div>
+                <h4 class="font-semibold mb-2">Download and Extract</h4>
+                <p class="text-[var(--color-muted)]">
+                  Click the <strong class="text-[var(--color-fg)]">"Download Complete Skill"</strong> button in the header above 
+                  to download the ZIP file, then extract it on your computer. You'll find several files and folders inside.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-start">
+              <span class="step-number">2</span>
+              <div>
+                <h4 class="font-semibold mb-2">Review the Files</h4>
+                <p class="text-[var(--color-muted)] mb-3">
+                  The skill package contains:
+                </p>
+                <ul class="space-y-2 text-sm text-[var(--color-muted)]">
+                  <li class="flex items-start gap-2">
+                    <span class="text-[var(--color-fg)] mt-1">•</span>
+                    <span><strong class="text-[var(--color-fg)]">SKILL.md</strong> - Main instructions (start with this)</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-[var(--color-fg)] mt-1">•</span>
+                    <span><strong class="text-[var(--color-fg)]">assets/</strong> - HTML templates (base-template.html, showcase.html)</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-[var(--color-fg)] mt-1">•</span>
+                    <span><strong class="text-[var(--color-fg)]">references/</strong> - Design tokens, components, and button documentation</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="flex items-start">
+              <span class="step-number">3</span>
+              <div>
+                <h4 class="font-semibold mb-2">Provide Files to Your AI Assistant</h4>
+                <p class="text-[var(--color-muted)] mb-3">
+                  Upload or paste the content of these files to your AI assistant. The exact method depends on which platform you're using (see platform-specific instructions below).
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="border-t border-[var(--color-border)] pt-8">
+          <h3 class="text-xl font-semibold mb-6">Platform-Specific Instructions</h3>
+
+          <div class="space-y-8">
+            <div>
+              <h4 class="text-lg font-semibold mb-3">ChatGPT</h4>
+              <p class="text-[var(--color-muted)] mb-4">
+                ChatGPT supports custom instructions and file uploads:
+              </p>
+              <ol class="space-y-3 text-[var(--color-muted)]">
+                <li class="flex items-start gap-3">
+                  <span class="font-semibold text-[var(--color-fg)] flex-shrink-0">1.</span>
+                  <span>Go to <strong class="text-[var(--color-fg)]">Settings → Personalization → Custom Instructions</strong></span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="font-semibold text-[var(--color-fg)] flex-shrink-0">2.</span>
+                  <span>Copy the content of <strong class="text-[var(--color-fg)]">SKILL.md</strong> and paste it into the instructions field</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="font-semibold text-[var(--color-fg)] flex-shrink-0">3.</span>
+                  <span>When working on a project, upload the reference files from the <strong class="text-[var(--color-fg)]">assets/</strong> and <strong class="text-[var(--color-fg)]">references/</strong> folders to your chat</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="font-semibold text-[var(--color-fg)] flex-shrink-0">4.</span>
+                  <span>Ask ChatGPT to reference these files when creating designs: <em>"Use the minimal design system to create a landing page"</em></span>
+                </li>
+              </ol>
+            </div>
+
+            <div>
+              <h4 class="text-lg font-semibold mb-3">Google Gemini</h4>
+              <p class="text-[var(--color-muted)] mb-4">
+                Gemini supports file uploads in conversations:
+              </p>
+              <ol class="space-y-3 text-[var(--color-muted)]">
+                <li class="flex items-start gap-3">
+                  <span class="font-semibold text-[var(--color-fg)] flex-shrink-0">1.</span>
+                  <span>Start a new chat</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="font-semibold text-[var(--color-fg)] flex-shrink-0">2.</span>
+                  <span>Upload <strong class="text-[var(--color-fg)]">SKILL.md</strong> using the file upload button</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="font-semibold text-[var(--color-fg)] flex-shrink-0">3.</span>
+                  <span>Ask Gemini to read and follow the instructions: <em>"Please read the SKILL.md file and use it as guidelines for creating designs"</em></span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="font-semibold text-[var(--color-fg)] flex-shrink-0">4.</span>
+                  <span>Upload additional files from <strong class="text-[var(--color-fg)]">assets/</strong> and <strong class="text-[var(--color-fg)]">references/</strong> as needed during your conversation</span>
+                </li>
+              </ol>
+            </div>
+
+            <div>
+              <h4 class="text-lg font-semibold mb-3">Other AI Assistants</h4>
+              <p class="text-[var(--color-muted)] mb-4">
+                For other LLMs that support file uploads or custom instructions:
+              </p>
+              <ol class="space-y-3 text-[var(--color-muted)]">
+                <li class="flex items-start gap-3">
+                  <span class="font-semibold text-[var(--color-fg)] flex-shrink-0">1.</span>
+                  <span>Look for custom instructions, system prompts, or file upload features</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="font-semibold text-[var(--color-fg)] flex-shrink-0">2.</span>
+                  <span>Provide the <strong class="text-[var(--color-fg)]">SKILL.md</strong> content as a system prompt or at the beginning of your conversation</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="font-semibold text-[var(--color-fg)] flex-shrink-0">3.</span>
+                  <span>Share relevant reference files when working on specific components or layouts</span>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+
+        <div class="border-t border-[var(--color-border)] pt-8">
+          <h3 class="text-xl font-semibold mb-4">💡 Pro Tips</h3>
+          <div class="space-y-3 text-[var(--color-muted)]">
+            <div class="flex items-start gap-3">
+              <svg class="w-5 h-5 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <p>Start by sharing <strong class="text-[var(--color-fg)]">SKILL.md</strong> first, then add specific reference files only when needed for your project</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <svg class="w-5 h-5 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <p>Use clear instructions like <em>"Use the minimal design system"</em> or <em>"Follow the SKILL.md guidelines"</em> in your requests</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <svg class="w-5 h-5 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <p>Reference the <strong class="text-[var(--color-fg)]">base-template.html</strong> when asking for complete pages, and specific component files when working on individual elements</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <svg class="w-5 h-5 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <p>Keep the extracted files organized in a folder for easy access across multiple projects</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Footer -->
+  <footer class="border-t border-[var(--color-border)] mt-20">
+    <div class="max-w-6xl mx-auto px-6 py-12">
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+        <div>
+          <h3 class="font-semibold mb-2">Minimal Design System Skill</h3>
+          <p class="text-sm text-[var(--color-muted)]">A Claude AI Skill by <a href="https://holgerkoenemann.com" target="_blank" rel="noopener" class="hover:text-[var(--color-fg)] transition-colors underline">Holger Könemann</a></p>
+        </div>
+        <div class="flex gap-6 text-sm">
+          <a href="index.html" class="text-[var(--color-muted)] hover:text-[var(--color-fg)] transition-colors">Home</a>
+          <a href="design-system.html" class="text-[var(--color-muted)] hover:text-[var(--color-fg)] transition-colors">Design System</a>
+          <a href="how-to-use.html" class="text-[var(--color-muted)] hover:text-[var(--color-fg)] transition-colors">How to Use</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

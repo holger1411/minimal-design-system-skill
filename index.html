@@ -31,68 +31,56 @@
       color: var(--color-fg);
     }
     
-    .code-block {
-      background-color: var(--color-hover);
-      border: 1px solid var(--color-border);
-      border-radius: 8px;
-      padding: 24px;
-      overflow-x: auto;
-      font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
-      font-size: 14px;
-      line-height: 1.6;
-      white-space: pre-wrap;
-      word-wrap: break-word;
-    }
-    
-    .copy-btn {
-      transition: all 0.15s ease;
-    }
-    
-    .copy-btn:active {
-      transform: scale(0.95);
-    }
-    
     .section-border {
       border-top: 1px solid var(--color-border);
     }
-    
-    .feature-card {
-      border: 1px solid var(--color-border);
-      transition: border-color 0.15s ease;
-    }
-    
-    .feature-card:hover {
-      border-color: var(--color-fg);
+
+    .cta-primary {
+      position: relative;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
     }
 
-    .step-number {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background-color: var(--color-fg);
-      color: var(--color-bg);
+    @media (prefers-color-scheme: dark) {
+      .cta-primary {
+        box-shadow: 0 20px 60px rgba(255, 255, 255, 0.15);
+      }
+    }
+
+    .version-badge {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background: #f97316;
+      color: #fff;
+      font-size: 11px;
       font-weight: 600;
-      font-size: 14px;
-      margin-right: 12px;
-      flex-shrink: 0;
+      padding: 2px 8px;
+      border-radius: 99px;
+      border: 2px solid var(--color-bg);
     }
   </style>
 </head>
 <body class="antialiased">
-  <!-- Header -->
-  <header class="border-b border-[var(--color-border)]">
-    <div class="max-w-6xl mx-auto px-6 py-8">
-      <div class="flex items-center justify-between flex-wrap gap-4">
+  <!-- Sticky Header -->
+  <header class="sticky top-0 z-50 bg-[var(--color-bg)] border-b border-[var(--color-border)]">
+    <div class="max-w-6xl mx-auto px-6 py-6">
+      <div class="flex items-center justify-between">
+        <!-- Logo -->
         <div>
-          <h1 class="text-2xl font-bold mb-1">Minimal Design System</h1>
-          <p class="text-sm text-[var(--color-muted)]">A Claude AI Skill</p>
+          <a href="index.html" class="text-xl font-bold">Minimal Design System Skill</a>
         </div>
-        <div class="flex gap-3">
-          <a href="minimal-design-system.zip" download class="px-6 py-3 bg-black dark:bg-white text-white dark:text-black font-medium rounded-lg hover:opacity-90 transition-opacity">
-            Download Complete Skill
+        
+        <!-- Navigation -->
+        <nav class="flex items-center gap-8">
+          <a href="index.html" class="font-medium border-b-2 border-[var(--color-fg)]">Home</a>
+          <a href="design-system.html" class="text-[var(--color-muted)] hover:text-[var(--color-fg)] transition-colors">Design System</a>
+          <a href="how-to-use.html" class="text-[var(--color-muted)] hover:text-[var(--color-fg)] transition-colors">How to Use</a>
+        </nav>
+
+        <!-- Download Button -->
+        <div>
+          <a href="minimal-design-system.zip" download class="px-6 py-3 bg-black dark:bg-white text-white dark:text-black font-medium rounded-full hover:opacity-90 transition-opacity">
+            Download
           </a>
         </div>
       </div>
@@ -100,44 +88,60 @@
   </header>
 
   <!-- Hero Section -->
-  <section class="max-w-6xl mx-auto px-6 py-16">
-    <div class="max-w-3xl">
-      <h2 class="text-4xl sm:text-5xl font-bold mb-6">Minimalist Design System Skill - for Claude AI</h2>
-      <p class="text-lg text-[var(--color-muted)] mb-4">
-        A professional black-and-white design system with generous whitespace for HTML artifacts, dashboards, and websites. 
-        Built with Tailwind CSS and Inter UI font.
-      </p>
-      <p class="text-base text-[var(--color-muted)] mb-8">
-        <em>This website itself was created using the Minimal Design System Skill—a live example of what you can build with it.</em>
-      </p>
-      <div class="flex flex-wrap gap-4">
-        <a href="#examples" class="px-6 py-3 bg-black dark:bg-white text-white dark:text-black font-medium rounded-lg hover:opacity-90 transition-opacity">
-          View Examples
-        </a>
-        <a href="#usage" class="px-6 py-3 border border-[var(--color-border)] font-medium rounded-lg hover:border-[var(--color-fg)] transition-colors">
-          Usage Guide
-        </a>
-        <a href="#other-llms" class="px-6 py-3 border border-[var(--color-border)] font-medium rounded-lg hover:border-[var(--color-fg)] transition-colors">
-          Other LLMs
-        </a>
+  <section class="max-w-6xl mx-auto px-6 py-20">
+    <div class="grid md:grid-cols-2 gap-20 items-center">
+      <!-- Left: Text & Buttons -->
+      <div class="flex flex-col justify-center">
+        <h1 class="text-4xl sm:text-5xl font-bold mb-2">Minimalist Design System Skill</h1>
+        <div class="text-2xl text-[var(--color-muted)] mb-6">for Claude AI</div>
+        <p class="text-xl text-[var(--color-muted)] mb-8">
+          A professional black-and-white design system with generous whitespace for rapid prototyping with Claude and Claude Code. 
+          Built with Tailwind CSS and Inter UI font.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="minimal-design-system.zip" download class="relative cta-primary px-10 py-5 text-lg bg-black dark:bg-white text-white dark:text-black font-semibold rounded-full hover:opacity-90 transition-opacity">
+            <span class="version-badge">v1.0</span>
+            Download Skill
+          </a>
+          <a href="design-system.html" class="px-10 py-5 text-lg font-medium hover:bg-[var(--color-hover)] rounded-full transition-colors">
+            View Design System
+          </a>
+        </div>
       </div>
+
+      <!-- Right: Screenshot -->
+      <div class="relative">
+        <img src="screen.jpg" alt="Minimal Design System Preview" class="w-full h-auto rounded-lg border border-[var(--color-border)] shadow-2xl">
+      </div>
+    </div>
+    
+    <!-- Hint Text -->
+    <div class="mt-8 text-center">
+      <p class="text-sm text-[var(--color-muted)] italic">This website itself was created using the Minimal Design System Skill.</p>
     </div>
   </section>
 
   <!-- What is a Claude Skill Section -->
-  <section id="about" class="max-w-6xl mx-auto px-6 py-16 section-border">
-    <div class="max-w-3xl">
-      <h2 class="text-3xl font-bold mb-6">What is a Claude Skill?</h2>
-      <div class="space-y-4 text-[var(--color-muted)]">
-        <p>
-          A <strong class="text-[var(--color-fg)]">Claude Skill</strong> is a folder containing instructions, scripts, and resources that Claude loads dynamically when needed. 
-          Skills teach Claude how to complete specific tasks in a repeatable way, improving consistency and performance.
-        </p>
-        <p>
-          The Minimal Design System Skill gives Claude precise instructions on how to create professional, minimalist websites and components 
-          with consistent styling, generous whitespace, and clear hierarchy.
-        </p>
-        <p>
+  <section class="max-w-6xl mx-auto px-6 py-20 section-border">
+    <div class="grid md:grid-cols-3 gap-12">
+      <!-- Left: Content (2/3) -->
+      <div class="md:col-span-2">
+        <h2 class="text-3xl font-bold mb-6">What is a Claude Skill?</h2>
+        <div class="space-y-4 text-lg text-[var(--color-muted)]">
+          <p>
+            A <strong class="text-[var(--color-fg)]">Claude Skill</strong> is a folder containing instructions, scripts, and resources that Claude loads dynamically when needed. 
+            Skills teach Claude how to complete specific tasks in a repeatable way, improving consistency and performance.
+          </p>
+          <p>
+            The Minimal Design System Skill gives Claude precise instructions on how to create professional, minimalist websites and components 
+            with consistent styling, generous whitespace, and clear hierarchy.
+          </p>
+        </div>
+      </div>
+      
+      <!-- Right: Highlight Box (1/3) -->
+      <div class="border-l border-[var(--color-border)] pl-10 flex items-center">
+        <p class="text-lg">
           <strong class="text-[var(--color-fg)]">Claude automatically invokes Skills based on your task—no manual selection needed.</strong> 
           When you describe a task that matches a Skill's description, Claude recognizes it and loads the Skill automatically.
         </p>
@@ -146,892 +150,88 @@
   </section>
 
   <!-- What's Included Section -->
-  <section class="max-w-6xl mx-auto px-6 py-16 section-border">
-    <div class="max-w-3xl">
-      <h2 class="text-3xl font-bold mb-6">What's Included</h2>
-      <p class="text-[var(--color-muted)] mb-6">
-        The complete skill package includes all files and templates Claude needs:
-      </p>
-      <div class="space-y-3 text-[var(--color-muted)]">
-        <div class="flex items-start gap-3">
-          <svg class="w-5 h-5 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-          </svg>
-          <div>
-            <strong class="text-[var(--color-fg)]">SKILL.md</strong> - Main skill file with instructions and guidelines
-          </div>
-        </div>
-        <div class="flex items-start gap-3">
-          <svg class="w-5 h-5 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-          </svg>
-          <div>
-            <strong class="text-[var(--color-fg)]">base-template.html</strong> - Complete working template to start from
-          </div>
-        </div>
-        <div class="flex items-start gap-3">
-          <svg class="w-5 h-5 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-          </svg>
-          <div>
-            <strong class="text-[var(--color-fg)]">showcase.html</strong> - Full showcase demonstrating all components
-          </div>
-        </div>
-        <div class="flex items-start gap-3">
-          <svg class="w-5 h-5 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-          </svg>
-          <div>
-            <strong class="text-[var(--color-fg)]">design-tokens.md</strong> - Complete color system, typography, and spacing
-          </div>
-        </div>
-        <div class="flex items-start gap-3">
-          <svg class="w-5 h-5 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-          </svg>
-          <div>
-            <strong class="text-[var(--color-fg)]">button-components.md</strong> - All button variations and usage patterns
-          </div>
-        </div>
-        <div class="flex items-start gap-3">
-          <svg class="w-5 h-5 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-          </svg>
-          <div>
-            <strong class="text-[var(--color-fg)]">components.md</strong> - Complete component library (forms, cards, tables, lists, charts)
-          </div>
-        </div>
+  <section class="max-w-6xl mx-auto px-6 py-20 border-t border-[var(--color-border)]">
+    <div class="grid md:grid-cols-3 gap-12">
+      <!-- Left: Title & Intro (1/3) -->
+      <div class="flex flex-col justify-center">
+        <h2 class="text-3xl font-bold mb-6">What's Included</h2>
+        <p class="text-lg text-[var(--color-muted)]">
+          The complete skill package includes all files and templates Claude needs:
+        </p>
       </div>
-    </div>
-  </section>
-
-  <!-- Features Section -->
-  <section class="max-w-6xl mx-auto px-6 py-16 section-border">
-    <div class="mb-12">
-      <h2 class="text-3xl font-bold mb-4">Design Principles</h2>
-      <p class="text-[var(--color-muted)] max-w-3xl">
-        The Minimal Design System follows clear design principles for modern, professional interfaces.
-      </p>
-    </div>
-
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <div class="feature-card p-6 rounded-lg">
-        <h3 class="text-xl font-semibold mb-2">Generous Whitespace</h3>
-        <p class="text-[var(--color-muted)]">Large gaps between sections create clarity and focus</p>
-      </div>
-
-      <div class="feature-card p-6 rounded-lg">
-        <h3 class="text-xl font-semibold mb-2">Clear Hierarchy</h3>
-        <p class="text-[var(--color-muted)]">Typography-driven visual hierarchy through size and weight</p>
-      </div>
-
-      <div class="feature-card p-6 rounded-lg">
-        <h3 class="text-xl font-semibold mb-2">Minimal Colors</h3>
-        <p class="text-[var(--color-muted)]">Only black, white, and subtle grays for maximum clarity</p>
-      </div>
-
-      <div class="feature-card p-6 rounded-lg">
-        <h3 class="text-xl font-semibold mb-2">Readability</h3>
-        <p class="text-[var(--color-muted)]">Optimal line length of 65-75 characters for text content</p>
-      </div>
-
-      <div class="feature-card p-6 rounded-lg">
-        <h3 class="text-xl font-semibold mb-2">Dark Mode</h3>
-        <p class="text-[var(--color-muted)]">Perfect light/dark mode symmetry with automatic detection</p>
-      </div>
-
-      <div class="feature-card p-6 rounded-lg">
-        <h3 class="text-xl font-semibold mb-2">Tailwind CSS</h3>
-        <p class="text-[var(--color-muted)]">Built with Tailwind CSS for fast, consistent development</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Examples Section -->
-  <section id="examples" class="max-w-6xl mx-auto px-6 py-16 section-border">
-    <div class="mb-12">
-      <h2 class="text-3xl font-bold mb-4">Example Components</h2>
-      <p class="text-[var(--color-muted)] max-w-3xl">
-        This page itself is built with the Minimal Design System. Here are all included components:
-      </p>
-    </div>
-
-    <div class="space-y-16">
-      <!-- Buttons -->
-      <div>
-        <h3 class="text-2xl font-semibold mb-6">Buttons</h3>
-        <div class="space-y-6">
-          <div>
-            <p class="text-sm text-[var(--color-muted)] mb-4">Button Variants</p>
-            <div class="flex flex-wrap gap-4">
-              <button class="px-6 py-3 bg-black dark:bg-white text-white dark:text-black font-medium rounded-lg hover:opacity-90 transition-opacity">
-                Primary
-              </button>
-              <button class="px-6 py-3 border border-[var(--color-border)] font-medium rounded-lg hover:border-[var(--color-fg)] transition-colors">
-                Secondary
-              </button>
-              <button class="px-6 py-3 font-medium hover:bg-[var(--color-hover)] rounded-lg transition-colors">
-                Ghost
-              </button>
-              <button class="px-2 py-1 font-medium underline-offset-4 hover:underline">
-                Link
-              </button>
-            </div>
-          </div>
-          
-          <div>
-            <p class="text-sm text-[var(--color-muted)] mb-4">Button Sizes</p>
-            <div class="flex flex-wrap items-center gap-4">
-              <button class="px-4 py-2 text-sm bg-black dark:bg-white text-white dark:text-black font-medium rounded-lg">
-                Small
-              </button>
-              <button class="px-6 py-3 bg-black dark:bg-white text-white dark:text-black font-medium rounded-lg">
-                Default
-              </button>
-              <button class="px-8 py-4 text-lg bg-black dark:bg-white text-white dark:text-black font-medium rounded-lg">
-                Large
-              </button>
-            </div>
-          </div>
-
-          <div>
-            <p class="text-sm text-[var(--color-muted)] mb-4">With Icons</p>
-            <div class="flex flex-wrap gap-4">
-              <button class="px-6 py-3 bg-black dark:bg-white text-white dark:text-black font-medium rounded-lg flex items-center gap-2">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
-                </svg>
-                Add Item
-              </button>
-              <button class="px-6 py-3 border border-[var(--color-border)] font-medium rounded-lg flex items-center gap-2">
-                Download
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
-                </svg>
-              </button>
-              <button class="p-3 rounded-lg hover:bg-[var(--color-hover)] transition-colors">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-                </svg>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Form Elements -->
-      <div>
-        <h3 class="text-2xl font-semibold mb-6">Form Elements</h3>
-        <div class="max-w-2xl space-y-6">
-          <div class="grid md:grid-cols-2 gap-6">
-            <div>
-              <label class="block text-sm font-medium mb-2">First Name</label>
-              <input 
-                type="text" 
-                placeholder="John"
-                class="w-full px-4 py-3 bg-transparent border border-[var(--color-border)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--color-fg)] focus:border-transparent"
-              >
-            </div>
-            <div>
-              <label class="block text-sm font-medium mb-2">Last Name</label>
-              <input 
-                type="text" 
-                placeholder="Doe"
-                class="w-full px-4 py-3 bg-transparent border border-[var(--color-border)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--color-fg)] focus:border-transparent"
-              >
-            </div>
-          </div>
-          
-          <div>
-            <label class="block text-sm font-medium mb-2">Email</label>
-            <input 
-              type="email" 
-              placeholder="your@email.com"
-              class="w-full px-4 py-3 bg-transparent border border-[var(--color-border)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--color-fg)] focus:border-transparent"
-            >
-          </div>
-
-          <div>
-            <label class="block text-sm font-medium mb-2">Select Option</label>
-            <select class="w-full px-4 py-3 bg-transparent border border-[var(--color-border)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--color-fg)] focus:border-transparent">
-              <option>Option 1</option>
-              <option>Option 2</option>
-              <option>Option 3</option>
-            </select>
-          </div>
-          
-          <div>
-            <label class="block text-sm font-medium mb-2">Message</label>
-            <textarea 
-              placeholder="Your message..."
-              rows="4"
-              class="w-full px-4 py-3 bg-transparent border border-[var(--color-border)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--color-fg)] focus:border-transparent resize-none"
-            ></textarea>
-          </div>
-
-          <div class="space-y-3">
-            <label class="flex items-center gap-3 cursor-pointer">
-              <input type="checkbox" class="w-5 h-5 rounded border-[var(--color-border)]">
-              <span class="text-sm">I agree to the terms and conditions</span>
-            </label>
-            <label class="flex items-center gap-3 cursor-pointer">
-              <input type="checkbox" class="w-5 h-5 rounded border-[var(--color-border)]">
-              <span class="text-sm">Subscribe to newsletter</span>
-            </label>
-          </div>
-
-          <div class="space-y-3">
-            <p class="text-sm font-medium">Preferred Contact Method</p>
-            <label class="flex items-center gap-3 cursor-pointer">
-              <input type="radio" name="contact" class="w-5 h-5 border-[var(--color-border)]">
-              <span class="text-sm">Email</span>
-            </label>
-            <label class="flex items-center gap-3 cursor-pointer">
-              <input type="radio" name="contact" class="w-5 h-5 border-[var(--color-border)]">
-              <span class="text-sm">Phone</span>
-            </label>
-          </div>
-
-          <button class="w-full px-6 py-3 bg-black dark:bg-white text-white dark:text-black font-medium rounded-lg hover:opacity-90 transition-opacity">
-            Submit Form
-          </button>
-        </div>
-      </div>
-
-      <!-- Cards -->
-      <div>
-        <h3 class="text-2xl font-semibold mb-6">Cards</h3>
-        <div class="space-y-8">
-          <div>
-            <p class="text-sm text-[var(--color-muted)] mb-4">Stats Cards</p>
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div class="border border-[var(--color-border)] rounded-lg p-6 hover:border-[var(--color-fg)] transition-colors">
-                <div class="text-3xl font-bold mb-2">2.4k</div>
-                <div class="text-sm text-[var(--color-muted)]">Active Users</div>
-              </div>
-              <div class="border border-[var(--color-border)] rounded-lg p-6 hover:border-[var(--color-fg)] transition-colors">
-                <div class="text-3xl font-bold mb-2">98%</div>
-                <div class="text-sm text-[var(--color-muted)]">Satisfaction</div>
-              </div>
-              <div class="border border-[var(--color-border)] rounded-lg p-6 hover:border-[var(--color-fg)] transition-colors">
-                <div class="text-3xl font-bold mb-2">24/7</div>
-                <div class="text-sm text-[var(--color-muted)]">Support</div>
-              </div>
-              <div class="border border-[var(--color-border)] rounded-lg p-6 hover:border-[var(--color-fg)] transition-colors">
-                <div class="text-3xl font-bold mb-2">$1.2M</div>
-                <div class="text-sm text-[var(--color-muted)]">Revenue</div>
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <p class="text-sm text-[var(--color-muted)] mb-4">Feature Cards</p>
-            <div class="grid md:grid-cols-3 gap-6">
-              <div class="border border-[var(--color-border)] rounded-lg p-6 hover:border-[var(--color-fg)] transition-colors">
-                <div class="w-12 h-12 bg-[var(--color-fg)] text-[var(--color-bg)] rounded-lg flex items-center justify-center mb-4">
-                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                  </svg>
-                </div>
-                <h4 class="font-semibold mb-2">Fast Performance</h4>
-                <p class="text-sm text-[var(--color-muted)]">Lightning quick load times and smooth interactions</p>
-              </div>
-              <div class="border border-[var(--color-border)] rounded-lg p-6 hover:border-[var(--color-fg)] transition-colors">
-                <div class="w-12 h-12 bg-[var(--color-fg)] text-[var(--color-bg)] rounded-lg flex items-center justify-center mb-4">
-                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
-                  </svg>
-                </div>
-                <h4 class="font-semibold mb-2">Secure by Default</h4>
-                <p class="text-sm text-[var(--color-muted)]">Enterprise-grade security built into every layer</p>
-              </div>
-              <div class="border border-[var(--color-border)] rounded-lg p-6 hover:border-[var(--color-fg)] transition-colors">
-                <div class="w-12 h-12 bg-[var(--color-fg)] text-[var(--color-bg)] rounded-lg flex items-center justify-center mb-4">
-                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/>
-                  </svg>
-                </div>
-                <h4 class="font-semibold mb-2">Fully Responsive</h4>
-                <p class="text-sm text-[var(--color-muted)]">Perfect experience on any device or screen size</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Tables -->
-      <div>
-        <h3 class="text-2xl font-semibold mb-6">Tables</h3>
-        <div class="overflow-x-auto border border-[var(--color-border)] rounded-lg">
-          <table class="w-full">
-            <thead>
-              <tr class="border-b border-[var(--color-border)]">
-                <th class="px-6 py-4 text-left text-sm font-semibold">Name</th>
-                <th class="px-6 py-4 text-left text-sm font-semibold">Status</th>
-                <th class="px-6 py-4 text-left text-sm font-semibold">Role</th>
-                <th class="px-6 py-4 text-left text-sm font-semibold">Email</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="border-b border-[var(--color-border)] hover:bg-[var(--color-hover)] transition-colors">
-                <td class="px-6 py-4 text-sm">John Doe</td>
-                <td class="px-6 py-4 text-sm">
-                  <span class="px-3 py-1 text-xs bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-100 rounded-full">Active</span>
-                </td>
-                <td class="px-6 py-4 text-sm text-[var(--color-muted)]">Admin</td>
-                <td class="px-6 py-4 text-sm text-[var(--color-muted)]">john@example.com</td>
-              </tr>
-              <tr class="border-b border-[var(--color-border)] hover:bg-[var(--color-hover)] transition-colors">
-                <td class="px-6 py-4 text-sm">Jane Smith</td>
-                <td class="px-6 py-4 text-sm">
-                  <span class="px-3 py-1 text-xs bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-100 rounded-full">Active</span>
-                </td>
-                <td class="px-6 py-4 text-sm text-[var(--color-muted)]">Editor</td>
-                <td class="px-6 py-4 text-sm text-[var(--color-muted)]">jane@example.com</td>
-              </tr>
-              <tr class="border-b border-[var(--color-border)] hover:bg-[var(--color-hover)] transition-colors">
-                <td class="px-6 py-4 text-sm">Bob Johnson</td>
-                <td class="px-6 py-4 text-sm">
-                  <span class="px-3 py-1 text-xs bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-100 rounded-full">Pending</span>
-                </td>
-                <td class="px-6 py-4 text-sm text-[var(--color-muted)]">Viewer</td>
-                <td class="px-6 py-4 text-sm text-[var(--color-muted)]">bob@example.com</td>
-              </tr>
-              <tr class="hover:bg-[var(--color-hover)] transition-colors">
-                <td class="px-6 py-4 text-sm">Alice Williams</td>
-                <td class="px-6 py-4 text-sm">
-                  <span class="px-3 py-1 text-xs bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-100 rounded-full">Inactive</span>
-                </td>
-                <td class="px-6 py-4 text-sm text-[var(--color-muted)]">Viewer</td>
-                <td class="px-6 py-4 text-sm text-[var(--color-muted)]">alice@example.com</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <!-- Lists -->
-      <div>
-        <h3 class="text-2xl font-semibold mb-6">Lists</h3>
-        <div class="grid md:grid-cols-2 gap-8">
-          <div>
-            <p class="text-sm text-[var(--color-muted)] mb-4">Feature List</p>
-            <div class="space-y-3">
-              <div class="flex items-start gap-3">
-                <svg class="w-5 h-5 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                </svg>
-                <div>
-                  <div class="font-medium mb-1">Easy Integration</div>
-                  <div class="text-sm text-[var(--color-muted)]">Simple setup in minutes</div>
-                </div>
-              </div>
-              <div class="flex items-start gap-3">
-                <svg class="w-5 h-5 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                </svg>
-                <div>
-                  <div class="font-medium mb-1">Full Customization</div>
-                  <div class="text-sm text-[var(--color-muted)]">Adapt to your brand</div>
-                </div>
-              </div>
-              <div class="flex items-start gap-3">
-                <svg class="w-5 h-5 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                </svg>
-                <div>
-                  <div class="font-medium mb-1">24/7 Support</div>
-                  <div class="text-sm text-[var(--color-muted)]">Always here to help</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <p class="text-sm text-[var(--color-muted)] mb-4">Ordered List</p>
-            <div class="space-y-3">
-              <div class="flex items-start gap-3">
-                <span class="flex-shrink-0 w-6 h-6 bg-[var(--color-fg)] text-[var(--color-bg)] rounded-full flex items-center justify-center text-sm font-medium">1</span>
-                <div>
-                  <div class="font-medium mb-1">Sign Up</div>
-                  <div class="text-sm text-[var(--color-muted)]">Create your account</div>
-                </div>
-              </div>
-              <div class="flex items-start gap-3">
-                <span class="flex-shrink-0 w-6 h-6 bg-[var(--color-fg)] text-[var(--color-bg)] rounded-full flex items-center justify-center text-sm font-medium">2</span>
-                <div>
-                  <div class="font-medium mb-1">Configure</div>
-                  <div class="text-sm text-[var(--color-muted)]">Set up your preferences</div>
-                </div>
-              </div>
-              <div class="flex items-start gap-3">
-                <span class="flex-shrink-0 w-6 h-6 bg-[var(--color-fg)] text-[var(--color-bg)] rounded-full flex items-center justify-center text-sm font-medium">3</span>
-                <div>
-                  <div class="font-medium mb-1">Launch</div>
-                  <div class="text-sm text-[var(--color-muted)]">Go live immediately</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Badges & Alerts -->
-      <div>
-        <h3 class="text-2xl font-semibold mb-6">Badges & Alerts</h3>
-        <div class="space-y-8">
-          <div>
-            <p class="text-sm text-[var(--color-muted)] mb-4">Status Badges</p>
-            <div class="flex flex-wrap gap-3">
-              <span class="px-3 py-1 text-sm bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-100 rounded-full">Active</span>
-              <span class="px-3 py-1 text-sm bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-100 rounded-full">Info</span>
-              <span class="px-3 py-1 text-sm bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-100 rounded-full">Warning</span>
-              <span class="px-3 py-1 text-sm bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-100 rounded-full">Error</span>
-              <span class="px-3 py-1 text-sm bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-100 rounded-full">Neutral</span>
-            </div>
-          </div>
-
-          <div>
-            <p class="text-sm text-[var(--color-muted)] mb-4">Alert Messages</p>
-            <div class="space-y-4 max-w-2xl">
-              <div class="border-l-4 border-green-500 bg-green-50 dark:bg-green-900/20 p-4 rounded">
-                <div class="flex items-start gap-3">
-                  <svg class="w-5 h-5 text-green-600 dark:text-green-400 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                  </svg>
-                  <div>
-                    <div class="font-medium text-green-800 dark:text-green-200 mb-1">Success</div>
-                    <div class="text-sm text-green-700 dark:text-green-300">Your changes have been saved successfully.</div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="border-l-4 border-blue-500 bg-blue-50 dark:bg-blue-900/20 p-4 rounded">
-                <div class="flex items-start gap-3">
-                  <svg class="w-5 h-5 text-blue-600 dark:text-blue-400 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                  </svg>
-                  <div>
-                    <div class="font-medium text-blue-800 dark:text-blue-200 mb-1">Information</div>
-                    <div class="text-sm text-blue-700 dark:text-blue-300">New features are now available in settings.</div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="border-l-4 border-yellow-500 bg-yellow-50 dark:bg-yellow-900/20 p-4 rounded">
-                <div class="flex items-start gap-3">
-                  <svg class="w-5 h-5 text-yellow-600 dark:text-yellow-400 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
-                  </svg>
-                  <div>
-                    <div class="font-medium text-yellow-800 dark:text-yellow-200 mb-1">Warning</div>
-                    <div class="text-sm text-yellow-700 dark:text-yellow-300">Please review your settings before proceeding.</div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="border-l-4 border-red-500 bg-red-50 dark:bg-red-900/20 p-4 rounded">
-                <div class="flex items-start gap-3">
-                  <svg class="w-5 h-5 text-red-600 dark:text-red-400 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-                  </svg>
-                  <div>
-                    <div class="font-medium text-red-800 dark:text-red-200 mb-1">Error</div>
-                    <div class="text-sm text-red-700 dark:text-red-300">There was an error processing your request.</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Charts -->
-      <div>
-        <h3 class="text-2xl font-semibold mb-6">Data Visualization</h3>
-        <div class="space-y-8 max-w-2xl">
-          <div>
-            <p class="text-sm text-[var(--color-muted)] mb-4">Progress Bars</p>
-            <div class="space-y-6">
-              <div>
-                <div class="flex justify-between text-sm mb-2">
-                  <span class="font-medium">Project Alpha</span>
-                  <span class="text-[var(--color-muted)]">85%</span>
-                </div>
-                <div class="h-2 bg-gray-200 dark:bg-gray-800 rounded-full overflow-hidden">
-                  <div class="h-full bg-black dark:bg-white rounded-full" style="width: 85%"></div>
-                </div>
-              </div>
-              <div>
-                <div class="flex justify-between text-sm mb-2">
-                  <span class="font-medium">Project Beta</span>
-                  <span class="text-[var(--color-muted)]">60%</span>
-                </div>
-                <div class="h-2 bg-gray-200 dark:bg-gray-800 rounded-full overflow-hidden">
-                  <div class="h-full bg-black dark:bg-white rounded-full" style="width: 60%"></div>
-                </div>
-              </div>
-              <div>
-                <div class="flex justify-between text-sm mb-2">
-                  <span class="font-medium">Project Gamma</span>
-                  <span class="text-[var(--color-muted)]">40%</span>
-                </div>
-                <div class="h-2 bg-gray-200 dark:bg-gray-800 rounded-full overflow-hidden">
-                  <div class="h-full bg-black dark:bg-white rounded-full" style="width: 40%"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <p class="text-sm text-[var(--color-muted)] mb-4">Bar Chart</p>
-            <div class="space-y-4">
-              <div class="flex items-center gap-4">
-                <span class="text-sm font-medium w-20">Q1 2024</span>
-                <div class="flex-1 h-10 bg-gray-200 dark:bg-gray-800 rounded overflow-hidden">
-                  <div class="h-full bg-black dark:bg-white flex items-center justify-end pr-3 text-white dark:text-black text-sm font-medium" style="width: 75%">
-                    $75k
-                  </div>
-                </div>
-              </div>
-              <div class="flex items-center gap-4">
-                <span class="text-sm font-medium w-20">Q2 2024</span>
-                <div class="flex-1 h-10 bg-gray-200 dark:bg-gray-800 rounded overflow-hidden">
-                  <div class="h-full bg-black dark:bg-white flex items-center justify-end pr-3 text-white dark:text-black text-sm font-medium" style="width: 90%">
-                    $90k
-                  </div>
-                </div>
-              </div>
-              <div class="flex items-center gap-4">
-                <span class="text-sm font-medium w-20">Q3 2024</span>
-                <div class="flex-1 h-10 bg-gray-200 dark:bg-gray-800 rounded overflow-hidden">
-                  <div class="h-full bg-black dark:bg-white flex items-center justify-end pr-3 text-white dark:text-black text-sm font-medium" style="width: 95%">
-                    $95k
-                  </div>
-                </div>
-              </div>
-              <div class="flex items-center gap-4">
-                <span class="text-sm font-medium w-20">Q4 2024</span>
-                <div class="flex-1 h-10 bg-gray-200 dark:bg-gray-800 rounded overflow-hidden">
-                  <div class="h-full bg-black dark:bg-white flex items-center justify-end pr-3 text-white dark:text-black text-sm font-medium" style="width: 100%">
-                    $100k
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <p class="text-sm text-[var(--color-muted)] mb-4">Metrics Grid</p>
-            <div class="grid grid-cols-2 gap-4">
-              <div class="border border-[var(--color-border)] rounded-lg p-4">
-                <div class="text-sm text-[var(--color-muted)] mb-1">Total Revenue</div>
-                <div class="text-2xl font-bold">$360k</div>
-                <div class="text-xs text-green-600 dark:text-green-400 mt-1">↑ 12.5%</div>
-              </div>
-              <div class="border border-[var(--color-border)] rounded-lg p-4">
-                <div class="text-sm text-[var(--color-muted)] mb-1">New Customers</div>
-                <div class="text-2xl font-bold">1,234</div>
-                <div class="text-xs text-green-600 dark:text-green-400 mt-1">↑ 8.3%</div>
-              </div>
-              <div class="border border-[var(--color-border)] rounded-lg p-4">
-                <div class="text-sm text-[var(--color-muted)] mb-1">Avg. Order</div>
-                <div class="text-2xl font-bold">$292</div>
-                <div class="text-xs text-red-600 dark:text-red-400 mt-1">↓ 3.2%</div>
-              </div>
-              <div class="border border-[var(--color-border)] rounded-lg p-4">
-                <div class="text-sm text-[var(--color-muted)] mb-1">Conversion</div>
-                <div class="text-2xl font-bold">3.2%</div>
-                <div class="text-xs text-green-600 dark:text-green-400 mt-1">↑ 0.5%</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Usage Section -->
-  <section id="usage" class="max-w-6xl mx-auto px-6 py-16 section-border">
-    <div class="max-w-3xl">
-      <h2 class="text-3xl font-bold mb-6">How to Use This Skill</h2>
       
-      <div class="space-y-8">
-        <div>
-          <h3 class="text-xl font-semibold mb-4">In Claude.ai (Web & Desktop App)</h3>
-          
-          <div class="space-y-6">
-            <div class="flex items-start">
-              <span class="step-number">1</span>
-              <div>
-                <h4 class="font-semibold mb-2">Enable Skills Feature</h4>
-                <p class="text-[var(--color-muted)]">
-                  Go to <strong class="text-[var(--color-fg)]">Settings → Capabilities</strong> and ensure "Skills" is enabled. 
-                  (Note: Skills require Code execution to be enabled)
-                </p>
-              </div>
-            </div>
-
-            <div class="flex items-start">
-              <span class="step-number">2</span>
-              <div>
-                <h4 class="font-semibold mb-2">Download the Complete Skill</h4>
-                <p class="text-[var(--color-muted)] mb-3">
-                  Click the <strong class="text-[var(--color-fg)]">"Download Complete Skill"</strong> button in the header above. 
-                  This downloads a ready-to-upload ZIP file with all templates and references.
-                </p>
-              </div>
-            </div>
-
-            <div class="flex items-start">
-              <span class="step-number">3</span>
-              <div>
-                <h4 class="font-semibold mb-2">Upload to Claude</h4>
-                <p class="text-[var(--color-muted)] mb-2">
-                  In Claude, go to <strong class="text-[var(--color-fg)]">Settings → Capabilities → Skills</strong>
-                </p>
-                <p class="text-[var(--color-muted)]">
-                  Click <strong class="text-[var(--color-fg)]">"Upload skill"</strong> and select the ZIP file
-                </p>
-              </div>
-            </div>
-
-            <div class="flex items-start">
-              <span class="step-number">4</span>
-              <div>
-                <h4 class="font-semibold mb-2">Use the Skill</h4>
-                <p class="text-[var(--color-muted)] mb-3">
-                  Simply describe your task in natural language. Claude will automatically recognize when to use the Skill:
-                </p>
-                <div class="code-block">
-"Create a landing page for my product"
-"Build a minimal dashboard"
-"Use minimal design system for this website"</div>
-              </div>
+      <!-- Right: List (2/3) -->
+      <div class="md:col-span-2 bg-gray-50 dark:bg-gray-900/30 rounded-lg p-10">
+        <div class="space-y-6 text-[var(--color-muted)]">
+          <div class="flex items-start gap-4">
+            <svg class="w-6 h-6 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+            </svg>
+            <div>
+              <div class="text-lg font-semibold text-[var(--color-fg)] mb-1">SKILL.md</div>
+              <div>Main skill file with instructions and guidelines</div>
             </div>
           </div>
-        </div>
-
-        <div class="border-t border-[var(--color-border)] pt-8">
-          <h3 class="text-xl font-semibold mb-4">In Claude Code (Terminal)</h3>
-          
-          <div class="space-y-6">
-            <div class="flex items-start">
-              <span class="step-number">1</span>
-              <div>
-                <h4 class="font-semibold mb-2">Download and Extract</h4>
-                <p class="text-[var(--color-muted)] mb-2">
-                  Download the ZIP file and extract it
-                </p>
-              </div>
+          <div class="flex items-start gap-4">
+            <svg class="w-6 h-6 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+            </svg>
+            <div>
+              <div class="text-lg font-semibold text-[var(--color-fg)] mb-1">base-template.html</div>
+              <div>Complete working template to start from</div>
             </div>
-
-            <div class="flex items-start">
-              <span class="step-number">2</span>
-              <div>
-                <h4 class="font-semibold mb-2">Copy to Claude Skills Directory</h4>
-                <div class="code-block">cp -r minimal-design-system ~/.claude/skills/</div>
-              </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <svg class="w-6 h-6 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+            </svg>
+            <div>
+              <div class="text-lg font-semibold text-[var(--color-fg)] mb-1">showcase.html</div>
+              <div>Full showcase demonstrating all components</div>
             </div>
-
-            <div class="flex items-start">
-              <span class="step-number">3</span>
-              <div>
-                <h4 class="font-semibold mb-2">Restart Claude Code</h4>
-                <p class="text-[var(--color-muted)]">
-                  Restart Claude Code to load the new Skill. It will be automatically available in all your sessions.
-                </p>
-              </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <svg class="w-6 h-6 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+            </svg>
+            <div>
+              <div class="text-lg font-semibold text-[var(--color-fg)] mb-1">design-tokens.md</div>
+              <div>Complete color system, typography, and spacing</div>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <svg class="w-6 h-6 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+            </svg>
+            <div>
+              <div class="text-lg font-semibold text-[var(--color-fg)] mb-1">button-components.md</div>
+              <div>All button variations and usage patterns</div>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <svg class="w-6 h-6 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+            </svg>
+            <div>
+              <div class="text-lg font-semibold text-[var(--color-fg)] mb-1">components.md</div>
+              <div>Complete component library (forms, cards, tables, lists, charts)</div>
             </div>
           </div>
         </div>
       </div>
     </div>
   </section>
-
-  <!-- Use in Other LLMs Section -->
-  <section id="other-llms" class="max-w-6xl mx-auto px-6 py-16 section-border">
-    <div class="max-w-3xl">
-      <h2 class="text-3xl font-bold mb-6">Using in Other LLMs</h2>
-      <p class="text-[var(--color-muted)] mb-8">
-        This skill can also be used in other AI assistants like ChatGPT, Gemini, or others. 
-        The skill consists of multiple files that work together, so you'll need to provide them to your AI assistant.
-      </p>
-      
-      <div class="space-y-8">
-        <div>
-          <h3 class="text-xl font-semibold mb-4">General Setup Instructions</h3>
-          
-          <div class="space-y-6">
-            <div class="flex items-start">
-              <span class="step-number">1</span>
-              <div>
-                <h4 class="font-semibold mb-2">Download and Extract</h4>
-                <p class="text-[var(--color-muted)]">
-                  Click the <strong class="text-[var(--color-fg)]">"Download Complete Skill"</strong> button in the header above 
-                  to download the ZIP file, then extract it on your computer. You'll find several files and folders inside.
-                </p>
-              </div>
-            </div>
-
-            <div class="flex items-start">
-              <span class="step-number">2</span>
-              <div>
-                <h4 class="font-semibold mb-2">Review the Files</h4>
-                <p class="text-[var(--color-muted)] mb-3">
-                  The skill package contains:
-                </p>
-                <ul class="space-y-2 text-sm text-[var(--color-muted)]">
-                  <li class="flex items-start gap-2">
-                    <span class="text-[var(--color-fg)] mt-1">•</span>
-                    <span><strong class="text-[var(--color-fg)]">SKILL.md</strong> - Main instructions (start with this)</span>
-                  </li>
-                  <li class="flex items-start gap-2">
-                    <span class="text-[var(--color-fg)] mt-1">•</span>
-                    <span><strong class="text-[var(--color-fg)]">assets/</strong> - HTML templates (base-template.html, showcase.html)</span>
-                  </li>
-                  <li class="flex items-start gap-2">
-                    <span class="text-[var(--color-fg)] mt-1">•</span>
-                    <span><strong class="text-[var(--color-fg)]">references/</strong> - Design tokens, components, and button documentation</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="flex items-start">
-              <span class="step-number">3</span>
-              <div>
-                <h4 class="font-semibold mb-2">Provide Files to Your AI Assistant</h4>
-                <p class="text-[var(--color-muted)] mb-3">
-                  Upload or paste the content of these files to your AI assistant. The exact method depends on which platform you're using (see platform-specific instructions below).
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="border-t border-[var(--color-border)] pt-8">
-          <h3 class="text-xl font-semibold mb-6">Platform-Specific Instructions</h3>
-
-          <div class="space-y-8">
-            <div>
-              <h4 class="text-lg font-semibold mb-3">ChatGPT</h4>
-              <p class="text-[var(--color-muted)] mb-4">
-                ChatGPT supports custom instructions and file uploads:
-              </p>
-              <ol class="space-y-3 text-[var(--color-muted)]">
-                <li class="flex items-start gap-3">
-                  <span class="font-semibold text-[var(--color-fg)] flex-shrink-0">1.</span>
-                  <span>Go to <strong class="text-[var(--color-fg)]">Settings → Personalization → Custom Instructions</strong></span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <span class="font-semibold text-[var(--color-fg)] flex-shrink-0">2.</span>
-                  <span>Copy the content of <strong class="text-[var(--color-fg)]">SKILL.md</strong> and paste it into the instructions field</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <span class="font-semibold text-[var(--color-fg)] flex-shrink-0">3.</span>
-                  <span>When working on a project, upload the reference files from the <strong class="text-[var(--color-fg)]">assets/</strong> and <strong class="text-[var(--color-fg)]">references/</strong> folders to your chat</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <span class="font-semibold text-[var(--color-fg)] flex-shrink-0">4.</span>
-                  <span>Ask ChatGPT to reference these files when creating designs: <em>"Use the minimal design system to create a landing page"</em></span>
-                </li>
-              </ol>
-            </div>
-
-            <div>
-              <h4 class="text-lg font-semibold mb-3">Google Gemini</h4>
-              <p class="text-[var(--color-muted)] mb-4">
-                Gemini supports file uploads in conversations:
-              </p>
-              <ol class="space-y-3 text-[var(--color-muted)]">
-                <li class="flex items-start gap-3">
-                  <span class="font-semibold text-[var(--color-fg)] flex-shrink-0">1.</span>
-                  <span>Start a new chat</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <span class="font-semibold text-[var(--color-fg)] flex-shrink-0">2.</span>
-                  <span>Upload <strong class="text-[var(--color-fg)]">SKILL.md</strong> using the file upload button</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <span class="font-semibold text-[var(--color-fg)] flex-shrink-0">3.</span>
-                  <span>Ask Gemini to read and follow the instructions: <em>"Please read the SKILL.md file and use it as guidelines for creating designs"</em></span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <span class="font-semibold text-[var(--color-fg)] flex-shrink-0">4.</span>
-                  <span>Upload additional files from <strong class="text-[var(--color-fg)]">assets/</strong> and <strong class="text-[var(--color-fg)]">references/</strong> as needed during your conversation</span>
-                </li>
-              </ol>
-            </div>
-
-            <div>
-              <h4 class="text-lg font-semibold mb-3">Other AI Assistants</h4>
-              <p class="text-[var(--color-muted)] mb-4">
-                For other LLMs that support file uploads or custom instructions:
-              </p>
-              <ol class="space-y-3 text-[var(--color-muted)]">
-                <li class="flex items-start gap-3">
-                  <span class="font-semibold text-[var(--color-fg)] flex-shrink-0">1.</span>
-                  <span>Look for custom instructions, system prompts, or file upload features</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <span class="font-semibold text-[var(--color-fg)] flex-shrink-0">2.</span>
-                  <span>Provide the <strong class="text-[var(--color-fg)]">SKILL.md</strong> content as a system prompt or at the beginning of your conversation</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <span class="font-semibold text-[var(--color-fg)] flex-shrink-0">3.</span>
-                  <span>Share relevant reference files when working on specific components or layouts</span>
-                </li>
-              </ol>
-            </div>
-          </div>
-        </div>
-
-        <div class="border-t border-[var(--color-border)] pt-8">
-          <h3 class="text-xl font-semibold mb-4">💡 Pro Tips</h3>
-          <div class="space-y-3 text-[var(--color-muted)]">
-            <div class="flex items-start gap-3">
-              <svg class="w-5 h-5 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-              </svg>
-              <p>Start by sharing <strong class="text-[var(--color-fg)]">SKILL.md</strong> first, then add specific reference files only when needed for your project</p>
-            </div>
-            <div class="flex items-start gap-3">
-              <svg class="w-5 h-5 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-              </svg>
-              <p>Use clear instructions like <em>"Use the minimal design system"</em> or <em>"Follow the SKILL.md guidelines"</em> in your requests</p>
-            </div>
-            <div class="flex items-start gap-3">
-              <svg class="w-5 h-5 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-              </svg>
-              <p>Reference the <strong class="text-[var(--color-fg)]">base-template.html</strong> when asking for complete pages, and specific component files when working on individual elements</p>
-            </div>
-            <div class="flex items-start gap-3">
-              <svg class="w-5 h-5 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-              </svg>
-              <p>Keep the extracted files organized in a folder for easy access across multiple projects</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="border-t border-[var(--color-border)] mt-16">
+  <footer class="border-t border-[var(--color-border)] mt-20">
     <div class="max-w-6xl mx-auto px-6 py-12">
       <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
         <div>
-          <h3 class="font-semibold mb-2">Minimal Design System</h3>
-          <p class="text-sm text-[var(--color-muted)]">A Claude AI Skill by Holger Könemann</p>
+          <h3 class="font-semibold mb-2">Minimal Design System Skill</h3>
+          <p class="text-sm text-[var(--color-muted)]">A Claude AI Skill by <a href="https://holgerkoenemann.com" target="_blank" rel="noopener" class="hover:text-[var(--color-fg)] transition-colors underline">Holger Könemann</a></p>
         </div>
         <div class="flex gap-6 text-sm">
-          <a href="#about" class="text-[var(--color-muted)] hover:text-[var(--color-fg)] transition-colors">About Skills</a>
-          <a href="#usage" class="text-[var(--color-muted)] hover:text-[var(--color-fg)] transition-colors">Usage</a>
-          <a href="#other-llms" class="text-[var(--color-muted)] hover:text-[var(--color-fg)] transition-colors">Other LLMs</a>
+          <a href="index.html" class="text-[var(--color-muted)] hover:text-[var(--color-fg)] transition-colors">Home</a>
+          <a href="design-system.html" class="text-[var(--color-muted)] hover:text-[var(--color-fg)] transition-colors">Design System</a>
+          <a href="how-to-use.html" class="text-[var(--color-muted)] hover:text-[var(--color-fg)] transition-colors">How to Use</a>
         </div>
       </div>
     </div>

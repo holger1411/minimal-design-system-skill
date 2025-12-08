@@ -1,0 +1,15 @@
+{
+  "name": "minimal-design-system-skill",
+  "version": "1.0.0",
+  "description": "A minimalist black-and-white design system with generous whitespace for HTML artifacts, dashboards, and websites. Built with Tailwind CSS and Inter UI font.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@vercel/analytics": "^1.6.1"
+  }
+}

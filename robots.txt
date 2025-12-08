@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://minimal-design-system-skill.vercel.app/sitemap.xml

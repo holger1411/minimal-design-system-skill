@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minimal Design System - Claude Skill Showcase</title>
+  <meta name="description" content="A minimalist black/white design system for Claude AI. Clean, modern, and ready to use.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --color-bg: #ffffff;
+      --color-fg: #000000;
+      --color-muted: #6b7280;
+      --color-border: #e5e7eb;
+      --color-subtle-bg: #f9fafb;
+      --color-hover-bg: #f3f4f6;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-bg: #000000;
+        --color-fg: #ffffff;
+        --color-muted: #9ca3af;
+        --color-border: #1f2937;
+        --color-subtle-bg: #111111;
+        --color-hover-bg: #1a1a1a;
+      }
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background-color: var(--color-bg);
+      color: var(--color-fg);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: 600;
+      line-height: 1.25;
+    }
+
+    button, a {
+      transition: all 0.15s ease;
+    }
+
+    .section-divider {
+      border-top: 1px solid var(--color-border);
+      margin: 4rem 0;
+    }
+
+    /* Smooth scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'media',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+          },
+          colors: {
+            bg: 'var(--color-bg)',
+            fg: 'var(--color-fg)',
+            muted: 'var(--color-muted)',
+            border: 'var(--color-border)',
+            'subtle-bg': 'var(--color-subtle-bg)',
+            'hover-bg': 'var(--color-hover-bg)',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="min-h-screen">
+  
+  <!-- Navigation -->
+  <nav class="sticky top-0 z-50 bg-bg/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
+    <div class="max-w-7xl mx-auto px-6 py-4">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-8">
+          <a href="#" class="text-lg font-bold">Minimal Design System</a>
+          <div class="hidden md:flex items-center gap-6">
+            <a href="#components" class="text-sm font-medium hover:text-gray-600 dark:hover:text-gray-400">Components</a>
+            <a href="#typography" class="text-sm font-medium hover:text-gray-600 dark:hover:text-gray-400">Typography</a>
+            <a href="#colors" class="text-sm font-medium hover:text-gray-600 dark:hover:text-gray-400">Colors</a>
+          </div>
+        </div>
+        <a href="minimal-design-system.skill" download class="px-4 py-2 bg-black text-white text-sm font-medium rounded-md hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200">
+          Download Skill
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="max-w-7xl mx-auto px-6 py-16 sm:px-8">
+    
+    <!-- Hero Section -->
+    <header class="mb-24 text-center">
+      <h1 class="text-5xl sm:text-6xl font-bold mb-6">Minimal Design System</h1>
+      <p class="text-xl text-muted max-w-3xl mx-auto mb-8">
+        A minimalist black & white design system for Claude AI. Clean, modern, and production-ready with generous whitespace and Inter UI typography.
+      </p>
+      <div class="flex flex-wrap gap-3 justify-center">
+        <a href="minimal-design-system.skill" download class="px-8 py-3 bg-black text-white font-medium rounded-md hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200">
+          Download Skill
+        </a>
+        <a href="#components" class="px-8 py-3 bg-transparent text-black font-medium rounded-md border border-gray-300 hover:bg-gray-50 dark:text-white dark:border-gray-700 dark:hover:bg-gray-900">
+          View Components
+        </a>
+      </div>
+    </header>
+
+    <!-- Features -->
+    <section class="mb-24">
+      <h2 class="text-3xl font-semibold mb-12 text-center">Design Principles</h2>
+      <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="text-center">
+          <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center border border-gray-200 rounded-lg dark:border-gray-800">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">Generous Whitespace</h3>
+          <p class="text-sm text-muted">Large gaps and breathing room for clarity</p>
+        </div>
+        
+        <div class="text-center">
+          <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center border border-gray-200 rounded-lg dark:border-gray-800">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">Typography First</h3>
+          <p class="text-sm text-muted">Clear hierarchy through size and weight</p>
+        </div>
+        
+        <div class="text-center">
+          <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center border border-gray-200 rounded-lg dark:border-gray-800">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">Dark Mode Ready</h3>
+          <p class="text-sm text-muted">Perfect symmetry between light and dark</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Buttons Section -->
+    <section id="components" class="mb-24">
+      <h2 class="text-3xl font-semibold mb-12">Buttons</h2>
+      
+      <div class="space-y-8">
+        <div>
+          <h3 class="text-xl font-medium mb-4">Button Variants</h3>
+          <div class="flex flex-wrap gap-3">
+            <button class="px-6 py-3 bg-black text-white font-medium rounded-md hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200">
+              Primary Button
+            </button>
+            <button class="px-6 py-3 bg-transparent text-black font-medium rounded-md border border-gray-300 hover:bg-gray-50 dark:text-white dark:border-gray-700 dark:hover:bg-gray-900">
+              Secondary Button
+            </button>
+            <button class="px-6 py-3 bg-transparent text-black font-medium rounded-md hover:bg-gray-100 dark:text-white dark:hover:bg-gray-900">
+              Ghost Button
+            </button>
+            <button class="px-2 py-1 text-black font-medium underline-offset-4 hover:underline dark:text-white">
+              Link Button
+            </button>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-medium mb-4">Button Sizes</h3>
+          <div class="flex flex-wrap items-center gap-3">
+            <button class="px-4 py-2 text-sm bg-black text-white font-medium rounded-md hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200">
+              Small
+            </button>
+            <button class="px-6 py-3 bg-black text-white font-medium rounded-md hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200">
+              Default
+            </button>
+            <button class="px-8 py-4 text-lg bg-black text-white font-medium rounded-md hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200">
+              Large
+            </button>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-medium mb-4">Icon Buttons</h3>
+          <div class="flex flex-wrap gap-3">
+            <button class="px-6 py-3 flex items-center gap-2 bg-black text-white font-medium rounded-md hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+              </svg>
+              Add Item
+            </button>
+            <button class="px-6 py-3 flex items-center gap-2 bg-black text-white font-medium rounded-md hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200">
+              Continue
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+              </svg>
+            </button>
+            <button class="p-3 rounded-md hover:bg-gray-100 dark:hover:bg-gray-900 transition-colors border border-gray-300 dark:border-gray-700">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Forms Section -->
+    <section class="mb-24">
+      <h2 class="text-3xl font-semibold mb-12">Forms</h2>
+      
+      <div class="grid gap-12 lg:grid-cols-2">
+        <!-- Login Form -->
+        <div>
+          <h3 class="text-xl font-medium mb-6">Login Form</h3>
+          <div class="p-8 border border-gray-200 rounded-lg dark:border-gray-800">
+            <h4 class="text-2xl font-semibold mb-6">Sign In</h4>
+            
+            <form class="space-y-4">
+              <div class="space-y-2">
+                <label for="email" class="block text-sm font-medium">Email</label>
+                <input 
+                  type="email" 
+                  id="email"
+                  class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black dark:bg-gray-900 dark:border-gray-700 dark:focus:ring-white"
+                  placeholder="you@example.com"
+                />
+              </div>
+              
+              <div class="space-y-2">
+                <label for="password" class="block text-sm font-medium">Password</label>
+                <input 
+                  type="password" 
+                  id="password"
+                  class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black dark:bg-gray-900 dark:border-gray-700 dark:focus:ring-white"
+                  placeholder="••••••••"
+                />
+              </div>
+              
+              <div class="flex items-center justify-between">
+                <label class="flex items-center gap-2 cursor-pointer">
+                  <input type="checkbox" class="w-4 h-4 rounded border-gray-300">
+                  <span class="text-sm">Remember me</span>
+                </label>
+                <a href="#" class="text-sm hover:underline">Forgot password?</a>
+              </div>
+              
+              <button type="submit" class="w-full px-6 py-3 bg-black text-white font-medium rounded-md hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200">
+                Sign In
+              </button>
+            </form>
+            
+            <p class="mt-6 text-sm text-center text-muted">
+              Don't have an account? <a href="#" class="font-medium hover:underline">Sign up</a>
+            </p>
+          </div>
+        </div>
+
+        <!-- Input Fields -->
+        <div>
+          <h3 class="text-xl font-medium mb-6">Input Fields</h3>
+          <div class="space-y-6">
+            <div class="space-y-2">
+              <label for="name" class="block text-sm font-medium">Full Name</label>
+              <input 
+                type="text" 
+                id="name"
+                class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black dark:bg-gray-900 dark:border-gray-700 dark:focus:ring-white"
+                placeholder="John Doe"
+              />
+            </div>
+
+            <div class="space-y-2">
+              <label for="message" class="block text-sm font-medium">Message</label>
+              <textarea 
+                id="message"
+                rows="4"
+                class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black dark:bg-gray-900 dark:border-gray-700 dark:focus:ring-white"
+                placeholder="Your message..."
+              ></textarea>
+            </div>
+
+            <div class="space-y-3">
+              <label class="flex items-center gap-2 cursor-pointer">
+                <input type="checkbox" class="w-4 h-4 rounded border-gray-300">
+                <span class="text-sm">Subscribe to newsletter</span>
+              </label>
+              <label class="flex items-center gap-2 cursor-pointer">
+                <input type="checkbox" class="w-4 h-4 rounded border-gray-300">
+                <span class="text-sm">I agree to the terms and conditions</span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Cards Section -->
+    <section class="mb-24">
+      <h2 class="text-3xl font-semibold mb-12">Cards</h2>
+      
+      <div class="space-y-12">
+        <!-- Basic Cards -->
+        <div>
+          <h3 class="text-xl font-medium mb-6">Basic Cards</h3>
+          <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <div class="p-6 border border-gray-200 rounded-lg hover:border-gray-300 transition-colors dark:border-gray-800 dark:hover:border-gray-700">
+              <h4 class="text-lg font-semibold mb-2">Simple Card</h4>
+              <p class="text-sm text-muted">Basic card with title and description. Perfect for features or services.</p>
+            </div>
+            <div class="p-6 border border-gray-200 rounded-lg hover:border-gray-300 transition-colors dark:border-gray-800 dark:hover:border-gray-700">
+              <h4 class="text-lg font-semibold mb-2">Another Card</h4>
+              <p class="text-sm text-muted">Consistent styling across all card components with subtle hover states.</p>
+            </div>
+            <div class="p-6 border border-gray-200 rounded-lg hover:border-gray-300 transition-colors dark:border-gray-800 dark:hover:border-gray-700">
+              <h4 class="text-lg font-semibold mb-2">Third Card</h4>
+              <p class="text-sm text-muted">Minimal design with clear hierarchy and generous padding.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stats Cards -->
+        <div>
+          <h3 class="text-xl font-medium mb-6">Stats Cards</h3>
+          <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <div class="p-6 border border-gray-200 rounded-lg dark:border-gray-800">
+              <p class="text-sm text-muted mb-1">Total Revenue</p>
+              <p class="text-3xl font-bold mb-1">$45,231</p>
+              <p class="text-sm text-muted">+20.1% from last month</p>
+            </div>
+            <div class="p-6 border border-gray-200 rounded-lg dark:border-gray-800">
+              <p class="text-sm text-muted mb-1">Active Users</p>
+              <p class="text-3xl font-bold mb-1">2,350</p>
+              <p class="text-sm text-muted">+180.1% from last month</p>
+            </div>
+            <div class="p-6 border border-gray-200 rounded-lg dark:border-gray-800">
+              <p class="text-sm text-muted mb-1">Conversion Rate</p>
+              <p class="text-3xl font-bold mb-1">3.24%</p>
+              <p class="text-sm text-muted">+5.2% from last month</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Image Cards -->
+        <div>
+          <h3 class="text-xl font-medium mb-6">Image Cards</h3>
+          <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <div class="border border-gray-200 rounded-lg overflow-hidden hover:border-gray-300 transition-colors dark:border-gray-800 dark:hover:border-gray-700">
+              <div class="aspect-video bg-gray-100 dark:bg-gray-900"></div>
+              <div class="p-6">
+                <h4 class="text-lg font-semibold mb-2">Project Alpha</h4>
+                <p class="text-sm text-muted mb-4">Description of the project with key highlights and features.</p>
+                <button class="text-sm font-medium hover:underline">Learn more →</button>
+              </div>
+            </div>
+            <div class="border border-gray-200 rounded-lg overflow-hidden hover:border-gray-300 transition-colors dark:border-gray-800 dark:hover:border-gray-700">
+              <div class="aspect-video bg-gray-100 dark:bg-gray-900"></div>
+              <div class="p-6">
+                <h4 class="text-lg font-semibold mb-2">Project Beta</h4>
+                <p class="text-sm text-muted mb-4">Another project card with consistent layout and spacing.</p>
+                <button class="text-sm font-medium hover:underline">Learn more →</button>
+              </div>
+            </div>
+            <div class="border border-gray-200 rounded-lg overflow-hidden hover:border-gray-300 transition-colors dark:border-gray-800 dark:hover:border-gray-700">
+              <div class="aspect-video bg-gray-100 dark:bg-gray-900"></div>
+              <div class="p-6">
+                <h4 class="text-lg font-semibold mb-2">Project Gamma</h4>
+                <p class="text-sm text-muted mb-4">Third card showcasing the flexible card design system.</p>
+                <button class="text-sm font-medium hover:underline">Learn more →</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Table Section -->
+    <section class="mb-24">
+      <h2 class="text-3xl font-semibold mb-12">Tables</h2>
+      <div class="overflow-x-auto border border-gray-200 rounded-lg dark:border-gray-800">
+        <table class="w-full">
+          <thead class="border-b border-gray-200 dark:border-gray-800">
+            <tr class="bg-gray-50 dark:bg-gray-900">
+              <th class="px-6 py-3 text-left text-sm font-medium">Name</th>
+              <th class="px-6 py-3 text-left text-sm font-medium">Email</th>
+              <th class="px-6 py-3 text-left text-sm font-medium">Role</th>
+              <th class="px-6 py-3 text-left text-sm font-medium">Status</th>
+              <th class="px-6 py-3 text-right text-sm font-medium">Actions</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-200 dark:divide-gray-800">
+            <tr class="hover:bg-gray-50 dark:hover:bg-gray-900">
+              <td class="px-6 py-4 text-sm font-medium">John Doe</td>
+              <td class="px-6 py-4 text-sm text-muted">john@example.com</td>
+              <td class="px-6 py-4 text-sm text-muted">Admin</td>
+              <td class="px-6 py-4">
+                <span class="inline-flex px-2 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">Active</span>
+              </td>
+              <td class="px-6 py-4 text-right">
+                <button class="text-sm hover:underline">Edit</button>
+              </td>
+            </tr>
+            <tr class="hover:bg-gray-50 dark:hover:bg-gray-900">
+              <td class="px-6 py-4 text-sm font-medium">Jane Smith</td>
+              <td class="px-6 py-4 text-sm text-muted">jane@example.com</td>
+              <td class="px-6 py-4 text-sm text-muted">Developer</td>
+              <td class="px-6 py-4">
+                <span class="inline-flex px-2 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">Active</span>
+              </td>
+              <td class="px-6 py-4 text-right">
+                <button class="text-sm hover:underline">Edit</button>
+              </td>
+            </tr>
+            <tr class="hover:bg-gray-50 dark:hover:bg-gray-900">
+              <td class="px-6 py-4 text-sm font-medium">Mike Johnson</td>
+              <td class="px-6 py-4 text-sm text-muted">mike@example.com</td>
+              <td class="px-6 py-4 text-sm text-muted">Designer</td>
+              <td class="px-6 py-4">
+                <span class="inline-flex px-2 py-1 text-xs font-medium rounded-full bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-200">Pending</span>
+              </td>
+              <td class="px-6 py-4 text-right">
+                <button class="text-sm hover:underline">Edit</button>
+              </td>
+            </tr>
+            <tr class="hover:bg-gray-50 dark:hover:bg-gray-900">
+              <td class="px-6 py-4 text-sm font-medium">Sarah Wilson</td>
+              <td class="px-6 py-4 text-sm text-muted">sarah@example.com</td>
+              <td class="px-6 py-4 text-sm text-muted">Manager</td>
+              <td class="px-6 py-4">
+                <span class="inline-flex px-2 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">Active</span>
+              </td>
+              <td class="px-6 py-4 text-right">
+                <button class="text-sm hover:underline">Edit</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Lists Section -->
+    <section class="mb-24">
+      <h2 class="text-3xl font-semibold mb-12">Lists</h2>
+      
+      <div class="grid gap-12 lg:grid-cols-2">
+        <!-- Simple List -->
+        <div>
+          <h3 class="text-xl font-medium mb-6">Checklist</h3>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              <span>Generous whitespace for breathing room</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              <span>Clear typography hierarchy</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              <span>Minimal color palette (black, white, grays)</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              <span>Perfect light/dark mode symmetry</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              <span>Tailwind CSS for rapid development</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Feature List -->
+        <div>
+          <h3 class="text-xl font-medium mb-6">Features</h3>
+          <div class="space-y-4">
+            <div class="flex gap-4">
+              <div class="flex-shrink-0 w-12 h-12 flex items-center justify-center border border-gray-200 rounded-lg dark:border-gray-800">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-medium mb-1">Fast Performance</h4>
+                <p class="text-sm text-muted">Optimized for speed with minimal CSS</p>
+              </div>
+            </div>
+            
+            <div class="flex gap-4">
+              <div class="flex-shrink-0 w-12 h-12 flex items-center justify-center border border-gray-200 rounded-lg dark:border-gray-800">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-medium mb-1">Highly Customizable</h4>
+                <p class="text-sm text-muted">Easy to adapt to your brand</p>
+              </div>
+            </div>
+            
+            <div class="flex gap-4">
+              <div class="flex-shrink-0 w-12 h-12 flex items-center justify-center border border-gray-200 rounded-lg dark:border-gray-800">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-medium mb-1">Responsive Design</h4>
+                <p class="text-sm text-muted">Works perfectly on all devices</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Badges & Alerts -->
+    <section class="mb-24">
+      <h2 class="text-3xl font-semibold mb-12">Badges & Alerts</h2>
+      
+      <div class="space-y-8">
+        <!-- Badges -->
+        <div>
+          <h3 class="text-xl font-medium mb-4">Status Badges</h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="inline-flex px-2 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">Success</span>
+            <span class="inline-flex px-2 py-1 text-xs font-medium rounded-full bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">Info</span>
+            <span class="inline-flex px-2 py-1 text-xs font-medium rounded-full bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200">Warning</span>
+            <span class="inline-flex px-2 py-1 text-xs font-medium rounded-full bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200">Error</span>
+            <span class="inline-flex px-2 py-1 text-xs font-medium rounded-full bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-200">Neutral</span>
+          </div>
+        </div>
+
+        <!-- Tags -->
+        <div>
+          <h3 class="text-xl font-medium mb-4">Tags</h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="inline-flex px-3 py-1 text-sm border border-gray-300 rounded-full dark:border-gray-700">React</span>
+            <span class="inline-flex px-3 py-1 text-sm border border-gray-300 rounded-full dark:border-gray-700">TypeScript</span>
+            <span class="inline-flex px-3 py-1 text-sm border border-gray-300 rounded-full dark:border-gray-700">Tailwind CSS</span>
+            <span class="inline-flex px-3 py-1 text-sm border border-gray-300 rounded-full dark:border-gray-700">Design System</span>
+          </div>
+        </div>
+
+        <!-- Alerts -->
+        <div>
+          <h3 class="text-xl font-medium mb-4">Alerts</h3>
+          <div class="space-y-4">
+            <div class="p-4 border border-blue-200 bg-blue-50 rounded-lg dark:border-blue-900 dark:bg-blue-950">
+              <div class="flex gap-3">
+                <svg class="w-5 h-5 flex-shrink-0 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <div>
+                  <p class="text-sm font-medium text-blue-900 dark:text-blue-100">Information</p>
+                  <p class="text-sm text-blue-700 dark:text-blue-300">This is an informational message with helpful context.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-4 border border-green-200 bg-green-50 rounded-lg dark:border-green-900 dark:bg-green-950">
+              <div class="flex gap-3">
+                <svg class="w-5 h-5 flex-shrink-0 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <div>
+                  <p class="text-sm font-medium text-green-900 dark:text-green-100">Success</p>
+                  <p class="text-sm text-green-700 dark:text-green-300">Your changes have been saved successfully.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Simple Chart -->
+    <section class="mb-24">
+      <h2 class="text-3xl font-semibold mb-12">Simple Chart</h2>
+      <div class="border border-gray-200 rounded-lg p-6 dark:border-gray-800">
+        <h3 class="text-xl font-medium mb-6">Monthly Revenue</h3>
+        <div class="space-y-4">
+          <div>
+            <div class="flex justify-between mb-2">
+              <span class="text-sm text-muted">January</span>
+              <span class="text-sm font-medium">$12,450</span>
+            </div>
+            <div class="w-full bg-gray-100 rounded-full h-2 dark:bg-gray-900">
+              <div class="bg-black h-2 rounded-full dark:bg-white" style="width: 75%"></div>
+            </div>
+          </div>
+          
+          <div>
+            <div class="flex justify-between mb-2">
+              <span class="text-sm text-muted">February</span>
+              <span class="text-sm font-medium">$15,680</span>
+            </div>
+            <div class="w-full bg-gray-100 rounded-full h-2 dark:bg-gray-900">
+              <div class="bg-black h-2 rounded-full dark:bg-white" style="width: 94%"></div>
+            </div>
+          </div>
+          
+          <div>
+            <div class="flex justify-between mb-2">
+              <span class="text-sm text-muted">March</span>
+              <span class="text-sm font-medium">$16,720</span>
+            </div>
+            <div class="w-full bg-gray-100 rounded-full h-2 dark:bg-gray-900">
+              <div class="bg-black h-2 rounded-full dark:bg-white" style="width: 100%"></div>
+            </div>
+          </div>
+          
+          <div>
+            <div class="flex justify-between mb-2">
+              <span class="text-sm text-muted">April</span>
+              <span class="text-sm font-medium">$13,250</span>
+            </div>
+            <div class="w-full bg-gray-100 rounded-full h-2 dark:bg-gray-900">
+              <div class="bg-black h-2 rounded-full dark:bg-white" style="width: 79%"></div>
+            </div>
+          </div>
+          
+          <div>
+            <div class="flex justify-between mb-2">
+              <span class="text-sm text-muted">May</span>
+              <span class="text-sm font-medium">$14,890</span>
+            </div>
+            <div class="w-full bg-gray-100 rounded-full h-2 dark:bg-gray-900">
+              <div class="bg-black h-2 rounded-full dark:bg-white" style="width: 89%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Typography Section -->
+    <section id="typography" class="mb-24">
+      <h2 class="text-3xl font-semibold mb-12">Typography</h2>
+      
+      <div class="space-y-8">
+        <div>
+          <h3 class="text-xl font-medium mb-6">Headings</h3>
+          <div class="space-y-4">
+            <h1 class="text-5xl font-bold">Heading 1 - 48px Bold</h1>
+            <h2 class="text-3xl font-semibold">Heading 2 - 30px Semibold</h2>
+            <h3 class="text-2xl font-semibold">Heading 3 - 24px Semibold</h3>
+            <h4 class="text-xl font-medium">Heading 4 - 20px Medium</h4>
+            <h5 class="text-lg font-medium">Heading 5 - 18px Medium</h5>
+            <h6 class="text-base font-medium">Heading 6 - 16px Medium</h6>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-medium mb-6">Body Text</h3>
+          <div class="space-y-4 max-w-2xl">
+            <p class="text-lg">Large body text (18px) - Perfect for introductory paragraphs or emphasis. The quick brown fox jumps over the lazy dog.</p>
+            <p class="text-base">Default body text (16px) - The standard for most content. Readable and comfortable for extended reading. The quick brown fox jumps over the lazy dog.</p>
+            <p class="text-sm">Small body text (14px) - Great for secondary information, captions, or supplementary details. The quick brown fox jumps over the lazy dog.</p>
+            <p class="text-sm text-muted">Muted text - Used for less important information with reduced visual weight while maintaining readability.</p>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-medium mb-6">Font Weights</h3>
+          <div class="space-y-2">
+            <p class="font-normal">Normal (400) - Regular body text</p>
+            <p class="font-medium">Medium (500) - Slightly emphasized</p>
+            <p class="font-semibold">Semibold (600) - Headings and emphasis</p>
+            <p class="font-bold">Bold (700) - Strong emphasis</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Colors Section -->
+    <section id="colors" class="mb-24">
+      <h2 class="text-3xl font-semibold mb-12">Color System</h2>
+      
+      <div class="grid gap-6 sm:grid-cols-2">
+        <!-- Light Mode Colors -->
+        <div>
+          <h3 class="text-xl font-medium mb-6">Light Mode</h3>
+          <div class="space-y-3">
+            <div class="flex items-center gap-3">
+              <div class="w-16 h-16 rounded-lg bg-white border-2 border-gray-300"></div>
+              <div>
+                <p class="font-medium">Background</p>
+                <p class="text-sm text-muted">#ffffff</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-16 h-16 rounded-lg bg-black"></div>
+              <div>
+                <p class="font-medium">Foreground</p>
+                <p class="text-sm text-muted">#000000</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-16 h-16 rounded-lg bg-gray-600"></div>
+              <div>
+                <p class="font-medium">Muted</p>
+                <p class="text-sm text-muted">#6b7280</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-16 h-16 rounded-lg bg-gray-200 border border-gray-300"></div>
+              <div>
+                <p class="font-medium">Border</p>
+                <p class="text-sm text-muted">#e5e7eb</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dark Mode Colors -->
+        <div>
+          <h3 class="text-xl font-medium mb-6">Dark Mode</h3>
+          <div class="space-y-3">
+            <div class="flex items-center gap-3">
+              <div class="w-16 h-16 rounded-lg bg-black border-2 border-gray-700"></div>
+              <div>
+                <p class="font-medium">Background</p>
+                <p class="text-sm text-muted">#000000</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-16 h-16 rounded-lg bg-white"></div>
+              <div>
+                <p class="font-medium">Foreground</p>
+                <p class="text-sm text-muted">#ffffff</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-16 h-16 rounded-lg bg-gray-400"></div>
+              <div>
+                <p class="font-medium">Muted</p>
+                <p class="text-sm text-muted">#9ca3af</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-16 h-16 rounded-lg bg-gray-800 border border-gray-700"></div>
+              <div>
+                <p class="font-medium">Border</p>
+                <p class="text-sm text-muted">#1f2937</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Download Section -->
+    <section id="download" class="mb-24">
+      <div class="text-center p-12 border border-gray-200 rounded-lg dark:border-gray-800">
+        <h2 class="text-3xl font-semibold mb-4">Ready to use?</h2>
+        <p class="text-lg text-muted mb-8 max-w-2xl mx-auto">
+          Download the Minimal Design System skill for Claude AI and start creating beautiful, minimal interfaces.
+        </p>
+        <div class="flex flex-wrap gap-3 justify-center">
+          <a href="minimal-design-system.skill" download class="px-8 py-3 bg-black text-white font-medium rounded-md hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200">
+            Download Skill
+          </a>
+          <a href="https://github.com/yourusername/minimal-design-system" class="px-8 py-3 bg-transparent text-black font-medium rounded-md border border-gray-300 hover:bg-gray-50 dark:text-white dark:border-gray-700 dark:hover:bg-gray-900">
+            View on GitHub
+          </a>
+        </div>
+        
+        <div class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-800">
+          <h3 class="text-xl font-medium mb-4">How to Install</h3>
+          <ol class="text-left max-w-2xl mx-auto space-y-3 text-sm text-muted">
+            <li class="flex gap-3">
+              <span class="font-semibold text-fg">1.</span>
+              <span>Download the <code class="px-2 py-0.5 bg-gray-100 dark:bg-gray-900 rounded">minimal-design-system.skill</code> file</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="font-semibold text-fg">2.</span>
+              <span>Go to Claude.ai → Skills → "Upload Skill"</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="font-semibold text-fg">3.</span>
+              <span>Select the downloaded .skill file</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="font-semibold text-fg">4.</span>
+              <span>Activate the skill in your project</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="font-semibold text-fg">5.</span>
+              <span>Say "Nutze mein Designsystem" or "use minimal design system" to trigger it</span>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="border-t border-gray-200 dark:border-gray-800 mt-24">
+    <div class="max-w-7xl mx-auto px-6 py-12 sm:px-8">
+      <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
+        <p class="text-sm text-muted">© 2025 Minimal Design System. Open source and free to use.</p>
+        <div class="flex gap-6">
+          <a href="#" class="text-sm text-muted hover:text-fg">Documentation</a>
+          <a href="#" class="text-sm text-muted hover:text-fg">GitHub</a>
+          <a href="#" class="text-sm text-muted hover:text-fg">Support</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

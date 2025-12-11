@@ -293,6 +293,18 @@
             </div>
 
             <div class="space-y-2">
+              <label for="select-field" class="block text-sm font-medium">Select Option</label>
+              <select 
+                id="select-field"
+                class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black dark:bg-gray-900 dark:border-gray-700 dark:focus:ring-white"
+              >
+                <option>Option 1</option>
+                <option>Option 2</option>
+                <option>Option 3</option>
+              </select>
+            </div>
+
+            <div class="space-y-2">
               <label for="message" class="block text-sm font-medium">Message</label>
               <textarea 
                 id="message"
@@ -310,6 +322,18 @@
               <label class="flex items-center gap-2 cursor-pointer">
                 <input type="checkbox" class="w-4 h-4 rounded border-gray-300">
                 <span class="text-sm">I agree to the terms and conditions</span>
+              </label>
+            </div>
+
+            <div class="space-y-3">
+              <p class="text-sm font-medium">Preferred Contact Method</p>
+              <label class="flex items-center gap-2 cursor-pointer">
+                <input type="radio" name="contact-showcase" class="w-4 h-4 border-gray-300">
+                <span class="text-sm">Email</span>
+              </label>
+              <label class="flex items-center gap-2 cursor-pointer">
+                <input type="radio" name="contact-showcase" class="w-4 h-4 border-gray-300">
+                <span class="text-sm">Phone</span>
               </label>
             </div>
           </div>

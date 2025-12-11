@@ -237,85 +237,190 @@
               </button>
             </div>
           </div>
+
+          <div>
+            <p class="text-sm text-[var(--color-muted)] mb-4">Rounded Buttons (Pill Style)</p>
+            <div class="flex flex-wrap gap-4">
+              <button class="px-6 py-3 bg-black dark:bg-white text-white dark:text-black font-medium rounded-full hover:opacity-90 transition-opacity">
+                Primary Pill
+              </button>
+              <button class="px-6 py-3 border border-[var(--color-border)] font-medium rounded-full hover:border-[var(--color-fg)] transition-colors">
+                Secondary Pill
+              </button>
+              <button class="px-6 py-3 font-medium hover:bg-[var(--color-hover)] rounded-full transition-colors">
+                Ghost Pill
+              </button>
+            </div>
+          </div>
+
+          <div>
+            <p class="text-sm text-[var(--color-muted)] mb-4">Rounded Button Sizes</p>
+            <div class="flex flex-wrap items-center gap-4">
+              <button class="px-4 py-2 text-sm bg-black dark:bg-white text-white dark:text-black font-medium rounded-full">
+                Small Pill
+              </button>
+              <button class="px-6 py-3 bg-black dark:bg-white text-white dark:text-black font-medium rounded-full">
+                Default Pill
+              </button>
+              <button class="px-8 py-4 text-lg bg-black dark:bg-white text-white dark:text-black font-medium rounded-full">
+                Large Pill
+              </button>
+            </div>
+          </div>
+
+          <div>
+            <p class="text-sm text-[var(--color-muted)] mb-4">Rounded Icon Buttons</p>
+            <div class="flex flex-wrap gap-4">
+              <button class="px-6 py-3 bg-black dark:bg-white text-white dark:text-black font-medium rounded-full flex items-center gap-2">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+                </svg>
+                Add Item
+              </button>
+              <button class="px-6 py-3 border border-[var(--color-border)] font-medium rounded-full flex items-center gap-2">
+                Continue
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+              </button>
+              <button class="p-3 rounded-full hover:bg-[var(--color-hover)] transition-colors border border-[var(--color-border)]">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
 
       <!-- Form Elements -->
       <div>
         <h3 class="text-2xl font-semibold mb-6">Form Elements</h3>
-        <div class="max-w-2xl space-y-6">
-          <div class="grid md:grid-cols-2 gap-6">
-            <div>
-              <label class="block text-sm font-medium mb-2">First Name</label>
-              <input 
-                type="text" 
-                placeholder="John"
-                class="w-full px-4 py-3 bg-transparent border border-[var(--color-border)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--color-fg)] focus:border-transparent"
-              >
+        <div class="space-y-12">
+          <!-- Login Form Example -->
+          <div>
+            <p class="text-sm text-[var(--color-muted)] mb-4">Login Form</p>
+            <div class="max-w-md border border-[var(--color-border)] rounded-lg p-8">
+              <h4 class="text-2xl font-semibold mb-6">Sign In</h4>
+              
+              <form class="space-y-4">
+                <div class="space-y-2">
+                  <label for="email-login" class="block text-sm font-medium">Email</label>
+                  <input 
+                    type="email" 
+                    id="email-login"
+                    class="w-full px-4 py-2 border border-[var(--color-border)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--color-fg)] focus:border-transparent"
+                    placeholder="you@example.com"
+                  />
+                </div>
+                
+                <div class="space-y-2">
+                  <label for="password-login" class="block text-sm font-medium">Password</label>
+                  <input 
+                    type="password" 
+                    id="password-login"
+                    class="w-full px-4 py-2 border border-[var(--color-border)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--color-fg)] focus:border-transparent"
+                    placeholder="••••••••"
+                  />
+                </div>
+                
+                <div class="flex items-center justify-between">
+                  <label class="flex items-center gap-2 cursor-pointer">
+                    <input type="checkbox" class="w-4 h-4 rounded border-[var(--color-border)]">
+                    <span class="text-sm">Remember me</span>
+                  </label>
+                  <a href="#" class="text-sm hover:underline">Forgot password?</a>
+                </div>
+                
+                <button type="submit" class="w-full px-6 py-3 bg-black dark:bg-white text-white dark:text-black font-medium rounded-lg hover:opacity-90 transition-opacity">
+                  Sign In
+                </button>
+              </form>
+              
+              <p class="mt-6 text-sm text-center text-[var(--color-muted)]">
+                Don't have an account? <a href="#" class="font-medium hover:underline">Sign up</a>
+              </p>
             </div>
-            <div>
-              <label class="block text-sm font-medium mb-2">Last Name</label>
-              <input 
-                type="text" 
-                placeholder="Doe"
-                class="w-full px-4 py-3 bg-transparent border border-[var(--color-border)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--color-fg)] focus:border-transparent"
-              >
+          </div>
+
+          <!-- All Input Fields -->
+          <div>
+            <p class="text-sm text-[var(--color-muted)] mb-4">Input Fields</p>
+            <div class="max-w-2xl space-y-6">
+              <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                  <label class="block text-sm font-medium mb-2">First Name</label>
+                  <input 
+                    type="text" 
+                    placeholder="John"
+                    class="w-full px-4 py-3 bg-transparent border border-[var(--color-border)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--color-fg)] focus:border-transparent"
+                  >
+                </div>
+                <div>
+                  <label class="block text-sm font-medium mb-2">Last Name</label>
+                  <input 
+                    type="text" 
+                    placeholder="Doe"
+                    class="w-full px-4 py-3 bg-transparent border border-[var(--color-border)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--color-fg)] focus:border-transparent"
+                  >
+                </div>
+              </div>
+              
+              <div>
+                <label class="block text-sm font-medium mb-2">Email</label>
+                <input 
+                  type="email" 
+                  placeholder="your@email.com"
+                  class="w-full px-4 py-3 bg-transparent border border-[var(--color-border)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--color-fg)] focus:border-transparent"
+                >
+              </div>
+
+              <div>
+                <label class="block text-sm font-medium mb-2">Select Option</label>
+                <select class="w-full px-4 py-3 bg-transparent border border-[var(--color-border)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--color-fg)] focus:border-transparent">
+                  <option>Option 1</option>
+                  <option>Option 2</option>
+                  <option>Option 3</option>
+                </select>
+              </div>
+              
+              <div>
+                <label class="block text-sm font-medium mb-2">Message</label>
+                <textarea 
+                  placeholder="Your message..."
+                  rows="4"
+                  class="w-full px-4 py-3 bg-transparent border border-[var(--color-border)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--color-fg)] focus:border-transparent resize-none"
+                ></textarea>
+              </div>
+
+              <div class="space-y-3">
+                <label class="flex items-center gap-3 cursor-pointer">
+                  <input type="checkbox" class="w-5 h-5 rounded border-[var(--color-border)]">
+                  <span class="text-sm">I agree to the terms and conditions</span>
+                </label>
+                <label class="flex items-center gap-3 cursor-pointer">
+                  <input type="checkbox" class="w-5 h-5 rounded border-[var(--color-border)]">
+                  <span class="text-sm">Subscribe to newsletter</span>
+                </label>
+              </div>
+
+              <div class="space-y-3">
+                <p class="text-sm font-medium">Preferred Contact Method</p>
+                <label class="flex items-center gap-3 cursor-pointer">
+                  <input type="radio" name="contact" class="w-5 h-5 border-[var(--color-border)]">
+                  <span class="text-sm">Email</span>
+                </label>
+                <label class="flex items-center gap-3 cursor-pointer">
+                  <input type="radio" name="contact" class="w-5 h-5 border-[var(--color-border)]">
+                  <span class="text-sm">Phone</span>
+                </label>
+              </div>
+
+              <button class="w-full px-6 py-3 bg-black dark:bg-white text-white dark:text-black font-medium rounded-lg hover:opacity-90 transition-opacity">
+                Submit Form
+              </button>
             </div>
           </div>
-          
-          <div>
-            <label class="block text-sm font-medium mb-2">Email</label>
-            <input 
-              type="email" 
-              placeholder="your@email.com"
-              class="w-full px-4 py-3 bg-transparent border border-[var(--color-border)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--color-fg)] focus:border-transparent"
-            >
-          </div>
-
-          <div>
-            <label class="block text-sm font-medium mb-2">Select Option</label>
-            <select class="w-full px-4 py-3 bg-transparent border border-[var(--color-border)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--color-fg)] focus:border-transparent">
-              <option>Option 1</option>
-              <option>Option 2</option>
-              <option>Option 3</option>
-            </select>
-          </div>
-          
-          <div>
-            <label class="block text-sm font-medium mb-2">Message</label>
-            <textarea 
-              placeholder="Your message..."
-              rows="4"
-              class="w-full px-4 py-3 bg-transparent border border-[var(--color-border)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--color-fg)] focus:border-transparent resize-none"
-            ></textarea>
-          </div>
-
-          <div class="space-y-3">
-            <label class="flex items-center gap-3 cursor-pointer">
-              <input type="checkbox" class="w-5 h-5 rounded border-[var(--color-border)]">
-              <span class="text-sm">I agree to the terms and conditions</span>
-            </label>
-            <label class="flex items-center gap-3 cursor-pointer">
-              <input type="checkbox" class="w-5 h-5 rounded border-[var(--color-border)]">
-              <span class="text-sm">Subscribe to newsletter</span>
-            </label>
-          </div>
-
-          <div class="space-y-3">
-            <p class="text-sm font-medium">Preferred Contact Method</p>
-            <label class="flex items-center gap-3 cursor-pointer">
-              <input type="radio" name="contact" class="w-5 h-5 border-[var(--color-border)]">
-              <span class="text-sm">Email</span>
-            </label>
-            <label class="flex items-center gap-3 cursor-pointer">
-              <input type="radio" name="contact" class="w-5 h-5 border-[var(--color-border)]">
-              <span class="text-sm">Phone</span>
-            </label>
-          </div>
-
-          <button class="w-full px-6 py-3 bg-black dark:bg-white text-white dark:text-black font-medium rounded-lg hover:opacity-90 transition-opacity">
-            Submit Form
-          </button>
         </div>
       </div>
 
@@ -323,6 +428,26 @@
       <div>
         <h3 class="text-2xl font-semibold mb-6">Cards</h3>
         <div class="space-y-8">
+          <!-- Basic Cards -->
+          <div>
+            <p class="text-sm text-[var(--color-muted)] mb-4">Basic Cards</p>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div class="border border-[var(--color-border)] rounded-lg p-6 hover:border-[var(--color-fg)] transition-colors">
+                <h4 class="text-lg font-semibold mb-2">Simple Card</h4>
+                <p class="text-sm text-[var(--color-muted)]">Basic card with title and description. Perfect for features or services.</p>
+              </div>
+              <div class="border border-[var(--color-border)] rounded-lg p-6 hover:border-[var(--color-fg)] transition-colors">
+                <h4 class="text-lg font-semibold mb-2">Another Card</h4>
+                <p class="text-sm text-[var(--color-muted)]">Consistent styling across all card components with subtle hover states.</p>
+              </div>
+              <div class="border border-[var(--color-border)] rounded-lg p-6 hover:border-[var(--color-fg)] transition-colors">
+                <h4 class="text-lg font-semibold mb-2">Third Card</h4>
+                <p class="text-sm text-[var(--color-muted)]">Minimal design with clear hierarchy and generous padding.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Stats Cards -->
           <div>
             <p class="text-sm text-[var(--color-muted)] mb-4">Stats Cards</p>
             <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -345,6 +470,38 @@
             </div>
           </div>
 
+          <!-- Image Cards -->
+          <div>
+            <p class="text-sm text-[var(--color-muted)] mb-4">Image Cards</p>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div class="border border-[var(--color-border)] rounded-lg overflow-hidden hover:border-[var(--color-fg)] transition-colors">
+                <div class="aspect-video bg-gray-100 dark:bg-gray-900"></div>
+                <div class="p-6">
+                  <h4 class="text-lg font-semibold mb-2">Project Alpha</h4>
+                  <p class="text-sm text-[var(--color-muted)] mb-4">Description of the project with key highlights and features.</p>
+                  <button class="text-sm font-medium hover:underline">Learn more →</button>
+                </div>
+              </div>
+              <div class="border border-[var(--color-border)] rounded-lg overflow-hidden hover:border-[var(--color-fg)] transition-colors">
+                <div class="aspect-video bg-gray-100 dark:bg-gray-900"></div>
+                <div class="p-6">
+                  <h4 class="text-lg font-semibold mb-2">Project Beta</h4>
+                  <p class="text-sm text-[var(--color-muted)] mb-4">Another project card with consistent layout and spacing.</p>
+                  <button class="text-sm font-medium hover:underline">Learn more →</button>
+                </div>
+              </div>
+              <div class="border border-[var(--color-border)] rounded-lg overflow-hidden hover:border-[var(--color-fg)] transition-colors">
+                <div class="aspect-video bg-gray-100 dark:bg-gray-900"></div>
+                <div class="p-6">
+                  <h4 class="text-lg font-semibold mb-2">Project Gamma</h4>
+                  <p class="text-sm text-[var(--color-muted)] mb-4">Third card showcasing the flexible card design system.</p>
+                  <button class="text-sm font-medium hover:underline">Learn more →</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Feature Cards -->
           <div>
             <p class="text-sm text-[var(--color-muted)] mb-4">Feature Cards</p>
             <div class="grid md:grid-cols-3 gap-6">
@@ -435,6 +592,86 @@
       <div>
         <h3 class="text-2xl font-semibold mb-6">Lists</h3>
         <div class="grid md:grid-cols-2 gap-8">
+          <!-- Checklist -->
+          <div>
+            <p class="text-sm text-[var(--color-muted)] mb-4">Checklist</p>
+            <div class="space-y-3">
+              <div class="flex items-start gap-2">
+                <svg class="w-5 h-5 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                <span>Generous whitespace for breathing room</span>
+              </div>
+              <div class="flex items-start gap-2">
+                <svg class="w-5 h-5 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                <span>Clear typography hierarchy</span>
+              </div>
+              <div class="flex items-start gap-2">
+                <svg class="w-5 h-5 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                <span>Minimal color palette (black, white, grays)</span>
+              </div>
+              <div class="flex items-start gap-2">
+                <svg class="w-5 h-5 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                <span>Perfect light/dark mode symmetry</span>
+              </div>
+              <div class="flex items-start gap-2">
+                <svg class="w-5 h-5 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                <span>Tailwind CSS for rapid development</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Feature List with Icons -->
+          <div>
+            <p class="text-sm text-[var(--color-muted)] mb-4">Features with Icon Boxes</p>
+            <div class="space-y-4">
+              <div class="flex gap-4">
+                <div class="flex-shrink-0 w-12 h-12 flex items-center justify-center border border-[var(--color-border)] rounded-lg">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="font-medium mb-1">Fast Performance</h4>
+                  <p class="text-sm text-[var(--color-muted)]">Optimized for speed with minimal CSS</p>
+                </div>
+              </div>
+              
+              <div class="flex gap-4">
+                <div class="flex-shrink-0 w-12 h-12 flex items-center justify-center border border-[var(--color-border)] rounded-lg">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/>
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="font-medium mb-1">Highly Customizable</h4>
+                  <p class="text-sm text-[var(--color-muted)]">Easy to adapt to your brand</p>
+                </div>
+              </div>
+              
+              <div class="flex gap-4">
+                <div class="flex-shrink-0 w-12 h-12 flex items-center justify-center border border-[var(--color-border)] rounded-lg">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="font-medium mb-1">Responsive Design</h4>
+                  <p class="text-sm text-[var(--color-muted)]">Works perfectly on all devices</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Simple Feature List -->
           <div>
             <p class="text-sm text-[var(--color-muted)] mb-4">Feature List</p>
             <div class="space-y-3">
@@ -468,6 +705,7 @@
             </div>
           </div>
 
+          <!-- Ordered List -->
           <div>
             <p class="text-sm text-[var(--color-muted)] mb-4">Ordered List</p>
             <div class="space-y-3">
@@ -509,6 +747,16 @@
               <span class="px-3 py-1 text-sm bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-100 rounded-full">Warning</span>
               <span class="px-3 py-1 text-sm bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-100 rounded-full">Error</span>
               <span class="px-3 py-1 text-sm bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-100 rounded-full">Neutral</span>
+            </div>
+          </div>
+
+          <div>
+            <p class="text-sm text-[var(--color-muted)] mb-4">Tags</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="inline-flex px-3 py-1 text-sm border border-[var(--color-border)] rounded-full">React</span>
+              <span class="inline-flex px-3 py-1 text-sm border border-[var(--color-border)] rounded-full">TypeScript</span>
+              <span class="inline-flex px-3 py-1 text-sm border border-[var(--color-border)] rounded-full">Tailwind CSS</span>
+              <span class="inline-flex px-3 py-1 text-sm border border-[var(--color-border)] rounded-full">Design System</span>
             </div>
           </div>
 
@@ -664,6 +912,272 @@
                 <div class="text-sm text-[var(--color-muted)] mb-1">Conversion</div>
                 <div class="text-2xl font-bold">3.2%</div>
                 <div class="text-xs text-green-600 dark:text-green-400 mt-1">↑ 0.5%</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Typography -->
+      <div>
+        <h3 class="text-2xl font-semibold mb-6">Typography</h3>
+        <div class="space-y-8">
+          <div>
+            <p class="text-sm text-[var(--color-muted)] mb-6">Headings</p>
+            <div class="space-y-4">
+              <h1 class="text-5xl font-bold">Heading 1 - 48px Bold</h1>
+              <h2 class="text-3xl font-semibold">Heading 2 - 30px Semibold</h2>
+              <h3 class="text-2xl font-semibold">Heading 3 - 24px Semibold</h3>
+              <h4 class="text-xl font-medium">Heading 4 - 20px Medium</h4>
+              <h5 class="text-lg font-medium">Heading 5 - 18px Medium</h5>
+              <h6 class="text-base font-medium">Heading 6 - 16px Medium</h6>
+            </div>
+          </div>
+
+          <div>
+            <p class="text-sm text-[var(--color-muted)] mb-6">Body Text</p>
+            <div class="space-y-4 max-w-2xl">
+              <p class="text-lg">Large body text (18px) - Perfect for introductory paragraphs or emphasis. The quick brown fox jumps over the lazy dog.</p>
+              <p class="text-base">Default body text (16px) - The standard for most content. Readable and comfortable for extended reading. The quick brown fox jumps over the lazy dog.</p>
+              <p class="text-sm">Small body text (14px) - Great for secondary information, captions, or supplementary details. The quick brown fox jumps over the lazy dog.</p>
+              <p class="text-sm text-[var(--color-muted)]">Muted text - Used for less important information with reduced visual weight while maintaining readability.</p>
+            </div>
+          </div>
+
+          <div>
+            <p class="text-sm text-[var(--color-muted)] mb-6">Font Weights</p>
+            <div class="space-y-2">
+              <p class="font-normal">Normal (400) - Regular body text</p>
+              <p class="font-medium">Medium (500) - Slightly emphasized</p>
+              <p class="font-semibold">Semibold (600) - Headings and emphasis</p>
+              <p class="font-bold">Bold (700) - Strong emphasis</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Color System -->
+      <div>
+        <h3 class="text-2xl font-semibold mb-6">Color System</h3>
+        <div class="space-y-12">
+          <!-- Base Colors -->
+          <div>
+            <p class="text-lg font-medium mb-8">Base Colors</p>
+            <div class="grid gap-6 sm:grid-cols-2">
+              <!-- Light Mode Colors -->
+              <div>
+                <p class="font-medium mb-4">Light Mode</p>
+                <div class="space-y-3">
+                  <div class="flex items-center gap-3">
+                    <div class="w-16 h-16 rounded-lg bg-white border-2 border-gray-300"></div>
+                    <div>
+                      <p class="font-medium">Background</p>
+                      <p class="text-sm text-[var(--color-muted)]">#ffffff</p>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <div class="w-16 h-16 rounded-lg bg-black"></div>
+                    <div>
+                      <p class="font-medium">Foreground</p>
+                      <p class="text-sm text-[var(--color-muted)]">#000000</p>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <div class="w-16 h-16 rounded-lg bg-gray-600"></div>
+                    <div>
+                      <p class="font-medium">Muted</p>
+                      <p class="text-sm text-[var(--color-muted)]">#737373</p>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <div class="w-16 h-16 rounded-lg bg-gray-200 border border-gray-300"></div>
+                    <div>
+                      <p class="font-medium">Border</p>
+                      <p class="text-sm text-[var(--color-muted)]">#e5e5e5</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Dark Mode Colors -->
+              <div>
+                <p class="font-medium mb-4">Dark Mode</p>
+                <div class="space-y-3">
+                  <div class="flex items-center gap-3">
+                    <div class="w-16 h-16 rounded-lg bg-black border-2 border-gray-700"></div>
+                    <div>
+                      <p class="font-medium">Background</p>
+                      <p class="text-sm text-[var(--color-muted)]">#000000</p>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <div class="w-16 h-16 rounded-lg bg-white"></div>
+                    <div>
+                      <p class="font-medium">Foreground</p>
+                      <p class="text-sm text-[var(--color-muted)]">#ffffff</p>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <div class="w-16 h-16 rounded-lg bg-gray-400"></div>
+                    <div>
+                      <p class="font-medium">Muted</p>
+                      <p class="text-sm text-[var(--color-muted)]">#a3a3a3</p>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <div class="w-16 h-16 rounded-lg bg-gray-800 border border-gray-700"></div>
+                    <div>
+                      <p class="font-medium">Border</p>
+                      <p class="text-sm text-[var(--color-muted)]">#262626</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Semantic Colors -->
+          <div>
+            <p class="text-lg font-medium mb-8">Semantic Colors</p>
+            <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              <!-- Success -->
+              <div>
+                <p class="font-medium mb-4">Success</p>
+                <div class="space-y-2">
+                  <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 rounded-lg bg-green-50 border border-green-200 dark:bg-green-950 dark:border-green-900"></div>
+                    <div class="text-sm">
+                      <p class="font-medium">Background</p>
+                      <p class="text-[var(--color-muted)]">green-50 / green-950</p>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 rounded-lg bg-green-600 dark:bg-green-400"></div>
+                    <div class="text-sm">
+                      <p class="font-medium">Foreground</p>
+                      <p class="text-[var(--color-muted)]">green-600 / green-400</p>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 rounded-lg bg-green-100 dark:bg-green-900"></div>
+                    <div class="text-sm">
+                      <p class="font-medium">Badge</p>
+                      <p class="text-[var(--color-muted)]">green-100 / green-900</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Info -->
+              <div>
+                <p class="font-medium mb-4">Info</p>
+                <div class="space-y-2">
+                  <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 rounded-lg bg-blue-50 border border-blue-200 dark:bg-blue-950 dark:border-blue-900"></div>
+                    <div class="text-sm">
+                      <p class="font-medium">Background</p>
+                      <p class="text-[var(--color-muted)]">blue-50 / blue-950</p>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 rounded-lg bg-blue-600 dark:bg-blue-400"></div>
+                    <div class="text-sm">
+                      <p class="font-medium">Foreground</p>
+                      <p class="text-[var(--color-muted)]">blue-600 / blue-400</p>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 rounded-lg bg-blue-100 dark:bg-blue-900"></div>
+                    <div class="text-sm">
+                      <p class="font-medium">Badge</p>
+                      <p class="text-[var(--color-muted)]">blue-100 / blue-900</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Warning -->
+              <div>
+                <p class="font-medium mb-4">Warning</p>
+                <div class="space-y-2">
+                  <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 rounded-lg bg-yellow-50 border border-yellow-200 dark:bg-yellow-950 dark:border-yellow-900"></div>
+                    <div class="text-sm">
+                      <p class="font-medium">Background</p>
+                      <p class="text-[var(--color-muted)]">yellow-50 / yellow-950</p>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 rounded-lg bg-yellow-600 dark:bg-yellow-400"></div>
+                    <div class="text-sm">
+                      <p class="font-medium">Foreground</p>
+                      <p class="text-[var(--color-muted)]">yellow-600 / yellow-400</p>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 rounded-lg bg-yellow-100 dark:bg-yellow-900"></div>
+                    <div class="text-sm">
+                      <p class="font-medium">Badge</p>
+                      <p class="text-[var(--color-muted)]">yellow-100 / yellow-900</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Error -->
+              <div>
+                <p class="font-medium mb-4">Error</p>
+                <div class="space-y-2">
+                  <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 rounded-lg bg-red-50 border border-red-200 dark:bg-red-950 dark:border-red-900"></div>
+                    <div class="text-sm">
+                      <p class="font-medium">Background</p>
+                      <p class="text-[var(--color-muted)]">red-50 / red-950</p>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 rounded-lg bg-red-600 dark:bg-red-400"></div>
+                    <div class="text-sm">
+                      <p class="font-medium">Foreground</p>
+                      <p class="text-[var(--color-muted)]">red-600 / red-400</p>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 rounded-lg bg-red-100 dark:bg-red-900"></div>
+                    <div class="text-sm">
+                      <p class="font-medium">Badge</p>
+                      <p class="text-[var(--color-muted)]">red-100 / red-900</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Neutral -->
+              <div>
+                <p class="font-medium mb-4">Neutral</p>
+                <div class="space-y-2">
+                  <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 rounded-lg bg-gray-50 border border-gray-200 dark:bg-gray-950 dark:border-gray-800"></div>
+                    <div class="text-sm">
+                      <p class="font-medium">Background</p>
+                      <p class="text-[var(--color-muted)]">gray-50 / gray-950</p>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 rounded-lg bg-gray-600 dark:bg-gray-400"></div>
+                    <div class="text-sm">
+                      <p class="font-medium">Foreground</p>
+                      <p class="text-[var(--color-muted)]">gray-600 / gray-400</p>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 rounded-lg bg-gray-100 dark:bg-gray-800"></div>
+                    <div class="text-sm">
+                      <p class="font-medium">Badge</p>
+                      <p class="text-[var(--color-muted)]">gray-100 / gray-800</p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

@@ -4,6 +4,24 @@ This document defines the core design tokens for the minimal black/white design 
 
 ## Color System
 
+### Primary & Secondary Colors
+
+The design system defines explicit primary and secondary colors for easy customization:
+
+#### Primary Color
+- **Light Mode**: `black` (#000000)
+- **Dark Mode**: `white` (#ffffff)
+- **Usage**: Main brand color, primary buttons, headings, high-emphasis text
+- **Tailwind Classes**: `bg-black dark:bg-white`, `text-black dark:text-white`
+
+#### Secondary Color
+- **Light Mode**: `gray-50` (#f9fafb)
+- **Dark Mode**: `gray-950` (#030712)
+- **Usage**: Subtle backgrounds, cards, secondary surfaces, reduced emphasis areas
+- **Tailwind Classes**: `bg-gray-50 dark:bg-gray-950`
+
+**Customization Tip**: To adapt this design system to your brand, simply replace the primary color (black/white) with your brand color and adjust the secondary color for optimal contrast.
+
 ### Base Colors - Light Mode
 ```css
 --color-bg: #ffffff;

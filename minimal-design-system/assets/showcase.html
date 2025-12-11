@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Minimal Design System - Claude Skill Showcase</title>
+  <title>Minimal Design System - Component Showcase</title>
   <meta name="description" content="A minimalist black/white design system for Claude AI. Clean, modern, and ready to use.">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -59,11 +59,6 @@
       border-top: 1px solid var(--color-border);
       margin: 4rem 0;
     }
-
-    /* Smooth scroll */
-    html {
-      scroll-behavior: smooth;
-    }
   </style>
 
   <script>
@@ -88,84 +83,11 @@
   </script>
 </head>
 <body class="min-h-screen">
-  
-  <!-- Navigation -->
-  <nav class="sticky top-0 z-50 bg-bg/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
-    <div class="max-w-7xl mx-auto px-6 py-4">
-      <div class="flex items-center justify-between">
-        <div class="flex items-center gap-8">
-          <a href="#" class="text-lg font-bold">Minimal Design System</a>
-          <div class="hidden md:flex items-center gap-6">
-            <a href="#components" class="text-sm font-medium hover:text-gray-600 dark:hover:text-gray-400">Components</a>
-            <a href="#typography" class="text-sm font-medium hover:text-gray-600 dark:hover:text-gray-400">Typography</a>
-            <a href="#colors" class="text-sm font-medium hover:text-gray-600 dark:hover:text-gray-400">Colors</a>
-          </div>
-        </div>
-        <a href="#download" class="px-4 py-2 bg-black text-white text-sm font-medium rounded-md hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200">
-          Download Skill
-        </a>
-      </div>
-    </div>
-  </nav>
 
   <div class="max-w-7xl mx-auto px-6 py-16 sm:px-8">
-    
-    <!-- Hero Section -->
-    <header class="mb-24 text-center">
-      <h1 class="text-5xl sm:text-6xl font-bold mb-6">Minimal Design System</h1>
-      <p class="text-xl text-muted max-w-3xl mx-auto mb-8">
-        A minimalist black & white design system for Claude AI. Clean, modern, and production-ready with generous whitespace and Inter UI typography.
-      </p>
-      <div class="flex flex-wrap gap-3 justify-center">
-        <a href="#download" class="px-8 py-3 bg-black text-white font-medium rounded-md hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200">
-          Download Skill
-        </a>
-        <a href="#components" class="px-8 py-3 bg-transparent text-black font-medium rounded-md border border-gray-300 hover:bg-gray-50 dark:text-white dark:border-gray-700 dark:hover:bg-gray-900">
-          View Components
-        </a>
-      </div>
-    </header>
-
-    <!-- Features -->
-    <section class="mb-24">
-      <h2 class="text-3xl font-semibold mb-12 text-center">Design Principles</h2>
-      <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-        <div class="text-center">
-          <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center border border-gray-200 rounded-lg dark:border-gray-800">
-            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/>
-            </svg>
-          </div>
-          <h3 class="text-lg font-semibold mb-2">Generous Whitespace</h3>
-          <p class="text-sm text-muted">Large gaps and breathing room for clarity</p>
-        </div>
-        
-        <div class="text-center">
-          <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center border border-gray-200 rounded-lg dark:border-gray-800">
-            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
-            </svg>
-          </div>
-          <h3 class="text-lg font-semibold mb-2">Typography First</h3>
-          <p class="text-sm text-muted">Clear hierarchy through size and weight</p>
-        </div>
-        
-        <div class="text-center">
-          <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center border border-gray-200 rounded-lg dark:border-gray-800">
-            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
-            </svg>
-          </div>
-          <h3 class="text-lg font-semibold mb-2">Dark Mode Ready</h3>
-          <p class="text-sm text-muted">Perfect symmetry between light and dark</p>
-        </div>
-      </div>
-    </section>
-
-    <div class="section-divider"></div>
 
     <!-- Buttons Section -->
-    <section id="components" class="mb-24">
+    <section class="mb-24">
       <h2 class="text-3xl font-semibold mb-12">Buttons</h2>
       
       <div class="space-y-8">
@@ -218,6 +140,59 @@
               </svg>
             </button>
             <button class="p-3 rounded-md hover:bg-gray-100 dark:hover:bg-gray-900 transition-colors border border-gray-300 dark:border-gray-700">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-medium mb-4">Rounded Buttons (Pill Style)</h3>
+          <div class="flex flex-wrap gap-3">
+            <button class="px-6 py-3 bg-black text-white font-medium rounded-full hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200">
+              Primary Pill
+            </button>
+            <button class="px-6 py-3 bg-transparent text-black font-medium rounded-full border border-gray-300 hover:bg-gray-50 dark:text-white dark:border-gray-700 dark:hover:bg-gray-900">
+              Secondary Pill
+            </button>
+            <button class="px-6 py-3 bg-transparent text-black font-medium rounded-full hover:bg-gray-100 dark:text-white dark:hover:bg-gray-900">
+              Ghost Pill
+            </button>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-medium mb-4">Rounded Button Sizes</h3>
+          <div class="flex flex-wrap items-center gap-3">
+            <button class="px-4 py-2 text-sm bg-black text-white font-medium rounded-full hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200">
+              Small Pill
+            </button>
+            <button class="px-6 py-3 bg-black text-white font-medium rounded-full hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200">
+              Default Pill
+            </button>
+            <button class="px-8 py-4 text-lg bg-black text-white font-medium rounded-full hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200">
+              Large Pill
+            </button>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-medium mb-4">Rounded Icon Buttons</h3>
+          <div class="flex flex-wrap gap-3">
+            <button class="px-6 py-3 flex items-center gap-2 bg-black text-white font-medium rounded-full hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+              </svg>
+              Add Item
+            </button>
+            <button class="px-6 py-3 flex items-center gap-2 bg-black text-white font-medium rounded-full hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200">
+              Continue
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+              </svg>
+            </button>
+            <button class="p-3 rounded-full hover:bg-gray-100 dark:hover:bg-gray-900 transition-colors border border-gray-300 dark:border-gray-700">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
               </svg>
@@ -588,6 +563,18 @@
         <div>
           <h3 class="text-xl font-medium mb-4">Alerts</h3>
           <div class="space-y-4">
+            <div class="p-4 border border-green-200 bg-green-50 rounded-lg dark:border-green-900 dark:bg-green-950">
+              <div class="flex gap-3">
+                <svg class="w-5 h-5 flex-shrink-0 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <div>
+                  <p class="text-sm font-medium text-green-900 dark:text-green-100">Success</p>
+                  <p class="text-sm text-green-700 dark:text-green-300">Your changes have been saved successfully.</p>
+                </div>
+              </div>
+            </div>
+
             <div class="p-4 border border-blue-200 bg-blue-50 rounded-lg dark:border-blue-900 dark:bg-blue-950">
               <div class="flex gap-3">
                 <svg class="w-5 h-5 flex-shrink-0 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -600,14 +587,38 @@
               </div>
             </div>
 
-            <div class="p-4 border border-green-200 bg-green-50 rounded-lg dark:border-green-900 dark:bg-green-950">
+            <div class="p-4 border border-yellow-200 bg-yellow-50 rounded-lg dark:border-yellow-900 dark:bg-yellow-950">
               <div class="flex gap-3">
-                <svg class="w-5 h-5 flex-shrink-0 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                <svg class="w-5 h-5 flex-shrink-0 text-yellow-600 dark:text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
                 </svg>
                 <div>
-                  <p class="text-sm font-medium text-green-900 dark:text-green-100">Success</p>
-                  <p class="text-sm text-green-700 dark:text-green-300">Your changes have been saved successfully.</p>
+                  <p class="text-sm font-medium text-yellow-900 dark:text-yellow-100">Warning</p>
+                  <p class="text-sm text-yellow-700 dark:text-yellow-300">Please review your settings before continuing.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-4 border border-red-200 bg-red-50 rounded-lg dark:border-red-900 dark:bg-red-950">
+              <div class="flex gap-3">
+                <svg class="w-5 h-5 flex-shrink-0 text-red-600 dark:text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <div>
+                  <p class="text-sm font-medium text-red-900 dark:text-red-100">Error</p>
+                  <p class="text-sm text-red-700 dark:text-red-300">An error occurred while processing your request.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-4 border border-gray-200 bg-gray-50 rounded-lg dark:border-gray-800 dark:bg-gray-950">
+              <div class="flex gap-3">
+                <svg class="w-5 h-5 flex-shrink-0 text-gray-600 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <div>
+                  <p class="text-sm font-medium text-gray-900 dark:text-gray-100">Neutral</p>
+                  <p class="text-sm text-gray-700 dark:text-gray-300">This is a neutral informational message.</p>
                 </div>
               </div>
             </div>
@@ -680,7 +691,7 @@
     <div class="section-divider"></div>
 
     <!-- Typography Section -->
-    <section id="typography" class="mb-24">
+    <section class="mb-24">
       <h2 class="text-3xl font-semibold mb-12">Typography</h2>
       
       <div class="space-y-8">
@@ -721,143 +732,235 @@
     <div class="section-divider"></div>
 
     <!-- Colors Section -->
-    <section id="colors" class="mb-24">
+    <section class="mb-24">
       <h2 class="text-3xl font-semibold mb-12">Color System</h2>
       
-      <div class="grid gap-6 sm:grid-cols-2">
-        <!-- Light Mode Colors -->
+      <div class="space-y-12">
+        <!-- Base Colors -->
         <div>
-          <h3 class="text-xl font-medium mb-6">Light Mode</h3>
-          <div class="space-y-3">
-            <div class="flex items-center gap-3">
-              <div class="w-16 h-16 rounded-lg bg-white border-2 border-gray-300"></div>
-              <div>
-                <p class="font-medium">Background</p>
-                <p class="text-sm text-muted">#ffffff</p>
+          <h3 class="text-2xl font-medium mb-8">Base Colors</h3>
+          <div class="grid gap-6 sm:grid-cols-2">
+            <!-- Light Mode Colors -->
+            <div>
+              <h4 class="text-lg font-medium mb-4">Light Mode</h4>
+              <div class="space-y-3">
+                <div class="flex items-center gap-3">
+                  <div class="w-16 h-16 rounded-lg bg-white border-2 border-gray-300"></div>
+                  <div>
+                    <p class="font-medium">Background</p>
+                    <p class="text-sm text-muted">#ffffff</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3">
+                  <div class="w-16 h-16 rounded-lg bg-black"></div>
+                  <div>
+                    <p class="font-medium">Foreground</p>
+                    <p class="text-sm text-muted">#000000</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3">
+                  <div class="w-16 h-16 rounded-lg bg-gray-600"></div>
+                  <div>
+                    <p class="font-medium">Muted</p>
+                    <p class="text-sm text-muted">#6b7280</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3">
+                  <div class="w-16 h-16 rounded-lg bg-gray-200 border border-gray-300"></div>
+                  <div>
+                    <p class="font-medium">Border</p>
+                    <p class="text-sm text-muted">#e5e7eb</p>
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="flex items-center gap-3">
-              <div class="w-16 h-16 rounded-lg bg-black"></div>
-              <div>
-                <p class="font-medium">Foreground</p>
-                <p class="text-sm text-muted">#000000</p>
-              </div>
-            </div>
-            <div class="flex items-center gap-3">
-              <div class="w-16 h-16 rounded-lg bg-gray-600"></div>
-              <div>
-                <p class="font-medium">Muted</p>
-                <p class="text-sm text-muted">#6b7280</p>
-              </div>
-            </div>
-            <div class="flex items-center gap-3">
-              <div class="w-16 h-16 rounded-lg bg-gray-200 border border-gray-300"></div>
-              <div>
-                <p class="font-medium">Border</p>
-                <p class="text-sm text-muted">#e5e7eb</p>
+
+            <!-- Dark Mode Colors -->
+            <div>
+              <h4 class="text-lg font-medium mb-4">Dark Mode</h4>
+              <div class="space-y-3">
+                <div class="flex items-center gap-3">
+                  <div class="w-16 h-16 rounded-lg bg-black border-2 border-gray-700"></div>
+                  <div>
+                    <p class="font-medium">Background</p>
+                    <p class="text-sm text-muted">#000000</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3">
+                  <div class="w-16 h-16 rounded-lg bg-white"></div>
+                  <div>
+                    <p class="font-medium">Foreground</p>
+                    <p class="text-sm text-muted">#ffffff</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3">
+                  <div class="w-16 h-16 rounded-lg bg-gray-400"></div>
+                  <div>
+                    <p class="font-medium">Muted</p>
+                    <p class="text-sm text-muted">#9ca3af</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3">
+                  <div class="w-16 h-16 rounded-lg bg-gray-800 border border-gray-700"></div>
+                  <div>
+                    <p class="font-medium">Border</p>
+                    <p class="text-sm text-muted">#1f2937</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Dark Mode Colors -->
+        <!-- Semantic Colors -->
         <div>
-          <h3 class="text-xl font-medium mb-6">Dark Mode</h3>
-          <div class="space-y-3">
-            <div class="flex items-center gap-3">
-              <div class="w-16 h-16 rounded-lg bg-black border-2 border-gray-700"></div>
-              <div>
-                <p class="font-medium">Background</p>
-                <p class="text-sm text-muted">#000000</p>
+          <h3 class="text-2xl font-medium mb-8">Semantic Colors</h3>
+          <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <!-- Success -->
+            <div>
+              <h4 class="text-lg font-medium mb-4">Success</h4>
+              <div class="space-y-2">
+                <div class="flex items-center gap-3">
+                  <div class="w-12 h-12 rounded-lg bg-green-50 border border-green-200 dark:bg-green-950 dark:border-green-900"></div>
+                  <div class="text-sm">
+                    <p class="font-medium">Background</p>
+                    <p class="text-muted">green-50 / green-950</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3">
+                  <div class="w-12 h-12 rounded-lg bg-green-600 dark:bg-green-400"></div>
+                  <div class="text-sm">
+                    <p class="font-medium">Foreground</p>
+                    <p class="text-muted">green-600 / green-400</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3">
+                  <div class="w-12 h-12 rounded-lg bg-green-100 dark:bg-green-900"></div>
+                  <div class="text-sm">
+                    <p class="font-medium">Badge</p>
+                    <p class="text-muted">green-100 / green-900</p>
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="flex items-center gap-3">
-              <div class="w-16 h-16 rounded-lg bg-white"></div>
-              <div>
-                <p class="font-medium">Foreground</p>
-                <p class="text-sm text-muted">#ffffff</p>
+
+            <!-- Info -->
+            <div>
+              <h4 class="text-lg font-medium mb-4">Info</h4>
+              <div class="space-y-2">
+                <div class="flex items-center gap-3">
+                  <div class="w-12 h-12 rounded-lg bg-blue-50 border border-blue-200 dark:bg-blue-950 dark:border-blue-900"></div>
+                  <div class="text-sm">
+                    <p class="font-medium">Background</p>
+                    <p class="text-muted">blue-50 / blue-950</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3">
+                  <div class="w-12 h-12 rounded-lg bg-blue-600 dark:bg-blue-400"></div>
+                  <div class="text-sm">
+                    <p class="font-medium">Foreground</p>
+                    <p class="text-muted">blue-600 / blue-400</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3">
+                  <div class="w-12 h-12 rounded-lg bg-blue-100 dark:bg-blue-900"></div>
+                  <div class="text-sm">
+                    <p class="font-medium">Badge</p>
+                    <p class="text-muted">blue-100 / blue-900</p>
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="flex items-center gap-3">
-              <div class="w-16 h-16 rounded-lg bg-gray-400"></div>
-              <div>
-                <p class="font-medium">Muted</p>
-                <p class="text-sm text-muted">#9ca3af</p>
+
+            <!-- Warning -->
+            <div>
+              <h4 class="text-lg font-medium mb-4">Warning</h4>
+              <div class="space-y-2">
+                <div class="flex items-center gap-3">
+                  <div class="w-12 h-12 rounded-lg bg-yellow-50 border border-yellow-200 dark:bg-yellow-950 dark:border-yellow-900"></div>
+                  <div class="text-sm">
+                    <p class="font-medium">Background</p>
+                    <p class="text-muted">yellow-50 / yellow-950</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3">
+                  <div class="w-12 h-12 rounded-lg bg-yellow-600 dark:bg-yellow-400"></div>
+                  <div class="text-sm">
+                    <p class="font-medium">Foreground</p>
+                    <p class="text-muted">yellow-600 / yellow-400</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3">
+                  <div class="w-12 h-12 rounded-lg bg-yellow-100 dark:bg-yellow-900"></div>
+                  <div class="text-sm">
+                    <p class="font-medium">Badge</p>
+                    <p class="text-muted">yellow-100 / yellow-900</p>
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="flex items-center gap-3">
-              <div class="w-16 h-16 rounded-lg bg-gray-800 border border-gray-700"></div>
-              <div>
-                <p class="font-medium">Border</p>
-                <p class="text-sm text-muted">#1f2937</p>
+
+            <!-- Error -->
+            <div>
+              <h4 class="text-lg font-medium mb-4">Error</h4>
+              <div class="space-y-2">
+                <div class="flex items-center gap-3">
+                  <div class="w-12 h-12 rounded-lg bg-red-50 border border-red-200 dark:bg-red-950 dark:border-red-900"></div>
+                  <div class="text-sm">
+                    <p class="font-medium">Background</p>
+                    <p class="text-muted">red-50 / red-950</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3">
+                  <div class="w-12 h-12 rounded-lg bg-red-600 dark:bg-red-400"></div>
+                  <div class="text-sm">
+                    <p class="font-medium">Foreground</p>
+                    <p class="text-muted">red-600 / red-400</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3">
+                  <div class="w-12 h-12 rounded-lg bg-red-100 dark:bg-red-900"></div>
+                  <div class="text-sm">
+                    <p class="font-medium">Badge</p>
+                    <p class="text-muted">red-100 / red-900</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Neutral -->
+            <div>
+              <h4 class="text-lg font-medium mb-4">Neutral</h4>
+              <div class="space-y-2">
+                <div class="flex items-center gap-3">
+                  <div class="w-12 h-12 rounded-lg bg-gray-50 border border-gray-200 dark:bg-gray-950 dark:border-gray-800"></div>
+                  <div class="text-sm">
+                    <p class="font-medium">Background</p>
+                    <p class="text-muted">gray-50 / gray-950</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3">
+                  <div class="w-12 h-12 rounded-lg bg-gray-600 dark:bg-gray-400"></div>
+                  <div class="text-sm">
+                    <p class="font-medium">Foreground</p>
+                    <p class="text-muted">gray-600 / gray-400</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3">
+                  <div class="w-12 h-12 rounded-lg bg-gray-100 dark:bg-gray-800"></div>
+                  <div class="text-sm">
+                    <p class="font-medium">Badge</p>
+                    <p class="text-muted">gray-100 / gray-800</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <div class="section-divider"></div>
-
-    <!-- Download Section -->
-    <section id="download" class="mb-24">
-      <div class="text-center p-12 border border-gray-200 rounded-lg dark:border-gray-800">
-        <h2 class="text-3xl font-semibold mb-4">Ready to use?</h2>
-        <p class="text-lg text-muted mb-8 max-w-2xl mx-auto">
-          Download the Minimal Design System skill for Claude AI and start creating beautiful, minimal interfaces.
-        </p>
-        <div class="flex flex-wrap gap-3 justify-center">
-          <a href="minimal-design-system.skill" download class="px-8 py-3 bg-black text-white font-medium rounded-md hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200">
-            Download Skill
-          </a>
-          <a href="https://github.com/yourusername/minimal-design-system" class="px-8 py-3 bg-transparent text-black font-medium rounded-md border border-gray-300 hover:bg-gray-50 dark:text-white dark:border-gray-700 dark:hover:bg-gray-900">
-            View on GitHub
-          </a>
-        </div>
-        
-        <div class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-800">
-          <h3 class="text-xl font-medium mb-4">How to Install</h3>
-          <ol class="text-left max-w-2xl mx-auto space-y-3 text-sm text-muted">
-            <li class="flex gap-3">
-              <span class="font-semibold text-fg">1.</span>
-              <span>Download the <code class="px-2 py-0.5 bg-gray-100 dark:bg-gray-900 rounded">minimal-design-system.skill</code> file</span>
-            </li>
-            <li class="flex gap-3">
-              <span class="font-semibold text-fg">2.</span>
-              <span>Go to Claude.ai → Skills → "Upload Skill"</span>
-            </li>
-            <li class="flex gap-3">
-              <span class="font-semibold text-fg">3.</span>
-              <span>Select the downloaded .skill file</span>
-            </li>
-            <li class="flex gap-3">
-              <span class="font-semibold text-fg">4.</span>
-              <span>Activate the skill in your project</span>
-            </li>
-            <li class="flex gap-3">
-              <span class="font-semibold text-fg">5.</span>
-              <span>Say "Nutze mein Designsystem" to trigger it</span>
-            </li>
-          </ol>
         </div>
       </div>
     </section>
 
   </div>
-
-  <!-- Footer -->
-  <footer class="border-t border-gray-200 dark:border-gray-800 mt-24">
-    <div class="max-w-7xl mx-auto px-6 py-12 sm:px-8">
-      <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
-        <p class="text-sm text-muted">© 2025 Minimal Design System. Open source and free to use.</p>
-        <div class="flex gap-6">
-          <a href="#" class="text-sm text-muted hover:text-fg">Documentation</a>
-          <a href="#" class="text-sm text-muted hover:text-fg">GitHub</a>
-          <a href="#" class="text-sm text-muted hover:text-fg">Support</a>
-        </div>
-      </div>
-    </div>
-  </footer>
 
 </body>
 </html>

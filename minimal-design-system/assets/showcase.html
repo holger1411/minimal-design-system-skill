@@ -14,7 +14,7 @@
     :root {
       --color-bg: #ffffff;
       --color-fg: #000000;
-      --color-muted: #6b7280;
+      --color-muted: #525252;
       --color-border: #e5e7eb;
       --color-subtle-bg: #f9fafb;
       --color-hover-bg: #f3f4f6;
@@ -24,7 +24,7 @@
       :root {
         --color-bg: #000000;
         --color-fg: #ffffff;
-        --color-muted: #9ca3af;
+        --color-muted: #a3a3a3;
         --color-border: #1f2937;
         --color-subtle-bg: #111111;
         --color-hover-bg: #1a1a1a;
@@ -53,6 +53,29 @@
 
     button, a {
       transition: all 0.15s ease;
+    }
+
+    /* Focus visible styles for accessibility */
+    button:focus-visible,
+    a:focus-visible,
+    input:focus-visible,
+    textarea:focus-visible,
+    select:focus-visible {
+      outline: 2px solid var(--color-fg);
+      outline-offset: 2px;
+    }
+
+    /* Screen reader only */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
     }
 
     .section-divider {
@@ -84,7 +107,7 @@
 </head>
 <body class="min-h-screen">
 
-  <div class="max-w-7xl mx-auto px-6 py-16 sm:px-8">
+  <main class="max-w-7xl mx-auto px-6 py-16 sm:px-8">
 
     <!-- Buttons Section -->
     <section class="mb-24">
@@ -112,7 +135,7 @@
         <div>
           <h3 class="text-xl font-medium mb-4">Button Sizes</h3>
           <div class="flex flex-wrap items-center gap-3">
-            <button class="px-4 py-2 text-sm bg-black text-white font-medium rounded-md hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200">
+            <button class="px-5 py-2.5 text-sm bg-black text-white font-medium rounded-md hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200">
               Small
             </button>
             <button class="px-6 py-3 bg-black text-white font-medium rounded-md hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200">
@@ -139,8 +162,8 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
               </svg>
             </button>
-            <button class="p-3 rounded-md hover:bg-gray-100 dark:hover:bg-gray-900 transition-colors border border-gray-300 dark:border-gray-700">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <button class="p-3 rounded-md hover:bg-gray-100 dark:hover:bg-gray-900 transition-colors border border-gray-300 dark:border-gray-700" aria-label="Close">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
               </svg>
             </button>
@@ -165,7 +188,7 @@
         <div>
           <h3 class="text-xl font-medium mb-4">Rounded Button Sizes</h3>
           <div class="flex flex-wrap items-center gap-3">
-            <button class="px-4 py-2 text-sm bg-black text-white font-medium rounded-full hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200">
+            <button class="px-5 py-2.5 text-sm bg-black text-white font-medium rounded-full hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200">
               Small Pill
             </button>
             <button class="px-6 py-3 bg-black text-white font-medium rounded-full hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200">
@@ -192,8 +215,8 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
               </svg>
             </button>
-            <button class="p-3 rounded-full hover:bg-gray-100 dark:hover:bg-gray-900 transition-colors border border-gray-300 dark:border-gray-700">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <button class="p-3 rounded-full hover:bg-gray-100 dark:hover:bg-gray-900 transition-colors border border-gray-300 dark:border-gray-700" aria-label="Close">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
               </svg>
             </button>
@@ -382,6 +405,7 @@
       <h2 class="text-3xl font-semibold mb-12">Tables</h2>
       <div class="overflow-x-auto border border-gray-200 rounded-lg dark:border-gray-800">
         <table class="w-full">
+          <caption class="sr-only">User management table showing team members with their roles and status</caption>
           <thead class="border-b border-gray-200 dark:border-gray-800">
             <tr class="bg-gray-50 dark:bg-gray-900">
               <th class="px-6 py-3 text-left text-sm font-medium">Name</th>
@@ -960,7 +984,7 @@
       </div>
     </section>
 
-  </div>
+  </main>
 
 </body>
 </html>

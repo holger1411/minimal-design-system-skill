@@ -13,7 +13,7 @@
     :root {
       --color-bg: #ffffff;
       --color-fg: #000000;
-      --color-muted: #6b7280;
+      --color-muted: #525252;
       --color-border: #e5e7eb;
       --color-subtle-bg: #f9fafb;
       --color-hover-bg: #f3f4f6;
@@ -23,7 +23,7 @@
       :root {
         --color-bg: #000000;
         --color-fg: #ffffff;
-        --color-muted: #9ca3af;
+        --color-muted: #a3a3a3;
         --color-border: #1f2937;
         --color-subtle-bg: #111111;
         --color-hover-bg: #1a1a1a;
@@ -48,6 +48,12 @@
     h1, h2, h3, h4, h5, h6 {
       font-weight: 600;
       line-height: 1.25;
+    }
+
+    /* Focus visible styles for accessibility */
+    a:focus-visible {
+      outline: 2px solid var(--color-fg);
+      outline-offset: 2px;
     }
 
     .text-muted {
@@ -145,7 +151,7 @@
               "Perfection is achieved, not when there is nothing more to add, but when there is nothing left to take away."
             </p>
             <footer class="text-base font-medium">
-              — Antoine de Saint-Exupéry
+              — <cite>Antoine de Saint-Exupéry</cite>
             </footer>
           </blockquote>
 
@@ -209,7 +215,7 @@
 
           <!-- Small Text / Footnote -->
           <div class="mt-8 pt-6 border-t border-border">
-            <p class="text-xs text-muted leading-relaxed">
+            <p class="text-sm text-muted leading-relaxed">
               Note: This article explores principles of minimal design in web interfaces. The concepts discussed are based on established design practices and have been adapted for modern digital contexts. For further reading on typography and layout principles, see Robert Bringhurst's "The Elements of Typographic Style" and Jan Tschichold's "The New Typography."
             </p>
           </div>

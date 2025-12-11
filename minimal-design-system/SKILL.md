@@ -4,7 +4,7 @@ description: Minimalist black/white design system with generous whitespace for H
 ---
 
 # Minimal Design System
-**Version: v1.1**
+**Version: v1.2**
 
 A minimalist black/white design system with generous whitespace, inspired by modern clean aesthetics. Built with Tailwind CSS and Inter UI font.
 

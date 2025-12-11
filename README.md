@@ -2,7 +2,7 @@
 
 A minimalist black-and-white design system with generous whitespace for HTML artifacts, dashboards, and websites. Built with Tailwind CSS and Inter UI font.
 
-🌐 **[View Demo Website](https://your-username.github.io/minimal-design-system-skill/)**
+🌐 **[View Demo Website](https://minimal-design-system-skill.vercel.app)**
 
 ## What is a Claude Skill?
 
@@ -45,7 +45,7 @@ minimal-design-system/
 
 1. **Clone or Download this Repository**
    ```bash
-   git clone https://github.com/your-username/minimal-design-system-skill.git
+   git clone https://github.com/holger1411/minimal-design-system-skill.git
    ```
    Or download as ZIP from GitHub
 
@@ -75,7 +75,7 @@ If you just want to try the basic skill without all templates:
 
 1. **Clone the Repository**
    ```bash
-   git clone https://github.com/your-username/minimal-design-system-skill.git
+   git clone https://github.com/holger1411/minimal-design-system-skill.git
    ```
 
 2. **Copy to Claude Skills Directory**
@@ -269,7 +269,7 @@ Created by Holger Könemann
 
 ## Links
 
-- [Demo Website](https://your-username.github.io/minimal-design-system-skill/)
+- [Demo Website](https://minimal-design-system-skill.vercel.app)
 - [Claude AI](https://claude.ai)
 - [Claude Skills Documentation](https://docs.claude.com/en/docs/agents-and-tools/agent-skills/overview)
 
@@ -279,7 +279,3 @@ Created by Holger Könemann
 - [Using Skills in Claude](https://support.claude.com/en/articles/12512180-using-skills-in-claude)
 - [How to create custom Skills](https://support.claude.com/en/articles/12512198-how-to-create-custom-skills)
 - [Skills GitHub Repository](https://github.com/anthropics/skills)
-
----
-
-**Note**: Replace `your-username` in URLs with your actual GitHub username when you publish this repository.

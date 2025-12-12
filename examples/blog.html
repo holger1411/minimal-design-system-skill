@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Overthinking Blog</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-bg: #ffffff;
+      --color-fg: #000000;
+      --color-muted: #525252;
+      --color-border: #e5e5e5;
+      --color-hover: #f5f5f5;
+    }
+    
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-bg: #000000;
+        --color-fg: #ffffff;
+        --color-muted: #a3a3a3;
+        --color-border: #262626;
+        --color-hover: #171717;
+      }
+    }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--color-bg);
+      color: var(--color-fg);
+    }
+  </style>
+</head>
+<body class="antialiased">
+  
+  <!-- Header -->
+  <header class="border-b border-[var(--color-border)]">
+    <div class="max-w-3xl mx-auto px-6 py-8">
+      <div class="flex items-center justify-between">
+        <a href="#" class="text-2xl font-bold">The Overthinking Blog</a>
+        <nav class="flex gap-6 text-[var(--color-muted)]">
+          <a href="#" class="hover:text-[var(--color-fg)] transition-colors">Archive</a>
+          <a href="#" class="hover:text-[var(--color-fg)] transition-colors">About</a>
+          <a href="#" class="hover:text-[var(--color-fg)] transition-colors">Subscribe</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-3xl mx-auto px-6 py-8">
+    
+    <!-- Hero Intro -->
+    <div class="bg-[var(--color-hover)] rounded-2xl px-8 py-12 mb-16">
+      <p class="text-2xl text-[var(--color-muted)] leading-relaxed">
+        A blog about turning simple decisions into philosophical dilemmas. 
+        Because why choose quickly when you can analyze endlessly?
+      </p>
+    </div>
+
+    <!-- Blog Posts -->
+    <div class="space-y-16">
+      
+      <!-- Post 1 -->
+      <article class="group">
+        <a href="#" class="block">
+          <time class="text-sm text-[var(--color-muted)]">December 8, 2025</time>
+          <h2 class="text-2xl font-bold mt-2 mb-3 group-hover:underline">
+            I Spent 47 Minutes Choosing a Toothbrush on Amazon
+          </h2>
+          <p class="text-[var(--color-muted)] leading-relaxed">
+            An exploration of decision paralysis, bristle softness ratings, and why having 2,847 options 
+            for a $4 purchase isn't actually freedom. Includes a flowchart I made at 2am.
+          </p>
+          <span class="inline-block mt-4 text-sm font-medium">Read more →</span>
+        </a>
+      </article>
+
+      <!-- Post 2 -->
+      <article class="group">
+        <a href="#" class="block">
+          <time class="text-sm text-[var(--color-muted)]">December 1, 2025</time>
+          <h2 class="text-2xl font-bold mt-2 mb-3 group-hover:underline">
+            The Email I've Been Drafting for 3 Weeks
+          </h2>
+          <p class="text-[var(--color-muted)] leading-relaxed">
+            It's 4 sentences. One of them is "Hope this finds you well." I've rewritten it 23 times. 
+            A deep dive into why "Best" vs "Thanks" as a sign-off keeps me up at night.
+          </p>
+          <span class="inline-block mt-4 text-sm font-medium">Read more →</span>
+        </a>
+      </article>
+
+      <!-- Post 3 -->
+      <article class="group">
+        <a href="#" class="block">
+          <time class="text-sm text-[var(--color-muted)]">November 24, 2025</time>
+          <h2 class="text-2xl font-bold mt-2 mb-3 group-hover:underline">
+            I Made a Spreadsheet to Decide Where to Eat Lunch
+          </h2>
+          <p class="text-[var(--color-muted)] leading-relaxed">
+            Weighted scoring across 14 criteria including "vibes," "likelihood of running into someone I know," 
+            and "acceptable distance to walk in these shoes." The spreadsheet now has tabs.
+          </p>
+          <span class="inline-block mt-4 text-sm font-medium">Read more →</span>
+        </a>
+      </article>
+
+      <!-- Post 4 -->
+      <article class="group">
+        <a href="#" class="block">
+          <time class="text-sm text-[var(--color-muted)]">November 15, 2025</time>
+          <h2 class="text-2xl font-bold mt-2 mb-3 group-hover:underline">
+            Why I Own 4 Identical Black T-Shirts But Can't Pick One
+          </h2>
+          <p class="text-[var(--color-muted)] leading-relaxed">
+            They're the same shirt. I bought them specifically to avoid decision fatigue. 
+            Now I spend 10 minutes deciding which one is "the good one." I am not okay.
+          </p>
+          <span class="inline-block mt-4 text-sm font-medium">Read more →</span>
+        </a>
+      </article>
+
+      <!-- Post 5 -->
+      <article class="group">
+        <a href="#" class="block">
+          <time class="text-sm text-[var(--color-muted)]">November 8, 2025</time>
+          <h2 class="text-2xl font-bold mt-2 mb-3 group-hover:underline">
+            The Plant I'm Afraid to Water (A Tragedy in Three Acts)
+          </h2>
+          <p class="text-[var(--color-muted)] leading-relaxed">
+            Too much water? Too little? The soil feels... medium? An investigation into why caring for 
+            a succulent—literally the easiest plant—has become my greatest source of anxiety.
+          </p>
+          <span class="inline-block mt-4 text-sm font-medium">Read more →</span>
+        </a>
+      </article>
+
+    </div>
+
+    <!-- Pagination -->
+    <div class="mt-20 pt-8 border-t border-[var(--color-border)] flex justify-between items-center">
+      <span class="text-[var(--color-muted)]">Page 1 of 47</span>
+      <a href="#" class="px-6 py-3 bg-[var(--color-fg)] text-[var(--color-bg)] font-medium rounded-full hover:opacity-90 transition-opacity">
+        Older Posts →
+      </a>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-[var(--color-border)] mt-16">
+    <div class="max-w-3xl mx-auto px-6 py-12">
+      <div class="flex justify-between items-center">
+        <p class="text-sm text-[var(--color-muted)]">
+          © 2025 The Overthinking Blog. I spent 3 hours choosing this font.
+        </p>
+        <div class="flex gap-6 text-sm text-[var(--color-muted)]">
+          <a href="#" class="hover:text-[var(--color-fg)] transition-colors">RSS</a>
+          <a href="#" class="hover:text-[var(--color-fg)] transition-colors">Twitter</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

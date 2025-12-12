@@ -172,12 +172,93 @@
         <img src="screen.jpg" alt="Minimal Design System Preview" class="w-full h-auto rounded-lg border border-[var(--color-border)] shadow-2xl">
       </div>
     </div>
+  </section>
+
+  <!-- Examples Section -->
+  <section class="bg-[var(--color-hover)] py-20">
+    <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl font-bold mb-4">See It in Action</h2>
+      <p class="text-lg text-[var(--color-muted)] max-w-2xl mx-auto">
+        Install the skill, copy one of these prompts, paste it into Claude—and get results like these.
+      </p>
+    </div>
     
-    <!-- Disclaimer -->
-    <div class="mt-20 mb-12 max-w-4xl mx-auto">
-      <div class="border-l-4 border-[var(--color-muted)] pl-6 py-8">
+    <div class="space-y-16">
+      
+      <!-- Example 1: Frontend Engineer (Text left, Image right) -->
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <span class="text-sm font-medium text-[var(--color-muted)] uppercase tracking-wider">Prompt:</span>
+          <div class="flex items-start gap-4 mt-4 mb-6">
+            <p class="text-xl text-[var(--color-fg)] leading-relaxed italic flex-1">
+              "Create a personal page for a fictional frontend engineer from the Bay Area, California. Use the minimal design system skill."
+            </p>
+            <button onclick="copyPrompt('Create a personal page for a fictional frontend engineer from the Bay Area, California. Use the minimal design system skill.')" class="p-2 border border-[var(--color-border)] rounded-lg text-[var(--color-fg)] hover:bg-[var(--color-hover)] transition-all flex-shrink-0" title="Copy to clipboard">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+            </button>
+          </div>
+          <a href="examples/frontend-engineer.html" class="inline-flex items-center gap-2 font-medium hover:underline">
+            View example →
+          </a>
+        </div>
+        <a href="examples/frontend-engineer.html" class="block group">
+          <img src="frontend-engineer.jpg" alt="Frontend Engineer Personal Page Preview" class="w-full rounded-lg border border-[var(--color-border)] shadow-lg group-hover:shadow-xl transition-shadow">
+        </a>
+      </div>
+
+      <!-- Example 2: Blog (Image left, Text right) -->
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <a href="examples/blog.html" class="block group md:order-1">
+          <img src="blog.jpg" alt="Blog Homepage Preview" class="w-full rounded-lg border border-[var(--color-border)] shadow-lg group-hover:shadow-xl transition-shadow">
+        </a>
+        <div class="md:order-2">
+          <span class="text-sm font-medium text-[var(--color-muted)] uppercase tracking-wider">Prompt:</span>
+          <div class="flex items-start gap-4 mt-4 mb-6">
+            <p class="text-xl text-[var(--color-fg)] leading-relaxed italic flex-1">
+              "Create a minimalist blog homepage with fictional but funny blog posts. Use the minimal design system skill."
+            </p>
+            <button onclick="copyPrompt('Create a minimalist blog homepage with fictional but funny blog posts. Use the minimal design system skill.')" class="p-2 border border-[var(--color-border)] rounded-lg text-[var(--color-fg)] hover:bg-[var(--color-hover)] transition-all flex-shrink-0" title="Copy to clipboard">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+            </button>
+          </div>
+          <a href="examples/blog.html" class="inline-flex items-center gap-2 font-medium hover:underline">
+            View example →
+          </a>
+        </div>
+      </div>
+
+      <!-- Example 3: Mars Dashboard (Text left, Image right) -->
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <span class="text-sm font-medium text-[var(--color-muted)] uppercase tracking-wider">Prompt:</span>
+          <div class="flex items-start gap-4 mt-4 mb-6">
+            <p class="text-xl text-[var(--color-fg)] leading-relaxed italic flex-1">
+              "Create a simple dashboard for a fictional Mars station. Use the minimal design system skill."
+            </p>
+            <button onclick="copyPrompt('Create a simple dashboard for a fictional Mars station. Use the minimal design system skill.')" class="p-2 border border-[var(--color-border)] rounded-lg text-[var(--color-fg)] hover:bg-[var(--color-hover)] transition-all flex-shrink-0" title="Copy to clipboard">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+            </button>
+          </div>
+          <a href="examples/mars-dashboard.html" class="inline-flex items-center gap-2 font-medium hover:underline">
+            View example →
+          </a>
+        </div>
+        <a href="examples/mars-dashboard.html" class="block group">
+          <img src="mars-dashboard.jpg" alt="Mars Station Dashboard Preview" class="w-full rounded-lg border border-[var(--color-border)] shadow-lg group-hover:shadow-xl transition-shadow">
+        </a>
+      </div>
+
+    </div>
+    </div>
+  </section>
+
+  <!-- Disclaimer -->
+  <section class="max-w-6xl mx-auto px-6 py-12">
+    <div class="max-w-4xl mx-auto">
+      <div class="border-l-4 border-[var(--color-border)] pl-6 py-4">
         <p class="text-sm text-[var(--color-muted)] leading-relaxed">
-          <strong class="text-[var(--color-fg)]">Note:</strong> This website itself was created using the Minimal Design System Skill as a demonstration. 
+          <strong class="text-[var(--color-fg)]">Note:</strong> This website and all examples above were created using the Minimal Design System Skill. 
           The skill is designed for <strong class="text-[var(--color-fg)]">rapid prototyping and development workflows</strong> with Claude AI—perfect for quickly creating HTML artifacts, mockups, and proof-of-concepts. 
           However, it's <strong class="text-[var(--color-fg)]">not intended for large-scale production websites</strong>, as it doesn't include optimizations for images, assets, or performance at scale.
         </p>
@@ -217,7 +298,7 @@
   <section class="max-w-6xl mx-auto px-6 py-20 border-t border-[var(--color-border)]">
     <div class="grid md:grid-cols-3 gap-12">
       <!-- Left: List (2/3) -->
-      <div class="md:col-span-2 bg-gray-50 dark:bg-gray-900/30 rounded-lg p-10">
+      <div class="md:col-span-2 bg-[var(--color-hover)] rounded-lg p-10">
         <div class="space-y-4 text-lg text-[var(--color-muted)]">
           <div class="flex items-start gap-4">
             <svg class="w-6 h-6 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -300,5 +381,35 @@
       </div>
     </div>
   </footer>
+  
+  <script>
+    function copyPrompt(text) {
+      const btn = event.currentTarget;
+      
+      navigator.clipboard.writeText(text).then(function() {
+        // Add click feedback
+        btn.style.transform = 'scale(0.95)';
+        setTimeout(() => btn.style.transform = '', 100);
+        
+        // Create tooltip
+        const tooltip = document.createElement('span');
+        tooltip.textContent = 'Copied!';
+        tooltip.style.cssText = 'position: absolute; top: -32px; left: 50%; transform: translateX(-50%); padding: 4px 8px; font-size: 12px; font-weight: 500; background: var(--color-fg); color: var(--color-bg); border-radius: 6px; white-space: nowrap; opacity: 0; transition: opacity 0.2s;';
+        
+        // Position button relative for tooltip
+        btn.style.position = 'relative';
+        btn.appendChild(tooltip);
+        
+        // Fade in
+        setTimeout(() => tooltip.style.opacity = '1', 10);
+        
+        // Fade out and remove tooltip after delay
+        setTimeout(() => {
+          tooltip.style.opacity = '0';
+          setTimeout(() => tooltip.remove(), 200);
+        }, 1200);
+      });
+    }
+  </script>
 </body>
 </html>

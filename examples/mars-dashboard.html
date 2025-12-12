@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Olympus Base – Mars Station Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-bg: #ffffff;
+      --color-fg: #000000;
+      --color-muted: #525252;
+      --color-border: #e5e5e5;
+      --color-hover: #f5f5f5;
+      --color-success: #166534;
+      --color-success-bg: #dcfce7;
+      --color-warning: #854d0e;
+      --color-warning-bg: #fef9c3;
+      --color-error: #991b1b;
+      --color-error-bg: #fee2e2;
+    }
+    
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-bg: #000000;
+        --color-fg: #ffffff;
+        --color-muted: #a3a3a3;
+        --color-border: #262626;
+        --color-hover: #171717;
+        --color-success: #86efac;
+        --color-success-bg: #14532d;
+        --color-warning: #fde047;
+        --color-warning-bg: #422006;
+        --color-error: #fca5a5;
+        --color-error-bg: #450a0a;
+      }
+    }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--color-bg);
+      color: var(--color-fg);
+    }
+
+    .status-ok { background: var(--color-success-bg); color: var(--color-success); }
+    .status-warning { background: var(--color-warning-bg); color: var(--color-warning); }
+    .status-critical { background: var(--color-error-bg); color: var(--color-error); }
+  </style>
+</head>
+<body class="antialiased">
+  
+  <!-- Header -->
+  <header class="border-b border-[var(--color-border)]">
+    <div class="max-w-6xl mx-auto px-6 py-4">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-4">
+          <div class="w-10 h-10 rounded-full bg-[var(--color-border)] flex items-center justify-center font-bold text-sm">
+            OB
+          </div>
+          <div>
+            <h1 class="font-bold">Olympus Base</h1>
+            <p class="text-xs text-[var(--color-muted)]">Mars Colony Alpha • Sol 847</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-6">
+          <span class="text-sm text-[var(--color-muted)]">Earth Time: 14:32 UTC</span>
+          <span class="text-sm text-[var(--color-muted)]">Mars Time: 09:17 MTC</span>
+          <span class="px-3 py-1 text-xs font-medium rounded-full status-ok">All Systems Nominal</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-6 py-8">
+    
+    <!-- Stats Grid -->
+    <div class="grid grid-cols-4 gap-6 mb-12">
+      <div class="p-6 border border-[var(--color-border)] rounded-lg">
+        <p class="text-sm text-[var(--color-muted)] mb-1">Crew Members</p>
+        <p class="text-3xl font-bold">12</p>
+        <p class="text-xs text-[var(--color-muted)] mt-2">All healthy</p>
+      </div>
+      <div class="p-6 border border-[var(--color-border)] rounded-lg">
+        <p class="text-sm text-[var(--color-muted)] mb-1">Oxygen Level</p>
+        <p class="text-3xl font-bold">21.4%</p>
+        <p class="text-xs text-[var(--color-muted)] mt-2">Optimal range</p>
+      </div>
+      <div class="p-6 border border-[var(--color-border)] rounded-lg">
+        <p class="text-sm text-[var(--color-muted)] mb-1">Water Reserve</p>
+        <p class="text-3xl font-bold">847L</p>
+        <p class="text-xs text-[var(--color-muted)] mt-2">42 days supply</p>
+      </div>
+      <div class="p-6 border border-[var(--color-border)] rounded-lg">
+        <p class="text-sm text-[var(--color-muted)] mb-1">Power Output</p>
+        <p class="text-3xl font-bold">94%</p>
+        <p class="text-xs text-[var(--color-muted)] mt-2">Solar + Nuclear</p>
+      </div>
+    </div>
+
+    <!-- Two Column Layout -->
+    <div class="grid md:grid-cols-3 gap-8">
+      
+      <!-- Left Column (2/3) -->
+      <div class="md:col-span-2 space-y-8">
+        
+        <!-- System Status -->
+        <section>
+          <h2 class="text-lg font-semibold mb-4">System Status</h2>
+          <div class="border border-[var(--color-border)] rounded-lg overflow-hidden">
+            <table class="w-full text-sm">
+              <thead class="bg-[var(--color-hover)]">
+                <tr>
+                  <th class="text-left py-3 px-4 font-medium">System</th>
+                  <th class="text-left py-3 px-4 font-medium">Status</th>
+                  <th class="text-left py-3 px-4 font-medium">Last Check</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-[var(--color-border)]">
+                <tr>
+                  <td class="py-3 px-4">Life Support</td>
+                  <td class="py-3 px-4"><span class="px-2 py-1 text-xs font-medium rounded-full status-ok">Optimal</span></td>
+                  <td class="py-3 px-4 text-[var(--color-muted)]">2 min ago</td>
+                </tr>
+                <tr>
+                  <td class="py-3 px-4">Hydroponics Bay</td>
+                  <td class="py-3 px-4"><span class="px-2 py-1 text-xs font-medium rounded-full status-ok">Growing</span></td>
+                  <td class="py-3 px-4 text-[var(--color-muted)]">5 min ago</td>
+                </tr>
+                <tr>
+                  <td class="py-3 px-4">Rover Alpha</td>
+                  <td class="py-3 px-4"><span class="px-2 py-1 text-xs font-medium rounded-full status-warning">Charging</span></td>
+                  <td class="py-3 px-4 text-[var(--color-muted)]">12 min ago</td>
+                </tr>
+                <tr>
+                  <td class="py-3 px-4">Comm Array</td>
+                  <td class="py-3 px-4"><span class="px-2 py-1 text-xs font-medium rounded-full status-ok">Online</span></td>
+                  <td class="py-3 px-4 text-[var(--color-muted)]">1 min ago</td>
+                </tr>
+                <tr>
+                  <td class="py-3 px-4">Airlock 2</td>
+                  <td class="py-3 px-4"><span class="px-2 py-1 text-xs font-medium rounded-full status-critical">Maintenance</span></td>
+                  <td class="py-3 px-4 text-[var(--color-muted)]">30 min ago</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Resource Consumption -->
+        <section>
+          <h2 class="text-lg font-semibold mb-4">Resource Consumption (Last 7 Sols)</h2>
+          <div class="border border-[var(--color-border)] rounded-lg p-6 space-y-4">
+            <div>
+              <div class="flex justify-between text-sm mb-2">
+                <span>Water</span>
+                <span class="text-[var(--color-muted)]">124L / 200L daily target</span>
+              </div>
+              <div class="h-3 bg-[var(--color-hover)] rounded-full overflow-hidden">
+                <div class="h-full bg-[var(--color-fg)] rounded-full" style="width: 62%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm mb-2">
+                <span>Food Rations</span>
+                <span class="text-[var(--color-muted)]">89% of allocation</span>
+              </div>
+              <div class="h-3 bg-[var(--color-hover)] rounded-full overflow-hidden">
+                <div class="h-full bg-[var(--color-fg)] rounded-full" style="width: 89%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm mb-2">
+                <span>Power</span>
+                <span class="text-[var(--color-muted)]">2.4MW / 3MW capacity</span>
+              </div>
+              <div class="h-3 bg-[var(--color-hover)] rounded-full overflow-hidden">
+                <div class="h-full bg-[var(--color-fg)] rounded-full" style="width: 80%"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Right Column (1/3) -->
+      <div class="space-y-8">
+        
+        <!-- Weather -->
+        <section>
+          <h2 class="text-lg font-semibold mb-4">Surface Conditions</h2>
+          <div class="border border-[var(--color-border)] rounded-lg p-6 space-y-4">
+            <div class="flex justify-between">
+              <span class="text-[var(--color-muted)]">Temperature</span>
+              <span class="font-medium">-63°C</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-[var(--color-muted)]">Wind Speed</span>
+              <span class="font-medium">12 m/s</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-[var(--color-muted)]">Dust Level</span>
+              <span class="font-medium">Low</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-[var(--color-muted)]">Radiation</span>
+              <span class="font-medium">0.24 mSv/day</span>
+            </div>
+            <div class="pt-4 border-t border-[var(--color-border)]">
+              <p class="text-xs text-[var(--color-muted)]">EVA Conditions: Suitable</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Upcoming Events -->
+        <section>
+          <h2 class="text-lg font-semibold mb-4">Today's Schedule</h2>
+          <div class="border border-[var(--color-border)] rounded-lg divide-y divide-[var(--color-border)]">
+            <div class="p-4">
+              <p class="text-xs text-[var(--color-muted)]">10:00 MTC</p>
+              <p class="font-medium">EVA: Geology Survey</p>
+            </div>
+            <div class="p-4">
+              <p class="text-xs text-[var(--color-muted)]">12:30 MTC</p>
+              <p class="font-medium">Earth Comm Window</p>
+            </div>
+            <div class="p-4">
+              <p class="text-xs text-[var(--color-muted)]">15:00 MTC</p>
+              <p class="font-medium">Hydroponics Harvest</p>
+            </div>
+            <div class="p-4">
+              <p class="text-xs text-[var(--color-muted)]">18:00 MTC</p>
+              <p class="font-medium">Crew Movie Night 🎬</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Quick Actions -->
+        <section>
+          <h2 class="text-lg font-semibold mb-4">Quick Actions</h2>
+          <div class="space-y-3">
+            <button class="w-full px-4 py-3 text-left border border-[var(--color-border)] rounded-lg hover:bg-[var(--color-hover)] transition-colors">
+              📡 Send Message to Earth
+            </button>
+            <button class="w-full px-4 py-3 text-left border border-[var(--color-border)] rounded-lg hover:bg-[var(--color-hover)] transition-colors">
+              🚨 Report Incident
+            </button>
+            <button class="w-full px-4 py-3 text-left border border-[var(--color-border)] rounded-lg hover:bg-[var(--color-hover)] transition-colors">
+              📋 Log Activity
+            </button>
+          </div>
+        </section>
+
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-[var(--color-border)] mt-12">
+    <div class="max-w-6xl mx-auto px-6 py-6">
+      <p class="text-xs text-[var(--color-muted)] text-center">
+        Olympus Base Control System v3.2.1 • Signal Delay to Earth: 12m 34s • Built with Minimal Design System
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>

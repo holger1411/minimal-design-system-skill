@@ -4,7 +4,7 @@ description: Minimalist black/white design system with generous whitespace for H
 ---
 
 # Minimal Design System
-**Version: v1.2**
+**Version: v1.3**
 
 A minimalist black/white design system with generous whitespace, inspired by modern clean aesthetics. Built with Tailwind CSS and Inter UI font.
 
@@ -222,6 +222,42 @@ When creating pages with this design system:
 - **Padding**: 24px on mobile, 32px on desktop
 - **Section gaps**: 64px (space-y-16) between major sections
 - **Element gaps**: 24px (space-y-6) within sections
+
+## Page Structure Guidelines
+
+When creating static websites (not interactive apps or dashboards), follow these structural patterns:
+
+### Hero Section
+
+**For landing pages, homepages, and content pages**: Always include a hero section at the top. This is standard web design practice and should be added automatically without the user explicitly requesting it.
+
+A hero section typically includes:
+- A prominent headline (h1, text-4xl or text-5xl)
+- A supporting subheadline or description (text-xl, muted color)
+- Optional: A call-to-action button or link
+- Optional: A visual element (image, illustration, or decorative background)
+
+**Hero styling options:**
+- **Boxed hero**: Contained within a rounded container with background color (e.g., dark background with light text, or light gray background)
+- **Full-width hero**: Spans the entire viewport width with generous padding
+- **Minimal hero**: Simple text-based hero with extra whitespace
+
+```html
+<!-- Example: Boxed Hero -->
+<div class="max-w-4xl mx-auto px-6 pt-12">
+  <header class="bg-neutral-900 rounded-2xl px-10 py-16 mb-16">
+    <h1 class="text-5xl font-bold text-white mb-4">Headline</h1>
+    <p class="text-xl text-neutral-400">Supporting description text.</p>
+  </header>
+</div>
+```
+
+### When NOT to add a hero section
+
+- **Dashboards and admin interfaces**: Start directly with the content/data
+- **Interactive applications**: Focus on the UI controls
+- **Documentation pages**: Start with navigation or table of contents
+- **Forms and tools**: The form itself is the primary content
 
 ## Typography Scale
 

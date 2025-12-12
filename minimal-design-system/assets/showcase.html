@@ -82,6 +82,34 @@
       border-top: 1px solid var(--color-border);
       margin: 4rem 0;
     }
+
+    /* Mobile menu animation */
+    .mobile-menu {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out, opacity 0.3s ease-out, padding 0.3s ease-out, margin 0.3s ease-out;
+      opacity: 0;
+      padding: 0;
+      margin: 0;
+      border-top: 1px solid transparent;
+    }
+    
+    .mobile-menu.open {
+      max-height: 300px;
+      opacity: 1;
+      padding-top: 1rem;
+      padding-bottom: 0.5rem;
+      margin-top: 1rem;
+      border-top-color: var(--color-border);
+    }
+
+    .menu-icon {
+      transition: transform 0.2s ease-out;
+    }
+    
+    .menu-icon.rotate {
+      transform: rotate(90deg);
+    }
   </style>
 
   <script>
@@ -107,7 +135,79 @@
 </head>
 <body class="min-h-screen">
 
+  <!-- Responsive Header with Mobile Menu -->
+  <header class="sticky top-0 z-50 bg-[var(--color-bg)] border-b border-[var(--color-border)]">
+    <div class="max-w-7xl mx-auto px-6 py-4 md:py-6 sm:px-8">
+      <div class="flex items-center justify-between">
+        <!-- Logo -->
+        <a href="#" class="text-lg md:text-xl font-bold">Brand</a>
+        
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex items-center gap-8">
+          <a href="#" class="font-medium">Home</a>
+          <a href="#" class="text-[var(--color-muted)] hover:text-[var(--color-fg)] transition-colors">Products</a>
+          <a href="#" class="text-[var(--color-muted)] hover:text-[var(--color-fg)] transition-colors">About</a>
+          <a href="#" class="text-[var(--color-muted)] hover:text-[var(--color-fg)] transition-colors">Contact</a>
+        </nav>
+
+        <!-- Desktop CTA -->
+        <div class="hidden md:block">
+          <a href="#" class="px-6 py-3 bg-black text-white font-medium rounded-full hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200">
+            Get Started
+          </a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn" class="md:hidden p-2 -mr-2" aria-label="Toggle menu" aria-expanded="false">
+          <svg class="w-6 h-6 menu-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path id="menu-icon-path" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            <path id="close-icon-path" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Menu -->
+      <nav id="mobile-menu" class="mobile-menu md:hidden">
+        <div class="flex flex-col gap-4">
+          <a href="#" class="font-medium py-2">Home</a>
+          <a href="#" class="text-[var(--color-muted)] hover:text-[var(--color-fg)] transition-colors py-2">Products</a>
+          <a href="#" class="text-[var(--color-muted)] hover:text-[var(--color-fg)] transition-colors py-2">About</a>
+          <a href="#" class="text-[var(--color-muted)] hover:text-[var(--color-fg)] transition-colors py-2">Contact</a>
+          <a href="#" class="inline-block text-center px-6 py-3 bg-black text-white font-medium rounded-full hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200 mt-2">
+            Get Started
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <script>
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIconPath = document.getElementById('menu-icon-path');
+    const closeIconPath = document.getElementById('close-icon-path');
+    const menuSvg = mobileMenuBtn.querySelector('svg');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.contains('open');
+      mobileMenu.classList.toggle('open');
+      menuIconPath.classList.toggle('hidden');
+      closeIconPath.classList.toggle('hidden');
+      menuSvg.classList.toggle('rotate');
+      mobileMenuBtn.setAttribute('aria-expanded', !isOpen);
+    });
+  </script>
+
   <main class="max-w-7xl mx-auto px-6 py-16 sm:px-8">
+
+    <!-- Navigation Section -->
+    <section class="mb-24">
+      <h2 class="text-3xl font-semibold mb-12">Navigation</h2>
+      <p class="text-[var(--color-muted)] mb-4">See the header above for a complete responsive navigation example. On mobile (below 768px), it transforms into an animated hamburger menu.</p>
+      <p class="text-[var(--color-muted)]">Key features: Smooth CSS transitions, accessible ARIA attributes, and Tailwind's responsive utilities (hidden md:flex, md:hidden).</p>
+    </section>
+
+    <div class="section-divider"></div>
 
     <!-- Buttons Section -->
     <section class="mb-24">

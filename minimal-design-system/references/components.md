@@ -2,6 +2,24 @@
 
 Complete component reference for the minimal design system. All components support light/dark mode and follow WCAG AA accessibility standards.
 
+## Navigation
+
+Responsive navigation with animated hamburger menu for mobile. See SKILL.md for full implementation details.
+
+### Key Classes
+
+- Desktop nav: `hidden md:flex items-center gap-8`
+- Mobile menu button: `md:hidden p-2`
+- Mobile menu container: `mobile-menu md:hidden`
+- Animation classes: `.mobile-menu`, `.mobile-menu.open`, `.menu-icon`, `.menu-icon.rotate`
+
+### Accessibility Requirements
+
+- `aria-label="Toggle menu"` on hamburger button
+- `aria-expanded` state updates on toggle
+- Semantic `<nav>` elements
+- Keyboard accessible links
+
 ## Badges & Status Indicators
 
 The design system uses a complete 5-color semantic system for badges:

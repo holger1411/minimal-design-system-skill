@@ -4,9 +4,24 @@ description: Minimalist black/white design system with generous whitespace for H
 ---
 
 # Minimal Design System
-**Version: v1.3**
+**Version: v1.4**
 
 A minimalist black/white design system with generous whitespace, inspired by modern clean aesthetics. Built with Tailwind CSS and Inter UI font.
+
+## Tailwind CSS
+
+This design system is built on **Tailwind CSS**. Always use the latest version via CDN:
+
+```html
+<script src="https://cdn.tailwindcss.com"></script>
+```
+
+### Documentation & Research
+
+- **Official Documentation**: https://tailwindcss.com/docs/
+- When implementing complex layouts or unfamiliar utilities, **always research the official Tailwind documentation** first
+- Use Tailwind's standard patterns and utilities rather than custom CSS where possible
+- The documentation is comprehensive and includes examples for all utilities
 
 ## Core Design Philosophy
 
@@ -222,6 +237,117 @@ When creating pages with this design system:
 - **Padding**: 24px on mobile, 32px on desktop
 - **Section gaps**: 64px (space-y-16) between major sections
 - **Element gaps**: 24px (space-y-6) within sections
+
+## Responsive Navigation
+
+**IMPORTANT**: All navigation must be responsive. On smaller screens (below `md` breakpoint / 768px), use a hamburger menu.
+
+### Navigation Pattern
+
+- **Desktop (md and up)**: Horizontal navigation with visible links
+- **Mobile (below md)**: Hamburger icon that reveals a vertical menu
+
+### Hamburger Menu Implementation
+
+Use CSS transitions for smooth animations. The menu should:
+1. Be completely invisible when closed (no spacing/padding)
+2. Animate smoothly when opening/closing
+3. Include a visual icon transition (hamburger ↔ X)
+
+```css
+/* Mobile menu animation */
+.mobile-menu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out, opacity 0.3s ease-out, padding 0.3s ease-out, margin 0.3s ease-out;
+  opacity: 0;
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid transparent;
+}
+
+.mobile-menu.open {
+  max-height: 300px;
+  opacity: 1;
+  padding-top: 1rem;
+  padding-bottom: 0.5rem;
+  margin-top: 1rem;
+  border-top-color: var(--color-border);
+}
+
+.menu-icon {
+  transition: transform 0.2s ease-out;
+}
+
+.menu-icon.rotate {
+  transform: rotate(90deg);
+}
+```
+
+### Header Structure Example
+
+```html
+<header class="sticky top-0 z-50 bg-[var(--color-bg)] border-b border-[var(--color-border)]">
+  <div class="max-w-6xl mx-auto px-6 py-4 md:py-6">
+    <div class="flex items-center justify-between">
+      <!-- Logo -->
+      <a href="/" class="text-lg md:text-xl font-bold">Logo</a>
+      
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="/" class="font-medium">Home</a>
+        <a href="/about" class="text-[var(--color-muted)] hover:text-[var(--color-fg)] transition-colors">About</a>
+      </nav>
+
+      <!-- Desktop CTA -->
+      <div class="hidden md:block">
+        <a href="/contact" class="px-6 py-3 bg-black text-white font-medium rounded-full">Contact</a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-btn" class="md:hidden p-2 -mr-2" aria-label="Toggle menu" aria-expanded="false">
+        <svg class="w-6 h-6 menu-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          <path id="close-icon" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <nav id="mobile-menu" class="mobile-menu md:hidden">
+      <div class="flex flex-col gap-4">
+        <a href="/" class="font-medium py-2">Home</a>
+        <a href="/about" class="text-[var(--color-muted)] py-2">About</a>
+        <a href="/contact" class="inline-block text-center px-6 py-3 bg-black text-white font-medium rounded-full mt-2">Contact</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuIcon = document.getElementById('menu-icon');
+  const closeIcon = document.getElementById('close-icon');
+  const menuSvg = mobileMenuBtn.querySelector('svg');
+
+  mobileMenuBtn.addEventListener('click', () => {
+    const isOpen = mobileMenu.classList.contains('open');
+    mobileMenu.classList.toggle('open');
+    menuIcon.classList.toggle('hidden');
+    closeIcon.classList.toggle('hidden');
+    menuSvg.classList.toggle('rotate');
+    mobileMenuBtn.setAttribute('aria-expanded', !isOpen);
+  });
+</script>
+```
+
+### Navigation Accessibility
+
+- Use `aria-label="Toggle menu"` on the hamburger button
+- Update `aria-expanded` state when menu opens/closes
+- Ensure all links are keyboard accessible
+- Use semantic `<nav>` elements
 
 ## Page Structure Guidelines
 

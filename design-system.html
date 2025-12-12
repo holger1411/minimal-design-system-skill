@@ -84,6 +84,34 @@
       margin-right: 12px;
       flex-shrink: 0;
     }
+
+    /* Mobile menu animation */
+    .mobile-menu {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out, opacity 0.3s ease-out, padding 0.3s ease-out, margin 0.3s ease-out;
+      opacity: 0;
+      padding: 0;
+      margin: 0;
+      border-top: 1px solid transparent;
+    }
+    
+    .mobile-menu.open {
+      max-height: 300px;
+      opacity: 1;
+      padding-top: 1rem;
+      padding-bottom: 0.5rem;
+      margin-top: 1rem;
+      border-top-color: var(--color-border);
+    }
+
+    .menu-icon {
+      transition: transform 0.2s ease-out;
+    }
+    
+    .menu-icon.rotate {
+      transform: rotate(90deg);
+    }
   </style>
   <script>
     window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
@@ -93,24 +121,65 @@
 <body class="antialiased">
   <!-- Sticky Header -->
   <header class="sticky top-0 z-50 bg-[var(--color-bg)] border-b border-[var(--color-border)]">
-    <div class="max-w-6xl mx-auto px-6 py-6">
+    <div class="max-w-6xl mx-auto px-6 py-4 md:py-6">
       <div class="flex items-center justify-between">
         <div>
-          <a href="index.html" class="text-xl font-bold">Minimal Design System Skill</a>
+          <a href="index.html" class="text-lg md:text-xl font-bold">Minimal Design System Skill</a>
         </div>
-        <nav class="flex items-center gap-8">
+        
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex items-center gap-8">
           <a href="index.html" class="text-[var(--color-muted)] hover:text-[var(--color-fg)] transition-colors">Home</a>
           <a href="design-system.html" class="font-medium border-b-2 border-[var(--color-fg)]">Design System</a>
           <a href="how-to-use.html" class="text-[var(--color-muted)] hover:text-[var(--color-fg)] transition-colors">How to Use</a>
         </nav>
-        <div>
+
+        <!-- Desktop Download Button -->
+        <div class="hidden md:block">
           <a href="minimal-design-system.zip" download class="px-6 py-3 bg-black dark:bg-white text-white dark:text-black font-medium rounded-full hover:opacity-90 transition-opacity">
             Download
           </a>
         </div>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn" class="md:hidden p-2 -mr-2" aria-label="Toggle menu" aria-expanded="false">
+          <svg class="w-6 h-6 menu-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            <path id="close-icon" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
       </div>
+
+      <!-- Mobile Menu -->
+      <nav id="mobile-menu" class="mobile-menu md:hidden">
+        <div class="flex flex-col gap-4">
+          <a href="index.html" class="text-[var(--color-muted)] hover:text-[var(--color-fg)] transition-colors py-2">Home</a>
+          <a href="design-system.html" class="font-medium py-2">Design System</a>
+          <a href="how-to-use.html" class="text-[var(--color-muted)] hover:text-[var(--color-fg)] transition-colors py-2">How to Use</a>
+          <a href="minimal-design-system.zip" download class="inline-block text-center px-6 py-3 bg-black dark:bg-white text-white dark:text-black font-medium rounded-full hover:opacity-90 transition-opacity mt-2">
+            Download
+          </a>
+        </div>
+      </nav>
     </div>
   </header>
+
+  <script>
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = document.getElementById('menu-icon');
+    const closeIcon = document.getElementById('close-icon');
+    const menuSvg = mobileMenuBtn.querySelector('svg');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.contains('open');
+      mobileMenu.classList.toggle('open');
+      menuIcon.classList.toggle('hidden');
+      closeIcon.classList.toggle('hidden');
+      menuSvg.classList.toggle('rotate');
+      mobileMenuBtn.setAttribute('aria-expanded', !isOpen);
+    });
+  </script>
 
   <!-- Hero -->
   <section class="max-w-6xl mx-auto px-6 py-16">

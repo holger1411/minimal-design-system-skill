@@ -1,21 +1,20 @@
 ---
 name: minimal-design-system
-description: Minimalist black/white design system with generous whitespace for HTML artifacts, dashboards, and websites. Use when user says "Nutze mein Designsystem" or "use minimal design system" or requests minimal, clean design with Inter font, Tailwind CSS, and professional aesthetics. Provides semantic color tokens (primary, muted, accent), button components, and base templates. Never overwrite existing styles - this serves as a starting foundation that can be customized.
+description: Minimalist design system with shadcn-inspired HSL color tokens and generous whitespace for HTML artifacts, dashboards, and websites. Use when user says "Nutze mein Designsystem" or "use minimal design system" or requests minimal, clean design with Inter font, Tailwind CSS, and professional aesthetics. Provides semantic design tokens (primary, muted, accent, card), button components, and base templates. Never overwrite existing styles - this serves as a starting foundation that can be customized.
 ---
 
 # Minimal Design System
 **Version: v2.0**
 
-A minimalist design system with generous whitespace, semantic color tokens (inspired by shadcn/ui), and modern aesthetics. Built with Tailwind CSS and Inter font.
+A minimalist design system combining shadcn-inspired HSL color tokens with generous whitespace. Built with Tailwind CSS and Inter font.
 
 ## What's New in v2.0
 
-- **HSL-based color system** for flexible theming and opacity support
-- **Semantic token names** (`primary`, `muted`, `accent`, `card`, etc.)
-- **Backdrop-blur headers** for modern sticky navigation
-- **Refined badge styles** (pill-shaped, compact)
-- **`--radius` CSS variable** for consistent border-radius
-- **`tracking-tight`** for polished headline typography
+- **HSL Color System**: Flexible color tokens using HSL values (shadcn-style)
+- **Semantic Token Names**: `--primary`, `--muted`, `--accent`, `--card`, etc.
+- **Auto Dark Mode**: via `prefers-color-scheme` (no JavaScript required)
+- **Backdrop Blur Headers**: Modern sticky header pattern
+- **Improved Component Library**: Cards, badges, alerts with opacity modifiers
 
 ## Tailwind CSS
 
@@ -28,22 +27,28 @@ This design system is built on **Tailwind CSS**. Always use the latest version v
 ### Documentation & Research
 
 - **Official Documentation**: https://tailwindcss.com/docs/
-- When implementing complex layouts or unfamiliar utilities, **always research the official Tailwind documentation** first
+- When implementing complex layouts, **always research the official Tailwind documentation** first
 - Use Tailwind's standard patterns and utilities rather than custom CSS where possible
 
 ## Core Design Philosophy
 
 1. **Generous Whitespace**: Large gaps between sections for breathing room
 2. **Clear Hierarchy**: Typography-driven visual hierarchy (size, weight, tracking)
-3. **Semantic Colors**: Named tokens (`primary`, `muted`) instead of raw values
+3. **Minimal Color**: Semantic tokens with neutral palette, status colors only when needed
 4. **Readable**: Max 65-75 characters per line for text content
-5. **Reversible**: Perfect light/dark mode symmetry (auto via prefers-color-scheme)
+5. **Auto Dark Mode**: Perfect light/dark mode symmetry via CSS media query
 6. **Consistent**: Same design patterns across all pages and components
 7. **Accessible**: WCAG AA compliance minimum, focus states, proper contrast
 
-## Quick Start
+## When to Use This Skill
 
-### Minimal HTML Template
+Apply this design system when:
+- User says "Nutze mein Designsystem" or "use minimal design system"
+- Creating new HTML artifacts, dashboards, or websites
+- User requests minimal, clean, or professional design
+- Starting a new project that needs consistent styling
+
+## Quick Start Template
 
 ```html
 <!DOCTYPE html>
@@ -53,10 +58,7 @@ This design system is built on **Tailwind CSS**. Always use the latest version v
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Page Title</title>
   
-  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-  
-  <!-- Inter Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -76,7 +78,6 @@ This design system is built on **Tailwind CSS**. Always use the latest version v
       --accent: 240 4.8% 95.9%;
       --accent-foreground: 240 5.9% 10%;
       --border: 240 5.9% 90%;
-      --input: 240 5.9% 90%;
       --ring: 240 5.9% 10%;
       --radius: 0.5rem;
     }
@@ -96,173 +97,176 @@ This design system is built on **Tailwind CSS**. Always use the latest version v
         --accent: 240 3.7% 15.9%;
         --accent-foreground: 0 0% 98%;
         --border: 240 3.7% 15.9%;
-        --input: 240 3.7% 15.9%;
         --ring: 240 4.9% 83.9%;
       }
     }
     
-    * {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      border-color: hsl(var(--border));
-    }
+    * { font-family: 'Inter', system-ui, sans-serif; }
+    body { background-color: hsl(var(--background)); color: hsl(var(--foreground)); }
     
-    body {
-      background-color: hsl(var(--background));
-      color: hsl(var(--foreground));
-    }
+    .text-muted { color: hsl(var(--muted-foreground)); }
+    .bg-muted { background-color: hsl(var(--muted)); }
+    .bg-card { background-color: hsl(var(--card)); }
+    .border-default { border-color: hsl(var(--border)); }
+    .bg-primary { background-color: hsl(var(--primary)); }
+    .text-primary-foreground { color: hsl(var(--primary-foreground)); }
     
-    /* Focus visible styles */
-    button:focus-visible,
-    a:focus-visible,
-    input:focus-visible {
+    a:focus-visible, button:focus-visible {
       outline: 2px solid hsl(var(--ring));
       outline-offset: 2px;
     }
   </style>
 </head>
-<body class="min-h-screen antialiased">
+<body class="min-h-screen">
+  
+  <!-- Header -->
+  <header class="sticky top-0 z-50 border-b border-default bg-[hsl(var(--background))]/95 backdrop-blur supports-[backdrop-filter]:bg-[hsl(var(--background))]/60">
+    <div class="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="#" class="text-xl font-bold tracking-tight">Logo</a>
+      <nav class="flex items-center gap-6">
+        <a href="#" class="text-sm text-muted hover:text-[hsl(var(--foreground))] transition-colors">Link</a>
+      </nav>
+    </div>
+  </header>
+
   <main class="max-w-4xl mx-auto px-6 py-16">
-    <!-- Content here -->
+    <!-- Content -->
   </main>
+
+  <footer class="border-t border-default mt-16">
+    <div class="max-w-4xl mx-auto px-6 py-8">
+      <p class="text-sm text-muted">© 2025 Company</p>
+    </div>
+  </footer>
+
 </body>
 </html>
 ```
 
-## Color System
+## Design Tokens
 
-### Semantic Tokens
+All design tokens are documented in `references/design-tokens.md`.
 
-Use semantic names for maintainability and theming:
+### Color Token Reference
 
-| Token | Usage | Tailwind Class |
-|-------|-------|----------------|
-| `--background` | Page background | `bg-[hsl(var(--background))]` |
-| `--foreground` | Primary text | `text-[hsl(var(--foreground))]` |
-| `--primary` | Buttons, CTAs | `bg-[hsl(var(--primary))]` |
-| `--primary-foreground` | Text on primary | `text-[hsl(var(--primary-foreground))]` |
-| `--secondary` | Secondary backgrounds | `bg-[hsl(var(--secondary))]` |
-| `--muted` | Muted backgrounds | `bg-[hsl(var(--muted))]` |
-| `--muted-foreground` | Secondary text | `text-[hsl(var(--muted-foreground))]` |
-| `--accent` | Hover states | `bg-[hsl(var(--accent))]` |
-| `--border` | Borders, dividers | `border-[hsl(var(--border))]` |
-| `--card` | Card backgrounds | `bg-[hsl(var(--card))]` |
-| `--ring` | Focus rings | `ring-[hsl(var(--ring))]` |
+| Token | Light Mode | Dark Mode | Usage |
+|-------|-----------|-----------|-------|
+| `--background` | White | Near-black | Page background |
+| `--foreground` | Near-black | White | Primary text |
+| `--primary` | Near-black | White | Buttons, emphasis |
+| `--primary-foreground` | White | Near-black | Text on primary |
+| `--muted` | Light gray | Dark gray | Subtle backgrounds |
+| `--muted-foreground` | Medium gray | Light gray | Secondary text |
+| `--border` | Light gray | Dark gray | Borders, dividers |
+| `--card` | White | Near-black | Card backgrounds |
+| `--ring` | Near-black | Light gray | Focus rings |
 
-### Opacity Support
+### Using Colors
 
-HSL format allows easy opacity modifiers:
+```css
+/* Basic usage */
+background-color: hsl(var(--background));
+color: hsl(var(--foreground));
 
-```html
-<!-- 50% opacity background -->
-<div class="bg-[hsl(var(--primary)/0.5)]">Semi-transparent</div>
+/* With opacity */
+background-color: hsl(var(--background) / 0.8);
 
-<!-- 10% opacity for subtle backgrounds -->
-<div class="bg-[hsl(var(--primary)/0.1)]">Very subtle</div>
+/* In Tailwind classes */
+class="bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))]"
+
+/* Using utility classes */
+class="text-muted bg-muted border-default"
 ```
-
-### Status Colors
-
-For badges and alerts, use Tailwind's built-in colors with opacity:
-
-```html
-<!-- Success -->
-<span class="bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">Success</span>
-
-<!-- Info -->
-<span class="bg-blue-500/10 text-blue-600 dark:text-blue-400">Info</span>
-
-<!-- Warning -->
-<span class="bg-amber-500/10 text-amber-600 dark:text-amber-400">Warning</span>
-
-<!-- Error -->
-<span class="bg-red-500/10 text-red-600 dark:text-red-400">Error</span>
-```
-
-## Typography
-
-### Headlines
-
-Use `tracking-tight` for a modern, polished look:
-
-```html
-<h1 class="text-4xl md:text-5xl font-bold tracking-tight">Hero Headline</h1>
-<h2 class="text-2xl md:text-3xl font-semibold tracking-tight">Section Title</h2>
-<h3 class="text-xl font-semibold">Subsection</h3>
-```
-
-### Body Text
-
-```html
-<p class="text-[hsl(var(--muted-foreground))] leading-relaxed">
-  Secondary paragraph text with muted color.
-</p>
-```
-
-### Scale Reference
-
-| Element | Classes |
-|---------|---------|
-| Hero h1 | `text-4xl md:text-5xl font-bold tracking-tight` |
-| Section h2 | `text-2xl font-semibold tracking-tight` |
-| Card title | `text-lg font-semibold` or `font-semibold` (base size) |
-| Body | `text-base` (default) |
-| Small/meta | `text-sm text-[hsl(var(--muted-foreground))]` |
 
 ## Components
 
-### Primary Button
+### Buttons
 
+#### Primary Button
 ```html
-<button class="inline-flex items-center justify-center h-11 px-8 bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] text-sm font-medium rounded-md hover:bg-[hsl(var(--primary)/0.9)] transition-colors">
-  Button Text
+<button class="inline-flex items-center justify-center h-11 px-8 bg-primary text-primary-foreground text-sm font-medium rounded-md hover:opacity-90 transition-opacity">
+  Button
 </button>
 ```
 
-### Secondary/Outline Button
-
+#### Secondary Button
 ```html
-<button class="inline-flex items-center justify-center h-11 px-8 border border-[hsl(var(--input))] bg-[hsl(var(--background))] text-sm font-medium rounded-md hover:bg-[hsl(var(--accent))] hover:text-[hsl(var(--accent-foreground))] transition-colors">
-  Secondary
+<button class="inline-flex items-center justify-center h-11 px-8 border border-default text-sm font-medium rounded-md hover:bg-muted transition-colors">
+  Button
 </button>
 ```
 
-### Ghost Button
-
+#### Button with Icon
 ```html
-<button class="inline-flex items-center justify-center h-10 px-4 text-sm font-medium rounded-md hover:bg-[hsl(var(--accent))] hover:text-[hsl(var(--accent-foreground))] transition-colors">
-  Ghost
+<button class="inline-flex items-center justify-center gap-2 h-10 px-4 bg-primary text-primary-foreground text-sm font-medium rounded-md hover:opacity-90 transition-opacity">
+  <svg class="w-4 h-4" ...></svg>
+  Button
 </button>
 ```
 
-### Card
+### Cards
 
 ```html
-<div class="rounded-lg border border-[hsl(var(--border))] bg-[hsl(var(--card))] text-[hsl(var(--card-foreground))] p-6 hover:shadow-md transition-shadow">
+<article class="p-6 rounded-lg border border-default bg-card hover:shadow-md transition-shadow">
   <h3 class="font-semibold mb-2">Card Title</h3>
-  <p class="text-sm text-[hsl(var(--muted-foreground))]">Card description text.</p>
-</div>
+  <p class="text-sm text-muted">Card description text.</p>
+</article>
 ```
 
-### Badge (Pill Style)
+### Badges
 
 ```html
 <!-- Neutral -->
-<span class="inline-flex items-center rounded-full border border-[hsl(var(--border))] bg-[hsl(var(--secondary))] px-2.5 py-0.5 text-xs font-semibold text-[hsl(var(--secondary-foreground))]">
-  Badge
-</span>
+<span class="text-xs px-2.5 py-1 rounded-full bg-muted">Tag</span>
 
-<!-- Status badges -->
-<span class="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold bg-emerald-500/10 text-emerald-600 border border-emerald-500/20">Active</span>
-<span class="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold bg-blue-500/10 text-blue-600 border border-blue-500/20">New</span>
+<!-- Status: Active/Success -->
+<span class="text-xs px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">Active</span>
+
+<!-- Status: Warning -->
+<span class="text-xs px-2.5 py-1 rounded-full bg-yellow-500/10 text-yellow-600 dark:text-yellow-400 border border-yellow-500/20">Warning</span>
+
+<!-- Status: Info -->
+<span class="text-xs px-2.5 py-1 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20">Info</span>
+
+<!-- Status: Error -->
+<span class="text-xs px-2.5 py-1 rounded-full bg-red-500/10 text-red-600 dark:text-red-400 border border-red-500/20">Error</span>
 ```
 
-### Input Field
+### Alerts
+
+```html
+<!-- Warning Alert -->
+<div class="p-3 rounded bg-yellow-500/10 border border-yellow-500/20">
+  <p class="text-sm text-yellow-600 dark:text-yellow-400">⚠️ Warning message here.</p>
+</div>
+
+<!-- Info Alert -->
+<div class="p-3 rounded bg-blue-500/10 border border-blue-500/20">
+  <p class="text-sm text-blue-600 dark:text-blue-400">ℹ️ Info message here.</p>
+</div>
+
+<!-- Success Alert -->
+<div class="p-3 rounded bg-emerald-500/10 border border-emerald-500/20">
+  <p class="text-sm text-emerald-600 dark:text-emerald-400">✓ Success message here.</p>
+</div>
+```
+
+### Progress Bars
+
+```html
+<div class="h-2 rounded-full bg-muted overflow-hidden">
+  <div class="h-full w-[75%] bg-emerald-500 rounded-full"></div>
+</div>
+```
+
+### Forms
 
 ```html
 <input 
-  type="text" 
-  placeholder="Enter text..."
-  class="h-10 w-full rounded-md border border-[hsl(var(--input))] bg-[hsl(var(--background))] px-3 py-2 text-sm placeholder:text-[hsl(var(--muted-foreground))] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--ring))] focus-visible:ring-offset-2"
+  type="email" 
+  placeholder="your@email.com"
+  class="h-11 px-4 rounded-md border border-default bg-[hsl(var(--background))] text-sm focus:outline-none focus:ring-2 focus:ring-[hsl(var(--ring))] focus:ring-offset-2"
+  aria-label="Email address"
 >
 ```
 
@@ -271,164 +275,139 @@ Use `tracking-tight` for a modern, polished look:
 ### Sticky Header with Backdrop Blur
 
 ```html
-<header class="sticky top-0 z-50 w-full border-b border-[hsl(var(--border))] bg-[hsl(var(--background)/0.95)] backdrop-blur supports-[backdrop-filter]:bg-[hsl(var(--background)/0.6)]">
+<header class="sticky top-0 z-50 border-b border-default bg-[hsl(var(--background))]/95 backdrop-blur supports-[backdrop-filter]:bg-[hsl(var(--background))]/60">
   <div class="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
-    <a href="#" class="text-xl font-bold tracking-tight">Logo</a>
-    <nav class="flex items-center gap-6">
-      <a href="#" class="text-sm font-medium text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))] transition-colors">Link</a>
-    </nav>
+    <!-- Content -->
   </div>
 </header>
 ```
 
-### Section Spacing
-
-```html
-<main class="max-w-4xl mx-auto px-6">
-  <!-- Hero: extra top padding -->
-  <section class="py-24 md:py-32">
-    <h1 class="text-5xl font-bold tracking-tight mb-6">Headline</h1>
-  </section>
-  
-  <!-- Content sections: consistent spacing with border -->
-  <section class="py-16 border-t border-[hsl(var(--border))]">
-    <h2 class="text-2xl font-semibold tracking-tight mb-8">Section</h2>
-  </section>
-</main>
-```
-
-### Two-Column Layout
-
-```html
-<div class="grid md:grid-cols-3 gap-12">
-  <div class="md:col-span-2">
-    <!-- Main content (2/3) -->
-  </div>
-  <div>
-    <!-- Sidebar (1/3) -->
-  </div>
-</div>
-```
-
-## Responsive Navigation
-
-### Desktop + Mobile Menu Pattern
-
-```html
-<header class="sticky top-0 z-50 w-full border-b border-[hsl(var(--border))] bg-[hsl(var(--background)/0.95)] backdrop-blur">
-  <div class="max-w-4xl mx-auto px-6">
-    <div class="h-16 flex items-center justify-between">
-      <a href="#" class="text-xl font-bold tracking-tight">Logo</a>
-      
-      <!-- Desktop Nav -->
-      <nav class="hidden md:flex items-center gap-6">
-        <a href="#" class="text-sm font-medium">Home</a>
-        <a href="#" class="text-sm text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))]">About</a>
-      </nav>
-      
-      <!-- Mobile Menu Button -->
-      <button id="menu-btn" class="md:hidden p-2" aria-label="Toggle menu">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-        </svg>
-      </button>
-    </div>
-    
-    <!-- Mobile Nav -->
-    <nav id="mobile-menu" class="hidden md:hidden pb-4">
-      <a href="#" class="block py-2 text-sm font-medium">Home</a>
-      <a href="#" class="block py-2 text-sm text-[hsl(var(--muted-foreground))]">About</a>
-    </nav>
-  </div>
-</header>
-
-<script>
-  document.getElementById('menu-btn').addEventListener('click', () => {
-    document.getElementById('mobile-menu').classList.toggle('hidden');
-  });
-</script>
-```
-
-## Page Structure Guidelines
-
-### When to Add Hero Sections
-
-**Add hero for:** Landing pages, homepages, personal sites, marketing pages
-**Skip hero for:** Dashboards, admin panels, forms, documentation
-
-### Hero Example
+### Hero Section (for landing pages)
 
 ```html
 <section class="py-24 md:py-32">
   <div class="max-w-2xl">
-    <p class="text-[hsl(var(--muted-foreground))] mb-4">Tagline or greeting</p>
-    <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-6">
-      Main headline goes here
-    </h1>
-    <p class="text-xl text-[hsl(var(--muted-foreground))] mb-8 leading-relaxed">
-      Supporting description that explains the value proposition.
-    </p>
+    <p class="text-muted mb-4">Tagline</p>
+    <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-6">Main Headline</h1>
+    <p class="text-xl text-muted mb-8 leading-relaxed">Supporting description.</p>
     <div class="flex flex-wrap gap-4">
-      <a href="#" class="inline-flex items-center justify-center h-11 px-8 bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] text-sm font-medium rounded-md">
-        Primary CTA
-      </a>
-      <a href="#" class="inline-flex items-center justify-center h-11 px-8 border border-[hsl(var(--input))] text-sm font-medium rounded-md">
-        Secondary CTA
-      </a>
+      <!-- Buttons -->
     </div>
   </div>
 </section>
 ```
 
-## Quality Standards
+### Section with Border
 
-### For Production Sites
+```html
+<section class="py-16 border-t border-default">
+  <h2 class="text-2xl font-semibold tracking-tight mb-8">Section Title</h2>
+  <!-- Content -->
+</section>
+```
 
-- ✅ WCAG AA compliance (4.5:1 contrast, focus indicators)
-- ✅ Semantic HTML (`<main>`, `<header>`, `<nav>`, `<section>`)
-- ✅ Touch targets ≥44px (`h-11`)
-- ✅ Responsive design (mobile-first)
-- ✅ Keyboard navigation support
+### Grid Layouts
 
-### For Prototyping
+```html
+<!-- Stats Grid -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+  <!-- Cards -->
+</div>
 
-Focus on: Clean visual design, basic accessibility, responsive layout
+<!-- Content + Sidebar -->
+<div class="grid md:grid-cols-3 gap-12">
+  <div class="md:col-span-2">Main content</div>
+  <div>Sidebar</div>
+</div>
+
+<!-- Dashboard Grid -->
+<div class="grid md:grid-cols-3 gap-6">
+  <!-- Cards -->
+</div>
+```
+
+## Typography
+
+### Headings
+
+```html
+<h1 class="text-4xl md:text-5xl font-bold tracking-tight">Hero Title</h1>
+<h2 class="text-2xl font-semibold tracking-tight">Section Title</h2>
+<h3 class="font-semibold">Card Title</h3>
+```
+
+### Body Text
+
+```html
+<p class="text-muted leading-relaxed">Body paragraph with relaxed line height.</p>
+<p class="text-xl text-muted">Lead paragraph, larger text.</p>
+<p class="text-sm text-muted">Caption or secondary text.</p>
+```
+
+### Links
+
+```html
+<a href="#" class="text-sm text-muted hover:text-[hsl(var(--foreground))] transition-colors">Link</a>
+```
+
+## Container Widths
+
+| Class | Width | Use Case |
+|-------|-------|----------|
+| `max-w-7xl` | 1280px | Dashboards, admin panels |
+| `max-w-4xl` | 896px | Personal pages, portfolios |
+| `max-w-3xl` | 768px | Blog posts, articles |
+| `max-w-2xl` | 672px | Text blocks, forms |
+
+## Spacing Guidelines
+
+### Section Spacing
+- Hero padding: `py-24` or `py-32`
+- Section padding: `py-16`
+- Footer margin: `mt-16`
+
+### Element Spacing
+- Card padding: `p-6`
+- Button height: `h-11` (44px) or `h-10` (40px)
+- Gaps: `gap-4`, `gap-6`, `gap-8`
+- Margins between elements: `mb-4`, `mb-6`, `mb-8`
+
+## Dark Mode
+
+The design system uses `prefers-color-scheme: dark` for automatic dark mode. No JavaScript required.
+
+For dashboards that should always be dark, use only the dark mode tokens:
+
+```css
+:root {
+  --background: 240 10% 3.9%;
+  --foreground: 0 0% 98%;
+  /* ... all dark mode values ... */
+}
+```
 
 ## Accessibility Checklist
 
-- [ ] Use semantic HTML landmarks
-- [ ] Add `aria-label` to icon-only buttons
-- [ ] Add `aria-hidden="true"` to decorative SVGs
-- [ ] Ensure 4.5:1 contrast for normal text
-- [ ] Add focus visible styles (included in base CSS)
-- [ ] Minimum touch target: 44px
-- [ ] Proper heading hierarchy (h1 → h2 → h3)
-- [ ] Test keyboard navigation
+- [ ] Color contrast ≥ 4.5:1 for text, ≥ 3:1 for large text
+- [ ] Focus visible indicators (`focus:ring-2`)
+- [ ] Touch targets ≥ 44x44px (`h-11`)
+- [ ] Semantic HTML (header, main, section, article, footer)
+- [ ] Aria labels for icon-only buttons
+- [ ] Aria-hidden on decorative SVGs
+- [ ] Proper heading hierarchy
 
 ## Resources
 
-- **assets/base-template.html** - Complete starter template
-- **assets/showcase.html** - Component library reference
-- **references/design-tokens.md** - All design tokens with HSL values
+- **assets/base-template.html** - Starter template
+- **assets/showcase.html** - Component reference
+- **references/design-tokens.md** - Complete token documentation
 - **references/button-components.md** - Button variations
 - **references/components.md** - Full component library
+- **references/overflow-carousel.md** - Carousel pattern
 
-## Migration from v1.x
+## Examples
 
-| Old Token | New Token |
-|-----------|-----------|
-| `--color-bg` | `--background` |
-| `--color-fg` | `--foreground` |
-| `--color-muted` | `--muted-foreground` |
-| `--color-border` | `--border` |
-| `--color-subtle-bg` | `--secondary` |
-| `--color-hover-bg` | `--accent` |
-
-Usage change:
-```html
-<!-- v1.x -->
-<p class="text-[var(--color-muted)]">Text</p>
-
-<!-- v2.0 -->
-<p class="text-[hsl(var(--muted-foreground))]">Text</p>
-```
+See the `/examples` folder for complete implementations:
+- **blog.html** - Minimalist blog with articles
+- **frontend-engineer.html** - Personal portfolio page
+- **mars-dashboard.html** - Dashboard (dark mode)

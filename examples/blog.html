@@ -3,164 +3,230 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Overthinking Blog</title>
+  <title>The Overthinking Developer - A Blog</title>
+  <meta name="description" content="Thoughts on code, coffee, and the eternal struggle of naming variables.">
+  
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
   <style>
     :root {
-      --color-bg: #ffffff;
-      --color-fg: #000000;
-      --color-muted: #525252;
-      --color-border: #e5e5e5;
-      --color-hover: #f5f5f5;
+      --background: 0 0% 100%;
+      --foreground: 240 10% 3.9%;
+      --card: 0 0% 100%;
+      --card-foreground: 240 10% 3.9%;
+      --primary: 240 5.9% 10%;
+      --primary-foreground: 0 0% 98%;
+      --secondary: 240 4.8% 95.9%;
+      --secondary-foreground: 240 5.9% 10%;
+      --muted: 240 4.8% 95.9%;
+      --muted-foreground: 240 3.8% 46.1%;
+      --accent: 240 4.8% 95.9%;
+      --accent-foreground: 240 5.9% 10%;
+      --border: 240 5.9% 90%;
+      --ring: 240 5.9% 10%;
+      --radius: 0.5rem;
     }
     
     @media (prefers-color-scheme: dark) {
       :root {
-        --color-bg: #000000;
-        --color-fg: #ffffff;
-        --color-muted: #a3a3a3;
-        --color-border: #262626;
-        --color-hover: #171717;
+        --background: 240 10% 3.9%;
+        --foreground: 0 0% 98%;
+        --card: 240 10% 3.9%;
+        --card-foreground: 0 0% 98%;
+        --primary: 0 0% 98%;
+        --primary-foreground: 240 5.9% 10%;
+        --secondary: 240 3.7% 15.9%;
+        --secondary-foreground: 0 0% 98%;
+        --muted: 240 3.7% 15.9%;
+        --muted-foreground: 240 5% 64.9%;
+        --accent: 240 3.7% 15.9%;
+        --accent-foreground: 0 0% 98%;
+        --border: 240 3.7% 15.9%;
+        --ring: 240 4.9% 83.9%;
       }
     }
     
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background-color: var(--color-bg);
-      color: var(--color-fg);
+    * { font-family: 'Inter', system-ui, sans-serif; }
+    body { background-color: hsl(var(--background)); color: hsl(var(--foreground)); }
+    
+    .text-muted { color: hsl(var(--muted-foreground)); }
+    .bg-muted { background-color: hsl(var(--muted)); }
+    .bg-card { background-color: hsl(var(--card)); }
+    .border-default { border-color: hsl(var(--border)); }
+    .bg-primary { background-color: hsl(var(--primary)); }
+    .text-primary-foreground { color: hsl(var(--primary-foreground)); }
+    
+    a:focus-visible, button:focus-visible {
+      outline: 2px solid hsl(var(--ring));
+      outline-offset: 2px;
     }
   </style>
 </head>
-<body class="antialiased">
+<body class="min-h-screen">
   
   <!-- Header -->
-  <header class="border-b border-[var(--color-border)]">
-    <div class="max-w-3xl mx-auto px-6 py-8">
-      <div class="flex items-center justify-between">
-        <a href="#" class="text-2xl font-bold">The Overthinking Blog</a>
-        <nav class="flex gap-6 text-[var(--color-muted)]">
-          <a href="#" class="hover:text-[var(--color-fg)] transition-colors">Archive</a>
-          <a href="#" class="hover:text-[var(--color-fg)] transition-colors">About</a>
-          <a href="#" class="hover:text-[var(--color-fg)] transition-colors">Subscribe</a>
-        </nav>
-      </div>
+  <header class="sticky top-0 z-50 border-b border-default bg-[hsl(var(--background))]/95 backdrop-blur supports-[backdrop-filter]:bg-[hsl(var(--background))]/60">
+    <div class="max-w-3xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="#" class="text-xl font-bold tracking-tight">The Overthinking Developer</a>
+      <nav class="hidden md:flex items-center gap-6">
+        <a href="#" class="text-sm font-medium">Articles</a>
+        <a href="#" class="text-sm text-muted hover:text-[hsl(var(--foreground))] transition-colors">About</a>
+        <a href="#" class="text-sm text-muted hover:text-[hsl(var(--foreground))] transition-colors">RSS</a>
+      </nav>
     </div>
   </header>
 
-  <main class="max-w-3xl mx-auto px-6 py-8">
+  <main class="max-w-3xl mx-auto px-6 py-16 md:py-24">
     
-    <!-- Hero Intro -->
-    <div class="bg-[var(--color-hover)] rounded-2xl px-8 py-12 mb-16">
-      <p class="text-2xl text-[var(--color-muted)] leading-relaxed">
-        A blog about turning simple decisions into philosophical dilemmas. 
-        Because why choose quickly when you can analyze endlessly?
+    <!-- Hero -->
+    <section class="mb-20">
+      <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-6">Thoughts on code, coffee, and the eternal struggle of naming variables.</h1>
+      <p class="text-xl text-muted max-w-2xl">
+        Welcome to my corner of the internet where I write about things that probably don't matter, 
+        but I'll convince you they do.
       </p>
-    </div>
+    </section>
 
     <!-- Blog Posts -->
-    <div class="space-y-16">
+    <section class="space-y-16">
       
       <!-- Post 1 -->
       <article class="group">
-        <a href="#" class="block">
-          <time class="text-sm text-[var(--color-muted)]">December 8, 2025</time>
-          <h2 class="text-2xl font-bold mt-2 mb-3 group-hover:underline">
-            I Spent 47 Minutes Choosing a Toothbrush on Amazon
-          </h2>
-          <p class="text-[var(--color-muted)] leading-relaxed">
-            An exploration of decision paralysis, bristle softness ratings, and why having 2,847 options 
-            for a $4 purchase isn't actually freedom. Includes a flowchart I made at 2am.
-          </p>
-          <span class="inline-block mt-4 text-sm font-medium">Read more →</span>
-        </a>
+        <time class="text-sm text-muted">January 8, 2025</time>
+        <h2 class="text-2xl font-semibold tracking-tight mt-2 mb-3 group-hover:underline">
+          <a href="#">I Spent 6 Hours Choosing a Color for My Button. Here's What I Learned.</a>
+        </h2>
+        <p class="text-muted leading-relaxed mb-4">
+          It started innocently enough. "Just pick a blue," I told myself. But then I discovered 
+          there are 16.7 million colors in the RGB spectrum. What followed was a journey through 
+          color theory, accessibility guidelines, and three existential crises. The button is still gray.
+        </p>
+        <div class="flex gap-2">
+          <span class="text-xs px-2.5 py-1 rounded-full bg-muted">Design</span>
+          <span class="text-xs px-2.5 py-1 rounded-full bg-muted">Satire</span>
+        </div>
       </article>
 
       <!-- Post 2 -->
       <article class="group">
-        <a href="#" class="block">
-          <time class="text-sm text-[var(--color-muted)]">December 1, 2025</time>
-          <h2 class="text-2xl font-bold mt-2 mb-3 group-hover:underline">
-            The Email I've Been Drafting for 3 Weeks
-          </h2>
-          <p class="text-[var(--color-muted)] leading-relaxed">
-            It's 4 sentences. One of them is "Hope this finds you well." I've rewritten it 23 times. 
-            A deep dive into why "Best" vs "Thanks" as a sign-off keeps me up at night.
-          </p>
-          <span class="inline-block mt-4 text-sm font-medium">Read more →</span>
-        </a>
+        <time class="text-sm text-muted">January 3, 2025</time>
+        <h2 class="text-2xl font-semibold tracking-tight mt-2 mb-3 group-hover:underline">
+          <a href="#">My Code Review Comments Are Basically Therapy Sessions Now</a>
+        </h2>
+        <p class="text-muted leading-relaxed mb-4">
+          "Have you considered why you nested these ternaries?" I wrote. "What void are you trying to fill?" 
+          Somewhere along the way, I stopped reviewing code and started reviewing life choices. 
+          The junior developer said it was "the most helpful feedback they've ever received."
+        </p>
+        <div class="flex gap-2">
+          <span class="text-xs px-2.5 py-1 rounded-full bg-muted">Career</span>
+          <span class="text-xs px-2.5 py-1 rounded-full bg-muted">Mental Health</span>
+        </div>
       </article>
 
       <!-- Post 3 -->
       <article class="group">
-        <a href="#" class="block">
-          <time class="text-sm text-[var(--color-muted)]">November 24, 2025</time>
-          <h2 class="text-2xl font-bold mt-2 mb-3 group-hover:underline">
-            I Made a Spreadsheet to Decide Where to Eat Lunch
-          </h2>
-          <p class="text-[var(--color-muted)] leading-relaxed">
-            Weighted scoring across 14 criteria including "vibes," "likelihood of running into someone I know," 
-            and "acceptable distance to walk in these shoes." The spreadsheet now has tabs.
-          </p>
-          <span class="inline-block mt-4 text-sm font-medium">Read more →</span>
-        </a>
+        <time class="text-sm text-muted">December 28, 2024</time>
+        <h2 class="text-2xl font-semibold tracking-tight mt-2 mb-3 group-hover:underline">
+          <a href="#">I Tried "Inbox Zero" and Now I Have Zero Friends</a>
+        </h2>
+        <p class="text-muted leading-relaxed mb-4">
+          The productivity gurus promised clarity and peace of mind. What they didn't mention was 
+          that aggressively archiving every message makes you seem "distant" and "cold" and 
+          "weirdly efficient in a way that makes people uncomfortable." Worth it? Let me check my empty inbox.
+        </p>
+        <div class="flex gap-2">
+          <span class="text-xs px-2.5 py-1 rounded-full bg-muted">Productivity</span>
+          <span class="text-xs px-2.5 py-1 rounded-full bg-muted">Regrets</span>
+        </div>
       </article>
 
       <!-- Post 4 -->
       <article class="group">
-        <a href="#" class="block">
-          <time class="text-sm text-[var(--color-muted)]">November 15, 2025</time>
-          <h2 class="text-2xl font-bold mt-2 mb-3 group-hover:underline">
-            Why I Own 4 Identical Black T-Shirts But Can't Pick One
-          </h2>
-          <p class="text-[var(--color-muted)] leading-relaxed">
-            They're the same shirt. I bought them specifically to avoid decision fatigue. 
-            Now I spend 10 minutes deciding which one is "the good one." I am not okay.
-          </p>
-          <span class="inline-block mt-4 text-sm font-medium">Read more →</span>
-        </a>
+        <time class="text-sm text-muted">December 21, 2024</time>
+        <h2 class="text-2xl font-semibold tracking-tight mt-2 mb-3 group-hover:underline">
+          <a href="#">The Kubernetes Cluster I Built to Serve a Static HTML Page</a>
+        </h2>
+        <p class="text-muted leading-relaxed mb-4">
+          Sure, I could have just uploaded an index.html file to Netlify. But where's the learning in that? 
+          Now I have 47 YAML files, a $200/month cloud bill, and the ability to scale my "About Me" 
+          page to handle 10 million concurrent users. You never know.
+        </p>
+        <div class="flex gap-2">
+          <span class="text-xs px-2.5 py-1 rounded-full bg-muted">DevOps</span>
+          <span class="text-xs px-2.5 py-1 rounded-full bg-muted">Overengineering</span>
+        </div>
       </article>
 
       <!-- Post 5 -->
       <article class="group">
-        <a href="#" class="block">
-          <time class="text-sm text-[var(--color-muted)]">November 8, 2025</time>
-          <h2 class="text-2xl font-bold mt-2 mb-3 group-hover:underline">
-            The Plant I'm Afraid to Water (A Tragedy in Three Acts)
-          </h2>
-          <p class="text-[var(--color-muted)] leading-relaxed">
-            Too much water? Too little? The soil feels... medium? An investigation into why caring for 
-            a succulent—literally the easiest plant—has become my greatest source of anxiety.
-          </p>
-          <span class="inline-block mt-4 text-sm font-medium">Read more →</span>
-        </a>
+        <time class="text-sm text-muted">December 15, 2024</time>
+        <h2 class="text-2xl font-semibold tracking-tight mt-2 mb-3 group-hover:underline">
+          <a href="#">I Asked ChatGPT to Write My Performance Review and Got Promoted</a>
+        </h2>
+        <p class="text-muted leading-relaxed mb-4">
+          "Leveraged cross-functional synergies to optimize deliverable throughput." I don't know 
+          what it means either, but my manager called it "the most strategically aligned self-assessment 
+          she'd ever seen." I'm now Head of Synergy Optimization. This is fine.
+        </p>
+        <div class="flex gap-2">
+          <span class="text-xs px-2.5 py-1 rounded-full bg-muted">AI</span>
+          <span class="text-xs px-2.5 py-1 rounded-full bg-muted">Career</span>
+        </div>
       </article>
 
-    </div>
+      <!-- Post 6 -->
+      <article class="group">
+        <time class="text-sm text-muted">December 8, 2024</time>
+        <h2 class="text-2xl font-semibold tracking-tight mt-2 mb-3 group-hover:underline">
+          <a href="#">Why I Refactored My Weekend Plans Into a Microservices Architecture</a>
+        </h2>
+        <p class="text-muted leading-relaxed mb-4">
+          Brunch, gym, groceries—it was all tightly coupled. One delay in brunch and the entire 
+          Saturday collapsed. Now each activity is its own independent service with its own 
+          retry logic and fallback mechanisms. My girlfriend says I "need help." She means professionally.
+        </p>
+        <div class="flex gap-2">
+          <span class="text-xs px-2.5 py-1 rounded-full bg-muted">Architecture</span>
+          <span class="text-xs px-2.5 py-1 rounded-full bg-muted">Life Advice</span>
+        </div>
+      </article>
 
-    <!-- Pagination -->
-    <div class="mt-20 pt-8 border-t border-[var(--color-border)] flex justify-between items-center">
-      <span class="text-[var(--color-muted)]">Page 1 of 47</span>
-      <a href="#" class="px-6 py-3 bg-[var(--color-fg)] text-[var(--color-bg)] font-medium rounded-full hover:opacity-90 transition-opacity">
-        Older Posts →
-      </a>
-    </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="mt-24 p-8 rounded-lg border border-default bg-card">
+      <h2 class="text-xl font-semibold tracking-tight mb-2">Subscribe to my newsletter</h2>
+      <p class="text-muted mb-6">Get weekly posts about things you didn't know you needed to overthink.</p>
+      <form class="flex flex-col sm:flex-row gap-3">
+        <input 
+          type="email" 
+          placeholder="your@email.com" 
+          class="flex-1 h-11 px-4 rounded-md border border-default bg-[hsl(var(--background))] text-sm focus:outline-none focus:ring-2 focus:ring-[hsl(var(--ring))] focus:ring-offset-2"
+          aria-label="Email address"
+        >
+        <button 
+          type="submit" 
+          class="h-11 px-6 bg-primary text-primary-foreground text-sm font-medium rounded-md hover:opacity-90 transition-opacity"
+        >
+          Subscribe
+        </button>
+      </form>
+    </section>
 
   </main>
 
   <!-- Footer -->
-  <footer class="border-t border-[var(--color-border)] mt-16">
-    <div class="max-w-3xl mx-auto px-6 py-12">
-      <div class="flex justify-between items-center">
-        <p class="text-sm text-[var(--color-muted)]">
-          © 2025 The Overthinking Blog. I spent 3 hours choosing this font.
-        </p>
-        <div class="flex gap-6 text-sm text-[var(--color-muted)]">
-          <a href="#" class="hover:text-[var(--color-fg)] transition-colors">RSS</a>
-          <a href="#" class="hover:text-[var(--color-fg)] transition-colors">Twitter</a>
-        </div>
+  <footer class="border-t border-default mt-16">
+    <div class="max-w-3xl mx-auto px-6 py-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+      <p class="text-sm text-muted">© 2025 The Overthinking Developer. All rights reserved.</p>
+      <div class="flex gap-6">
+        <a href="#" class="text-sm text-muted hover:text-[hsl(var(--foreground))] transition-colors">Twitter</a>
+        <a href="#" class="text-sm text-muted hover:text-[hsl(var(--foreground))] transition-colors">GitHub</a>
+        <a href="#" class="text-sm text-muted hover:text-[hsl(var(--foreground))] transition-colors">RSS</a>
       </div>
     </div>
   </footer>

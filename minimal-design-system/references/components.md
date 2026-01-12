@@ -20,6 +20,70 @@ Responsive navigation with animated hamburger menu for mobile. See SKILL.md for 
 - Semantic `<nav>` elements
 - Keyboard accessible links
 
+## Overflow Scroll Carousel
+
+Horizontal "bleed" slider aligned to content container on the left, extending beyond viewport on the right. Also known as "Edge-to-Edge Carousel" or "Bleed Slider".
+
+### Key Classes
+
+**Container:**
+- `scroll-container` - Custom class with `--scroll-padding` variable
+- `overflow-x-auto` - Enable horizontal scrolling
+- `flex gap-6` - Flexbox layout with gaps
+- `snap-x snap-mandatory` - Scroll snap
+- `overscroll-x-contain` - Prevent bounce
+- `hide-scrollbar` - Custom class to hide scrollbar
+
+**Cards:**
+- `scroll-card` - Custom class with `scroll-margin-left`
+- `shrink-0` - Prevent compression
+- `w-72 sm:w-96` - Fixed responsive width
+- `snap-start` - Snap point at card start
+
+### Required CSS
+
+```css
+:root {
+  --container-5xl: 64rem;
+  --container-7xl: 80rem;
+}
+
+.scroll-container {
+  --scroll-padding: max(1.5rem, calc((100vw - var(--container-5xl)) / 2));
+  /* Add container padding (1.5rem = px-6) to start side only for content alignment */
+  padding-inline-start: calc(var(--scroll-padding) + 1.5rem);
+  padding-inline-end: var(--scroll-padding);
+}
+
+@media (min-width: 1024px) {
+  .scroll-container {
+    --scroll-padding: max(2rem, calc((100vw - var(--container-7xl)) / 2));
+  }
+}
+
+.scroll-card {
+  scroll-margin-inline-start: calc(var(--scroll-padding) + 1.5rem);
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+```
+
+Uses logical properties (`padding-inline-start`, `scroll-margin-inline-start`) for RTL support.
+
+### Accessibility Requirements
+
+- Use semantic elements (`<article>`, `<figure>`, `<blockquote>`)
+- Spacer element needs `aria-hidden="true"`
+- Native scroll is keyboard accessible
+
+See `references/overflow-carousel.md` for full documentation and variants.
+
 ## Badges & Status Indicators
 
 The design system uses a complete 5-color semantic system for badges:

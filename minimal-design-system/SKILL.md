@@ -1,12 +1,21 @@
 ---
 name: minimal-design-system
-description: Minimalist black/white design system with generous whitespace for HTML artifacts, dashboards, and websites. Use when user says "Nutze mein Designsystem" or "use minimal design system" or requests minimal, clean design with Inter font, Tailwind CSS, and professional aesthetics. Provides design tokens (colors, typography, spacing), button components, and base templates. Never overwrite existing styles - this serves as a starting foundation that can be customized.
+description: Minimalist black/white design system with generous whitespace for HTML artifacts, dashboards, and websites. Use when user says "Nutze mein Designsystem" or "use minimal design system" or requests minimal, clean design with Inter font, Tailwind CSS, and professional aesthetics. Provides semantic color tokens (primary, muted, accent), button components, and base templates. Never overwrite existing styles - this serves as a starting foundation that can be customized.
 ---
 
 # Minimal Design System
-**Version: v1.4**
+**Version: v2.0**
 
-A minimalist black/white design system with generous whitespace, inspired by modern clean aesthetics. Built with Tailwind CSS and Inter UI font.
+A minimalist design system with generous whitespace, semantic color tokens (inspired by shadcn/ui), and modern aesthetics. Built with Tailwind CSS and Inter font.
+
+## What's New in v2.0
+
+- **HSL-based color system** for flexible theming and opacity support
+- **Semantic token names** (`primary`, `muted`, `accent`, `card`, etc.)
+- **Backdrop-blur headers** for modern sticky navigation
+- **Refined badge styles** (pill-shaped, compact)
+- **`--radius` CSS variable** for consistent border-radius
+- **`tracking-tight`** for polished headline typography
 
 ## Tailwind CSS
 
@@ -21,407 +30,405 @@ This design system is built on **Tailwind CSS**. Always use the latest version v
 - **Official Documentation**: https://tailwindcss.com/docs/
 - When implementing complex layouts or unfamiliar utilities, **always research the official Tailwind documentation** first
 - Use Tailwind's standard patterns and utilities rather than custom CSS where possible
-- The documentation is comprehensive and includes examples for all utilities
 
 ## Core Design Philosophy
 
 1. **Generous Whitespace**: Large gaps between sections for breathing room
-2. **Clear Hierarchy**: Typography-driven visual hierarchy (size, weight)
-3. **Minimal Color**: Black, white, and subtle grays only
+2. **Clear Hierarchy**: Typography-driven visual hierarchy (size, weight, tracking)
+3. **Semantic Colors**: Named tokens (`primary`, `muted`) instead of raw values
 4. **Readable**: Max 65-75 characters per line for text content
-5. **Reversible**: Perfect light/dark mode symmetry
+5. **Reversible**: Perfect light/dark mode symmetry (auto via prefers-color-scheme)
 6. **Consistent**: Same design patterns across all pages and components
 7. **Accessible**: WCAG AA compliance minimum, focus states, proper contrast
 
-## Quality Standards
+## Quick Start
 
-### When Creating Production-Ready Sites
+### Minimal HTML Template
 
-If the user intends to use the result productively, ensure:
-
-- ✅ **Accessibility (WCAG)**: AA compliance minimum
-  - Color contrast ratios (4.5:1 for normal text, 3:1 for large text)
-  - Focus indicators on all interactive elements
-  - Aria labels for icon-only buttons
-  - Semantic HTML (proper landmarks, headings hierarchy)
-  - Keyboard navigation support
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Title</title>
   
-- ✅ **Usability & UI Best Practices**
-  - Touch targets minimum 44x44px
-  - Clear visual feedback for interactions
-  - Consistent design patterns across pages
-  - Responsive design (mobile-first approach)
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
   
-- ✅ **Performance**
-  - Optimized font loading (preconnect, display=swap)
-  - Minimal CSS (use Tailwind's utility classes)
-  - No unnecessary JavaScript
+  <!-- Inter Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   
-- ✅ **SEO**
-  - Semantic HTML structure
-  - Proper heading hierarchy (h1 → h2 → h3)
-  - Meta descriptions
-  - Alt text for images
-
-### For Prototyping/Rapid Development
-
-When creating quick prototypes or internal tools, focus on:
-- Clean visual design
-- Basic accessibility (contrast, semantic HTML)
-- Responsive layout
-
-## Documentation Consistency
-
-**CRITICAL**: The HTML files (`assets/base-template.html`, `assets/showcase.html`) and the documentation files (`.md` files) must always be synchronized:
-
-- Changes to HTML → Update corresponding .md documentation
-- Changes to .md docs → Update HTML examples
-- Design decisions in HTML must match written guidelines
-- Component examples must reflect actual implementation
-
-This ensures the skill remains a reliable reference for both Claude and users.
-
-## When to Use This Skill
-
-Apply this design system when:
-- User says "Nutze mein Designsystem" or "use minimal design system"
-- Creating new HTML artifacts, dashboards, or websites
-- User requests minimal, clean, or professional design
-- Starting a new project that needs consistent styling
-
-## How to Apply
-
-### Starting Fresh (New Projects)
-
-1. Use `assets/base-template.html` as starting point for text-heavy content
-2. Use `assets/showcase.html` as reference for all available components
-3. Modify content while keeping design foundation
-4. Reference `references/design-tokens.md` for color/spacing values
-5. Use `references/button-components.md` for interactive elements
-
-### Applying to Existing Content
-
-When user has existing HTML/content:
-1. Add Inter font import and Tailwind CDN to `<head>`
-2. Add CSS custom properties from design-tokens.md
-3. Apply Tailwind utility classes following design tokens
-4. Keep generous spacing (16, 24, 32 gaps between sections)
-5. Use button components for CTAs
-6. Add focus states and accessibility attributes
-
-**Critical**: Never overwrite existing custom styles. Layer the design system underneath.
-
-## Design Tokens
-
-All design tokens are documented in `references/design-tokens.md`:
-- Color system (light/dark mode) with improved contrast
-- Typography (sizes, weights, line heights)
-- Spacing scale (4px increments)
-- Border radius
-- Shadows
-- Focus states (2px outline with offset)
-
-### Updated Color Values (Better Contrast)
-
-```css
---color-muted: #525252; /* gray-600 → WCAG AA compliant */
-/* Dark mode: #a3a3a3 (gray-400) */
+  <style>
+    :root {
+      --background: 0 0% 100%;
+      --foreground: 240 10% 3.9%;
+      --card: 0 0% 100%;
+      --card-foreground: 240 10% 3.9%;
+      --primary: 240 5.9% 10%;
+      --primary-foreground: 0 0% 98%;
+      --secondary: 240 4.8% 95.9%;
+      --secondary-foreground: 240 5.9% 10%;
+      --muted: 240 4.8% 95.9%;
+      --muted-foreground: 240 3.8% 46.1%;
+      --accent: 240 4.8% 95.9%;
+      --accent-foreground: 240 5.9% 10%;
+      --border: 240 5.9% 90%;
+      --input: 240 5.9% 90%;
+      --ring: 240 5.9% 10%;
+      --radius: 0.5rem;
+    }
+    
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --background: 240 10% 3.9%;
+        --foreground: 0 0% 98%;
+        --card: 240 10% 3.9%;
+        --card-foreground: 0 0% 98%;
+        --primary: 0 0% 98%;
+        --primary-foreground: 240 5.9% 10%;
+        --secondary: 240 3.7% 15.9%;
+        --secondary-foreground: 0 0% 98%;
+        --muted: 240 3.7% 15.9%;
+        --muted-foreground: 240 5% 64.9%;
+        --accent: 240 3.7% 15.9%;
+        --accent-foreground: 0 0% 98%;
+        --border: 240 3.7% 15.9%;
+        --input: 240 3.7% 15.9%;
+        --ring: 240 4.9% 83.9%;
+      }
+    }
+    
+    * {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      border-color: hsl(var(--border));
+    }
+    
+    body {
+      background-color: hsl(var(--background));
+      color: hsl(var(--foreground));
+    }
+    
+    /* Focus visible styles */
+    button:focus-visible,
+    a:focus-visible,
+    input:focus-visible {
+      outline: 2px solid hsl(var(--ring));
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+<body class="min-h-screen antialiased">
+  <main class="max-w-4xl mx-auto px-6 py-16">
+    <!-- Content here -->
+  </main>
+</body>
+</html>
 ```
+
+## Color System
+
+### Semantic Tokens
+
+Use semantic names for maintainability and theming:
+
+| Token | Usage | Tailwind Class |
+|-------|-------|----------------|
+| `--background` | Page background | `bg-[hsl(var(--background))]` |
+| `--foreground` | Primary text | `text-[hsl(var(--foreground))]` |
+| `--primary` | Buttons, CTAs | `bg-[hsl(var(--primary))]` |
+| `--primary-foreground` | Text on primary | `text-[hsl(var(--primary-foreground))]` |
+| `--secondary` | Secondary backgrounds | `bg-[hsl(var(--secondary))]` |
+| `--muted` | Muted backgrounds | `bg-[hsl(var(--muted))]` |
+| `--muted-foreground` | Secondary text | `text-[hsl(var(--muted-foreground))]` |
+| `--accent` | Hover states | `bg-[hsl(var(--accent))]` |
+| `--border` | Borders, dividers | `border-[hsl(var(--border))]` |
+| `--card` | Card backgrounds | `bg-[hsl(var(--card))]` |
+| `--ring` | Focus rings | `ring-[hsl(var(--ring))]` |
+
+### Opacity Support
+
+HSL format allows easy opacity modifiers:
+
+```html
+<!-- 50% opacity background -->
+<div class="bg-[hsl(var(--primary)/0.5)]">Semi-transparent</div>
+
+<!-- 10% opacity for subtle backgrounds -->
+<div class="bg-[hsl(var(--primary)/0.1)]">Very subtle</div>
+```
+
+### Status Colors
+
+For badges and alerts, use Tailwind's built-in colors with opacity:
+
+```html
+<!-- Success -->
+<span class="bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">Success</span>
+
+<!-- Info -->
+<span class="bg-blue-500/10 text-blue-600 dark:text-blue-400">Info</span>
+
+<!-- Warning -->
+<span class="bg-amber-500/10 text-amber-600 dark:text-amber-400">Warning</span>
+
+<!-- Error -->
+<span class="bg-red-500/10 text-red-600 dark:text-red-400">Error</span>
+```
+
+## Typography
+
+### Headlines
+
+Use `tracking-tight` for a modern, polished look:
+
+```html
+<h1 class="text-4xl md:text-5xl font-bold tracking-tight">Hero Headline</h1>
+<h2 class="text-2xl md:text-3xl font-semibold tracking-tight">Section Title</h2>
+<h3 class="text-xl font-semibold">Subsection</h3>
+```
+
+### Body Text
+
+```html
+<p class="text-[hsl(var(--muted-foreground))] leading-relaxed">
+  Secondary paragraph text with muted color.
+</p>
+```
+
+### Scale Reference
+
+| Element | Classes |
+|---------|---------|
+| Hero h1 | `text-4xl md:text-5xl font-bold tracking-tight` |
+| Section h2 | `text-2xl font-semibold tracking-tight` |
+| Card title | `text-lg font-semibold` or `font-semibold` (base size) |
+| Body | `text-base` (default) |
+| Small/meta | `text-sm text-[hsl(var(--muted-foreground))]` |
 
 ## Components
 
-All components are documented in `references/components.md` and `references/button-components.md`:
-
-### Buttons
-- Primary, Secondary, Ghost, Link variants
-- Two corner styles: Standard (rounded-md) and Pill (rounded-full)
-- Three sizes (small: 44px height minimum, default, large)
-- Disabled and loading states
-- Icon integration (leading, trailing, icon-only with aria-labels)
-- Focus visible states for keyboard navigation
-
-### Forms
-- Input fields (text, email, password, textarea)
-- Checkboxes and radio buttons
-- Focus states for all inputs
-- Complete login form example
-
-### Cards
-- Basic cards with hover states
-- Stats cards for metrics
-- Image cards with content
-
-### Tables
-- Responsive table layouts with caption (screen reader support)
-- Hover states and striped rows
-- Status badges integration
-
-### Lists
-- Checklist with icons
-- Feature lists with icons
-- Simple ordered/unordered lists
-
-### Badges & Alerts
-- Status badges (success, info, warning, error, neutral)
-- Full semantic color system (5 colors)
-- Alert components with icons and proper contrast
-- Tags for categories
-
-### Charts
-- Simple horizontal bar charts
-- Progress indicators
-- Data visualization patterns
-
-### Typography Elements
-- Blockquotes with semantic cite elements
-- Small text (text-sm) for footnotes and meta information
-- Proper heading hierarchy
-
-## Implementation Pattern
+### Primary Button
 
 ```html
-<!-- 1. Add to <head> -->
-<script src="https://cdn.tailwindcss.com"></script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<button class="inline-flex items-center justify-center h-11 px-8 bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] text-sm font-medium rounded-md hover:bg-[hsl(var(--primary)/0.9)] transition-colors">
+  Button Text
+</button>
+```
 
-<!-- 2. Add CSS variables (see design-tokens.md) -->
-<style>
-  :root {
-    --color-bg: #ffffff;
-    --color-fg: #000000;
-    --color-muted: #525252; /* Updated for better contrast */
-    /* ... more tokens */
-  }
+### Secondary/Outline Button
+
+```html
+<button class="inline-flex items-center justify-center h-11 px-8 border border-[hsl(var(--input))] bg-[hsl(var(--background))] text-sm font-medium rounded-md hover:bg-[hsl(var(--accent))] hover:text-[hsl(var(--accent-foreground))] transition-colors">
+  Secondary
+</button>
+```
+
+### Ghost Button
+
+```html
+<button class="inline-flex items-center justify-center h-10 px-4 text-sm font-medium rounded-md hover:bg-[hsl(var(--accent))] hover:text-[hsl(var(--accent-foreground))] transition-colors">
+  Ghost
+</button>
+```
+
+### Card
+
+```html
+<div class="rounded-lg border border-[hsl(var(--border))] bg-[hsl(var(--card))] text-[hsl(var(--card-foreground))] p-6 hover:shadow-md transition-shadow">
+  <h3 class="font-semibold mb-2">Card Title</h3>
+  <p class="text-sm text-[hsl(var(--muted-foreground))]">Card description text.</p>
+</div>
+```
+
+### Badge (Pill Style)
+
+```html
+<!-- Neutral -->
+<span class="inline-flex items-center rounded-full border border-[hsl(var(--border))] bg-[hsl(var(--secondary))] px-2.5 py-0.5 text-xs font-semibold text-[hsl(var(--secondary-foreground))]">
+  Badge
+</span>
+
+<!-- Status badges -->
+<span class="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold bg-emerald-500/10 text-emerald-600 border border-emerald-500/20">Active</span>
+<span class="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold bg-blue-500/10 text-blue-600 border border-blue-500/20">New</span>
+```
+
+### Input Field
+
+```html
+<input 
+  type="text" 
+  placeholder="Enter text..."
+  class="h-10 w-full rounded-md border border-[hsl(var(--input))] bg-[hsl(var(--background))] px-3 py-2 text-sm placeholder:text-[hsl(var(--muted-foreground))] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--ring))] focus-visible:ring-offset-2"
+>
+```
+
+## Layout Patterns
+
+### Sticky Header with Backdrop Blur
+
+```html
+<header class="sticky top-0 z-50 w-full border-b border-[hsl(var(--border))] bg-[hsl(var(--background)/0.95)] backdrop-blur supports-[backdrop-filter]:bg-[hsl(var(--background)/0.6)]">
+  <div class="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
+    <a href="#" class="text-xl font-bold tracking-tight">Logo</a>
+    <nav class="flex items-center gap-6">
+      <a href="#" class="text-sm font-medium text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))] transition-colors">Link</a>
+    </nav>
+  </div>
+</header>
+```
+
+### Section Spacing
+
+```html
+<main class="max-w-4xl mx-auto px-6">
+  <!-- Hero: extra top padding -->
+  <section class="py-24 md:py-32">
+    <h1 class="text-5xl font-bold tracking-tight mb-6">Headline</h1>
+  </section>
   
-  /* Focus visible styles */
-  button:focus-visible,
-  a:focus-visible,
-  input:focus-visible {
-    outline: 2px solid var(--color-fg);
-    outline-offset: 2px;
-  }
-</style>
-
-<!-- 3. Structure with semantic HTML -->
-<main class="max-w-5xl mx-auto px-6 py-12">
-  <header class="mb-16">
-    <h1 class="text-4xl font-bold mb-4">Title</h1>
-  </header>
-  <section class="space-y-16">
-    <!-- Content with 16-unit spacing between sections -->
+  <!-- Content sections: consistent spacing with border -->
+  <section class="py-16 border-t border-[hsl(var(--border))]">
+    <h2 class="text-2xl font-semibold tracking-tight mb-8">Section</h2>
   </section>
 </main>
 ```
 
-## Accessibility Checklist
+### Two-Column Layout
 
-When creating pages with this design system:
-
-- [ ] Use semantic HTML (`<main>`, `<header>`, `<nav>`, `<section>`)
-- [ ] Add `aria-label` to icon-only buttons
-- [ ] Add `aria-hidden="true"` to decorative SVG icons
-- [ ] Include `<caption>` for tables (can use `.sr-only` class)
-- [ ] Ensure 4.5:1 contrast for normal text, 3:1 for large text (≥18px)
-- [ ] Add focus visible styles (2px outline with offset)
-- [ ] Minimum touch target size: 44x44px
-- [ ] Use `<cite>` in blockquotes for attribution
-- [ ] Proper heading hierarchy (don't skip levels)
-- [ ] Test keyboard navigation (Tab, Enter, Space)
-
-## Layout Guidelines
-
-- **Max width**: 1280px (max-w-5xl or max-w-6xl)
-- **Content width**: 672px (max-w-2xl) for reading text
-- **Padding**: 24px on mobile, 32px on desktop
-- **Section gaps**: 64px (space-y-16) between major sections
-- **Element gaps**: 24px (space-y-6) within sections
+```html
+<div class="grid md:grid-cols-3 gap-12">
+  <div class="md:col-span-2">
+    <!-- Main content (2/3) -->
+  </div>
+  <div>
+    <!-- Sidebar (1/3) -->
+  </div>
+</div>
+```
 
 ## Responsive Navigation
 
-**IMPORTANT**: All navigation must be responsive. On smaller screens (below `md` breakpoint / 768px), use a hamburger menu.
-
-### Navigation Pattern
-
-- **Desktop (md and up)**: Horizontal navigation with visible links
-- **Mobile (below md)**: Hamburger icon that reveals a vertical menu
-
-### Hamburger Menu Implementation
-
-Use CSS transitions for smooth animations. The menu should:
-1. Be completely invisible when closed (no spacing/padding)
-2. Animate smoothly when opening/closing
-3. Include a visual icon transition (hamburger ↔ X)
-
-```css
-/* Mobile menu animation */
-.mobile-menu {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease-out, opacity 0.3s ease-out, padding 0.3s ease-out, margin 0.3s ease-out;
-  opacity: 0;
-  padding: 0;
-  margin: 0;
-  border-top: 1px solid transparent;
-}
-
-.mobile-menu.open {
-  max-height: 300px;
-  opacity: 1;
-  padding-top: 1rem;
-  padding-bottom: 0.5rem;
-  margin-top: 1rem;
-  border-top-color: var(--color-border);
-}
-
-.menu-icon {
-  transition: transform 0.2s ease-out;
-}
-
-.menu-icon.rotate {
-  transform: rotate(90deg);
-}
-```
-
-### Header Structure Example
+### Desktop + Mobile Menu Pattern
 
 ```html
-<header class="sticky top-0 z-50 bg-[var(--color-bg)] border-b border-[var(--color-border)]">
-  <div class="max-w-6xl mx-auto px-6 py-4 md:py-6">
-    <div class="flex items-center justify-between">
-      <!-- Logo -->
-      <a href="/" class="text-lg md:text-xl font-bold">Logo</a>
+<header class="sticky top-0 z-50 w-full border-b border-[hsl(var(--border))] bg-[hsl(var(--background)/0.95)] backdrop-blur">
+  <div class="max-w-4xl mx-auto px-6">
+    <div class="h-16 flex items-center justify-between">
+      <a href="#" class="text-xl font-bold tracking-tight">Logo</a>
       
-      <!-- Desktop Navigation -->
-      <nav class="hidden md:flex items-center gap-8">
-        <a href="/" class="font-medium">Home</a>
-        <a href="/about" class="text-[var(--color-muted)] hover:text-[var(--color-fg)] transition-colors">About</a>
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center gap-6">
+        <a href="#" class="text-sm font-medium">Home</a>
+        <a href="#" class="text-sm text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))]">About</a>
       </nav>
-
-      <!-- Desktop CTA -->
-      <div class="hidden md:block">
-        <a href="/contact" class="px-6 py-3 bg-black text-white font-medium rounded-full">Contact</a>
-      </div>
-
+      
       <!-- Mobile Menu Button -->
-      <button id="mobile-menu-btn" class="md:hidden p-2 -mr-2" aria-label="Toggle menu" aria-expanded="false">
-        <svg class="w-6 h-6 menu-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-          <path id="close-icon" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+      <button id="menu-btn" class="md:hidden p-2" aria-label="Toggle menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
         </svg>
       </button>
     </div>
-
-    <!-- Mobile Menu -->
-    <nav id="mobile-menu" class="mobile-menu md:hidden">
-      <div class="flex flex-col gap-4">
-        <a href="/" class="font-medium py-2">Home</a>
-        <a href="/about" class="text-[var(--color-muted)] py-2">About</a>
-        <a href="/contact" class="inline-block text-center px-6 py-3 bg-black text-white font-medium rounded-full mt-2">Contact</a>
-      </div>
+    
+    <!-- Mobile Nav -->
+    <nav id="mobile-menu" class="hidden md:hidden pb-4">
+      <a href="#" class="block py-2 text-sm font-medium">Home</a>
+      <a href="#" class="block py-2 text-sm text-[hsl(var(--muted-foreground))]">About</a>
     </nav>
   </div>
 </header>
 
 <script>
-  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-  const menuIcon = document.getElementById('menu-icon');
-  const closeIcon = document.getElementById('close-icon');
-  const menuSvg = mobileMenuBtn.querySelector('svg');
-
-  mobileMenuBtn.addEventListener('click', () => {
-    const isOpen = mobileMenu.classList.contains('open');
-    mobileMenu.classList.toggle('open');
-    menuIcon.classList.toggle('hidden');
-    closeIcon.classList.toggle('hidden');
-    menuSvg.classList.toggle('rotate');
-    mobileMenuBtn.setAttribute('aria-expanded', !isOpen);
+  document.getElementById('menu-btn').addEventListener('click', () => {
+    document.getElementById('mobile-menu').classList.toggle('hidden');
   });
 </script>
 ```
 
-### Navigation Accessibility
-
-- Use `aria-label="Toggle menu"` on the hamburger button
-- Update `aria-expanded` state when menu opens/closes
-- Ensure all links are keyboard accessible
-- Use semantic `<nav>` elements
-
 ## Page Structure Guidelines
 
-When creating static websites (not interactive apps or dashboards), follow these structural patterns:
+### When to Add Hero Sections
 
-### Hero Section
+**Add hero for:** Landing pages, homepages, personal sites, marketing pages
+**Skip hero for:** Dashboards, admin panels, forms, documentation
 
-**For landing pages, homepages, and content pages**: Always include a hero section at the top. This is standard web design practice and should be added automatically without the user explicitly requesting it.
-
-A hero section typically includes:
-- A prominent headline (h1, text-4xl or text-5xl)
-- A supporting subheadline or description (text-xl, muted color)
-- Optional: A call-to-action button or link
-- Optional: A visual element (image, illustration, or decorative background)
-
-**Hero styling options:**
-- **Boxed hero**: Contained within a rounded container with background color (e.g., dark background with light text, or light gray background)
-- **Full-width hero**: Spans the entire viewport width with generous padding
-- **Minimal hero**: Simple text-based hero with extra whitespace
+### Hero Example
 
 ```html
-<!-- Example: Boxed Hero -->
-<div class="max-w-4xl mx-auto px-6 pt-12">
-  <header class="bg-neutral-900 rounded-2xl px-10 py-16 mb-16">
-    <h1 class="text-5xl font-bold text-white mb-4">Headline</h1>
-    <p class="text-xl text-neutral-400">Supporting description text.</p>
-  </header>
-</div>
+<section class="py-24 md:py-32">
+  <div class="max-w-2xl">
+    <p class="text-[hsl(var(--muted-foreground))] mb-4">Tagline or greeting</p>
+    <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-6">
+      Main headline goes here
+    </h1>
+    <p class="text-xl text-[hsl(var(--muted-foreground))] mb-8 leading-relaxed">
+      Supporting description that explains the value proposition.
+    </p>
+    <div class="flex flex-wrap gap-4">
+      <a href="#" class="inline-flex items-center justify-center h-11 px-8 bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] text-sm font-medium rounded-md">
+        Primary CTA
+      </a>
+      <a href="#" class="inline-flex items-center justify-center h-11 px-8 border border-[hsl(var(--input))] text-sm font-medium rounded-md">
+        Secondary CTA
+      </a>
+    </div>
+  </div>
+</section>
 ```
 
-### When NOT to add a hero section
+## Quality Standards
 
-- **Dashboards and admin interfaces**: Start directly with the content/data
-- **Interactive applications**: Focus on the UI controls
-- **Documentation pages**: Start with navigation or table of contents
-- **Forms and tools**: The form itself is the primary content
+### For Production Sites
 
-## Typography Scale
+- ✅ WCAG AA compliance (4.5:1 contrast, focus indicators)
+- ✅ Semantic HTML (`<main>`, `<header>`, `<nav>`, `<section>`)
+- ✅ Touch targets ≥44px (`h-11`)
+- ✅ Responsive design (mobile-first)
+- ✅ Keyboard navigation support
 
-```
-Headings:
-- h1: text-4xl sm:text-5xl (36px/48px)
-- h2: text-2xl sm:text-3xl (24px/30px)  
-- h3: text-xl sm:text-2xl (20px/24px)
+### For Prototyping
 
-Body:
-- Default: text-base (16px) - 1.5 line-height
-- Large: text-lg (18px) - for lead paragraphs
-- Small: text-sm (14px) - for footnotes, meta info
-- Muted: text-muted (#525252 light, #a3a3a3 dark)
-```
+Focus on: Clean visual design, basic accessibility, responsive layout
 
-## Button Sizing (WCAG Compliant)
+## Accessibility Checklist
 
-```
-Small:   px-5 py-2.5 text-sm  → ~44px height ✓
-Default: px-6 py-3            → ~48px height ✓
-Large:   px-8 py-4 text-lg    → ~56px height ✓
-```
+- [ ] Use semantic HTML landmarks
+- [ ] Add `aria-label` to icon-only buttons
+- [ ] Add `aria-hidden="true"` to decorative SVGs
+- [ ] Ensure 4.5:1 contrast for normal text
+- [ ] Add focus visible styles (included in base CSS)
+- [ ] Minimum touch target: 44px
+- [ ] Proper heading hierarchy (h1 → h2 → h3)
+- [ ] Test keyboard navigation
 
 ## Resources
 
-- **assets/base-template.html** - Text-focused template with articles, blockquotes, images
-- **assets/showcase.html** - Complete component library reference
-- **references/design-tokens.md** - All design tokens (colors, spacing, typography)
-- **references/button-components.md** - Button variations and usage patterns
-- **references/components.md** - Complete component library (forms, cards, tables, lists, badges, alerts, charts)
+- **assets/base-template.html** - Complete starter template
+- **assets/showcase.html** - Component library reference
+- **references/design-tokens.md** - All design tokens with HSL values
+- **references/button-components.md** - Button variations
+- **references/components.md** - Full component library
 
-## Maintenance Notes
+## Migration from v1.x
 
-When updating this skill:
-1. Make changes to HTML files first
-2. Update corresponding documentation immediately
-3. Verify consistency across all files
-4. Test accessibility with keyboard navigation
-5. Validate color contrast ratios
-6. Check responsive behavior on mobile
+| Old Token | New Token |
+|-----------|-----------|
+| `--color-bg` | `--background` |
+| `--color-fg` | `--foreground` |
+| `--color-muted` | `--muted-foreground` |
+| `--color-border` | `--border` |
+| `--color-subtle-bg` | `--secondary` |
+| `--color-hover-bg` | `--accent` |
+
+Usage change:
+```html
+<!-- v1.x -->
+<p class="text-[var(--color-muted)]">Text</p>
+
+<!-- v2.0 -->
+<p class="text-[hsl(var(--muted-foreground))]">Text</p>
+```

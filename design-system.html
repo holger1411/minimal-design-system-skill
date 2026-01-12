@@ -33,41 +33,86 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
+    /* ========================================
+       MINIMAL DESIGN SYSTEM v2.0
+       HSL-based semantic color tokens
+       ======================================== */
+    
     :root {
-      --color-bg: #ffffff;
-      --color-fg: #000000;
-      --color-muted: #737373;
-      --color-border: #e5e5e5;
-      --color-hover: #f5f5f5;
+      /* Semantic Colors - Light Mode */
+      --background: 0 0% 100%;
+      --foreground: 240 10% 3.9%;
+      --card: 0 0% 100%;
+      --card-foreground: 240 10% 3.9%;
+      --primary: 240 5.9% 10%;
+      --primary-foreground: 0 0% 98%;
+      --secondary: 240 4.8% 95.9%;
+      --secondary-foreground: 240 5.9% 10%;
+      --muted: 240 4.8% 95.9%;
+      --muted-foreground: 240 3.8% 46.1%;
+      --accent: 240 4.8% 95.9%;
+      --accent-foreground: 240 5.9% 10%;
+      --border: 240 5.9% 90%;
+      --input: 240 5.9% 90%;
+      --ring: 240 5.9% 10%;
+      --radius: 0.5rem;
+      
+      /* Legacy aliases */
+      --color-bg: hsl(var(--background));
+      --color-fg: hsl(var(--foreground));
+      --color-muted: hsl(var(--muted-foreground));
+      --color-border: hsl(var(--border));
+      --color-hover: hsl(var(--accent));
     }
     
     @media (prefers-color-scheme: dark) {
       :root {
-        --color-bg: #000000;
-        --color-fg: #ffffff;
-        --color-muted: #a3a3a3;
-        --color-border: #262626;
-        --color-hover: #171717;
+        --background: 240 10% 3.9%;
+        --foreground: 0 0% 98%;
+        --card: 240 10% 3.9%;
+        --card-foreground: 0 0% 98%;
+        --primary: 0 0% 98%;
+        --primary-foreground: 240 5.9% 10%;
+        --secondary: 240 3.7% 15.9%;
+        --secondary-foreground: 0 0% 98%;
+        --muted: 240 3.7% 15.9%;
+        --muted-foreground: 240 5% 64.9%;
+        --accent: 240 3.7% 15.9%;
+        --accent-foreground: 0 0% 98%;
+        --border: 240 3.7% 15.9%;
+        --input: 240 3.7% 15.9%;
+        --ring: 240 4.9% 83.9%;
+        
+        /* Legacy aliases */
+        --color-bg: hsl(var(--background));
+        --color-fg: hsl(var(--foreground));
+        --color-muted: hsl(var(--muted-foreground));
+        --color-border: hsl(var(--border));
+        --color-hover: hsl(var(--accent));
       }
+    }
+    
+    * {
+      border-color: hsl(var(--border));
     }
     
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background-color: var(--color-bg);
-      color: var(--color-fg);
+      background-color: hsl(var(--background));
+      color: hsl(var(--foreground));
     }
     
     .section-border {
-      border-top: 1px solid var(--color-border);
+      border-top: 1px solid hsl(var(--border));
     }
 
     .feature-card {
-      border: 1px solid var(--color-border);
+      border: 1px solid hsl(var(--border));
       transition: border-color 0.15s ease;
     }
     
     .feature-card:hover {
-      border-color: var(--color-fg);
+      border-color: hsl(var(--foreground));
     }
     
     .step-number {

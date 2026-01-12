@@ -1,195 +1,218 @@
 # Design Tokens & Guidelines
 
-This document defines the core design tokens for the minimal black/white design system.
+This document defines the core design tokens for the minimal design system v2.0, inspired by shadcn/ui's token structure while maintaining generous whitespace and simplicity.
 
-## Color System
+## Color System (HSL-based)
 
-### Primary & Secondary Colors
+The design system uses HSL color values for flexibility and easy theming. Colors are defined as CSS custom properties without the `hsl()` wrapper, allowing for opacity modifiers.
 
-The design system defines explicit primary and secondary colors for easy customization:
+### Usage Pattern
 
-#### Primary Color
-- **Light Mode**: `black` (#000000)
-- **Dark Mode**: `white` (#ffffff)
-- **Usage**: Main brand color, primary buttons, headings, high-emphasis text
-- **Tailwind Classes**: `bg-black dark:bg-white`, `text-black dark:text-white`
-
-#### Secondary Color
-- **Light Mode**: `gray-50` (#f9fafb)
-- **Dark Mode**: `gray-950` (#030712)
-- **Usage**: Subtle backgrounds, cards, secondary surfaces, reduced emphasis areas
-- **Tailwind Classes**: `bg-gray-50 dark:bg-gray-950`
-
-**Customization Tip**: To adapt this design system to your brand, simply replace the primary color (black/white) with your brand color and adjust the secondary color for optimal contrast.
-
-### Base Colors - Light Mode
 ```css
---color-bg: #ffffff;
---color-fg: #000000;
---color-muted: #525252;      /* Updated: gray-600 for better contrast (WCAG AA) */
---color-border: #e5e7eb;
---color-subtle-bg: #f9fafb;
---color-hover-bg: #f3f4f6;
+/* Define without hsl() wrapper */
+--primary: 240 5.9% 10%;
+
+/* Use with hsl() */
+background-color: hsl(var(--primary));
+
+/* Use with opacity */
+background-color: hsl(var(--primary) / 0.5);
 ```
 
-**Contrast Ratios (Light Mode):**
-- Foreground (#000000) on Background (#ffffff): 21:1 (AAA) ✓
-- Muted (#525252) on Background (#ffffff): 7:1 (AA) ✓
+### Semantic Color Tokens
 
-### Base Colors - Dark Mode
+| Token | Purpose | Light Mode | Dark Mode |
+|-------|---------|------------|-----------|
+| `--background` | Page background | `0 0% 100%` | `240 10% 3.9%` |
+| `--foreground` | Primary text | `240 10% 3.9%` | `0 0% 98%` |
+| `--card` | Card backgrounds | `0 0% 100%` | `240 10% 3.9%` |
+| `--card-foreground` | Card text | `240 10% 3.9%` | `0 0% 98%` |
+| `--primary` | Primary actions, buttons | `240 5.9% 10%` | `0 0% 98%` |
+| `--primary-foreground` | Text on primary | `0 0% 98%` | `240 5.9% 10%` |
+| `--secondary` | Secondary backgrounds | `240 4.8% 95.9%` | `240 3.7% 15.9%` |
+| `--secondary-foreground` | Text on secondary | `240 5.9% 10%` | `0 0% 98%` |
+| `--muted` | Muted backgrounds | `240 4.8% 95.9%` | `240 3.7% 15.9%` |
+| `--muted-foreground` | Muted/secondary text | `240 3.8% 46.1%` | `240 5% 64.9%` |
+| `--accent` | Hover states, highlights | `240 4.8% 95.9%` | `240 3.7% 15.9%` |
+| `--accent-foreground` | Text on accent | `240 5.9% 10%` | `0 0% 98%` |
+| `--border` | Borders, dividers | `240 5.9% 90%` | `240 3.7% 15.9%` |
+| `--input` | Input borders | `240 5.9% 90%` | `240 3.7% 15.9%` |
+| `--ring` | Focus rings | `240 5.9% 10%` | `240 4.9% 83.9%` |
+
+### Status Colors
+
+For badges, alerts, and semantic feedback:
+
+| Status | Background | Text | Border |
+|--------|------------|------|--------|
+| **Success** | `142 76% 36% / 0.1` | `142 76% 36%` | `142 76% 36% / 0.2` |
+| **Info** | `221 83% 53% / 0.1` | `221 83% 53%` | `221 83% 53% / 0.2` |
+| **Warning** | `38 92% 50% / 0.1` | `38 92% 50%` | `38 92% 50% / 0.2` |
+| **Error** | `0 84% 60% / 0.1` | `0 84% 60%` | `0 84% 60% / 0.2` |
+
+### Complete CSS Variables Block
+
 ```css
---color-bg: #000000;
---color-fg: #ffffff;
---color-muted: #a3a3a3;      /* Updated: gray-400 for better contrast (WCAG AA) */
---color-border: #1f2937;
---color-subtle-bg: #111111;
---color-hover-bg: #1a1a1a;
+:root {
+  /* Semantic Colors - Light Mode */
+  --background: 0 0% 100%;
+  --foreground: 240 10% 3.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 240 10% 3.9%;
+  --primary: 240 5.9% 10%;
+  --primary-foreground: 0 0% 98%;
+  --secondary: 240 4.8% 95.9%;
+  --secondary-foreground: 240 5.9% 10%;
+  --muted: 240 4.8% 95.9%;
+  --muted-foreground: 240 3.8% 46.1%;
+  --accent: 240 4.8% 95.9%;
+  --accent-foreground: 240 5.9% 10%;
+  --border: 240 5.9% 90%;
+  --input: 240 5.9% 90%;
+  --ring: 240 5.9% 10%;
+  
+  /* Border Radius */
+  --radius: 0.5rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+  }
+}
 ```
 
-**Contrast Ratios (Dark Mode):**
-- Foreground (#ffffff) on Background (#000000): 21:1 (AAA) ✓
-- Muted (#a3a3a3) on Background (#000000): 8.7:1 (AA+) ✓
+### Contrast Ratios (WCAG Compliance)
 
-### Semantic Colors (5-Color System)
+**Light Mode:**
+- Foreground on Background: 21:1 (AAA) ✓
+- Muted-foreground on Background: 4.6:1 (AA) ✓
 
-The design system uses a complete 5-color semantic system across all components (badges, alerts, etc.):
-
-#### Success (Green)
-- Light Mode:
-  - Background: `bg-green-50` (#f0fdf4)
-  - Border: `border-green-200` (#bbf7d0)
-  - Text: `text-green-800` (#166534)
-  - Badge: `bg-green-100 text-green-800` (#dcfce7)
-- Dark Mode:
-  - Background: `bg-green-950` (#052e16)
-  - Border: `border-green-900` (#14532d)
-  - Text: `text-green-200` (#bbf7d0)
-  - Badge: `bg-green-900 text-green-200` (#14532d)
-- Usage: Success messages, confirmations, positive states, completed actions
-
-#### Info (Blue)
-- Light Mode:
-  - Background: `bg-blue-50` (#eff6ff)
-  - Border: `border-blue-200` (#bfdbfe)
-  - Text: `text-blue-800` (#1e40af)
-  - Badge: `bg-blue-100 text-blue-800` (#dbeafe)
-- Dark Mode:
-  - Background: `bg-blue-950` (#172554)
-  - Border: `border-blue-900` (#1e3a8a)
-  - Text: `text-blue-200` (#bfdbfe)
-  - Badge: `bg-blue-900 text-blue-200` (#1e3a8a)
-- Usage: Informational messages, tips, helpful context, FYI notices
-
-#### Warning (Yellow)
-- Light Mode:
-  - Background: `bg-yellow-50` (#fefce8)
-  - Border: `border-yellow-200` (#fef08a)
-  - Text: `text-yellow-800` (#854d0e)
-  - Badge: `bg-yellow-100 text-yellow-800` (#fef3c7)
-- Dark Mode:
-  - Background: `bg-yellow-950` (#422006)
-  - Border: `border-yellow-900` (#713f12)
-  - Text: `text-yellow-200` (#fef08a)
-  - Badge: `bg-yellow-900 text-yellow-200` (#713f12)
-- Usage: Warnings, cautions, important notices, review required
-
-#### Error (Red)
-- Light Mode:
-  - Background: `bg-red-50` (#fef2f2)
-  - Border: `border-red-200` (#fecaca)
-  - Text: `text-red-800` (#991b1b)
-  - Badge: `bg-red-100 text-red-800` (#fee2e2)
-- Dark Mode:
-  - Background: `bg-red-950` (#450a0a)
-  - Border: `border-red-900` (#7f1d1d)
-  - Text: `text-red-200` (#fecaca)
-  - Badge: `bg-red-900 text-red-200` (#7f1d1d)
-- Usage: Errors, destructive actions, critical alerts, failures
-
-#### Neutral (Gray)
-- Light Mode:
-  - Background: `bg-gray-50` (#f9fafb)
-  - Border: `border-gray-200` (#e5e7eb)
-  - Text: `text-gray-800` (#1f2937)
-  - Badge: `bg-gray-100 text-gray-800` (#f3f4f6)
-- Dark Mode:
-  - Background: `bg-gray-950` (#030712)
-  - Border: `border-gray-900` (#111827)
-  - Text: `text-gray-200` (#e5e7eb)
-  - Badge: `bg-gray-800 text-gray-200` (#1f2937)
-- Usage: Neutral information, inactive states, default notifications
+**Dark Mode:**
+- Foreground on Background: 21:1 (AAA) ✓
+- Muted-foreground on Background: 7.5:1 (AA+) ✓
 
 ## Typography
 
 ### Font Family
-- Primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif
-- Monospace: 'Monaco', 'Courier New', monospace
 
-### Font Sizes (Tailwind equivalents)
-- xs: 0.75rem / 12px (avoid for body text - accessibility concern)
-- sm: 0.875rem / 14px (minimum for body text, good for footnotes)
-- base: 1rem / 16px (default body text)
-- lg: 1.125rem / 18px (lead paragraphs, large text threshold for contrast)
-- xl: 1.25rem / 20px
-- 2xl: 1.5rem / 24px (blockquotes, emphasized text)
-- 3xl: 1.875rem / 30px
-- 4xl: 2.25rem / 36px (h1)
-- 5xl: 3rem / 48px (hero h1)
+```css
+font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+```
 
-**Accessibility Note**: Text ≥18px (text-lg) or ≥14px bold requires 3:1 contrast ratio. Text <18px requires 4.5:1 contrast ratio (WCAG AA).
+### Font Sizes (Tailwind)
+
+| Class | Size | Usage |
+|-------|------|-------|
+| `text-xs` | 12px | Avoid for body (accessibility) |
+| `text-sm` | 14px | Secondary text, badges, metadata |
+| `text-base` | 16px | Body text (default) |
+| `text-lg` | 18px | Lead paragraphs |
+| `text-xl` | 20px | Section titles |
+| `text-2xl` | 24px | h3, card titles |
+| `text-3xl` | 30px | h2 |
+| `text-4xl` | 36px | h1 |
+| `text-5xl` | 48px | Hero headlines |
 
 ### Font Weights
-- normal: 400
-- medium: 500
-- semibold: 600
-- bold: 700
+
+| Weight | Class | Usage |
+|--------|-------|-------|
+| 400 | `font-normal` | Body text |
+| 500 | `font-medium` | Buttons, labels |
+| 600 | `font-semibold` | Headings, emphasis |
+| 700 | `font-bold` | Hero headlines |
+
+### Tracking (Letter Spacing)
+
+Use `tracking-tight` (-0.025em) for headings to achieve a modern, polished look.
+
+```html
+<h1 class="text-4xl font-bold tracking-tight">Headline</h1>
+```
 
 ### Line Heights
-- tight: 1.25 (headings)
-- normal: 1.5 (body text)
-- relaxed: 1.75 (long-form content)
+
+| Class | Value | Usage |
+|-------|-------|-------|
+| `leading-tight` | 1.25 | Headings |
+| `leading-normal` | 1.5 | Body text |
+| `leading-relaxed` | 1.75 | Long-form content |
 
 ## Spacing Scale
 
-Use Tailwind's standard spacing scale (1 unit = 0.25rem / 4px):
-- 1: 0.25rem / 4px
-- 2: 0.5rem / 8px
-- 3: 0.75rem / 12px
-- 4: 1rem / 16px
-- 6: 1.5rem / 24px
-- 8: 2rem / 32px
-- 12: 3rem / 48px
-- 16: 4rem / 64px
-- 24: 6rem / 96px
-- 32: 8rem / 128px
+Generous whitespace is core to this design system. Use large gaps between sections.
+
+### Recommended Section Spacing
+
+| Context | Tailwind Class | Value |
+|---------|---------------|-------|
+| Between major sections | `py-16` or `py-24` | 64px / 96px |
+| Within sections | `space-y-8` | 32px |
+| Between cards/items | `space-y-4` | 16px |
+| Between elements | `space-y-2` | 8px |
+
+### Layout Widths
+
+| Purpose | Class | Width |
+|---------|-------|-------|
+| Max content width | `max-w-4xl` | 896px |
+| Wide layouts | `max-w-6xl` | 1152px |
+| Reading text | `max-w-2xl` | 672px |
+| Prose/articles | `max-w-prose` | 65ch |
+
+### Padding
+
+| Context | Class | Value |
+|---------|-------|-------|
+| Page horizontal | `px-6` | 24px |
+| Card internal | `p-6` | 24px |
+| Button horizontal | `px-4` to `px-8` | 16-32px |
 
 ## Border Radius
 
-- none: 0
-- sm: 0.125rem / 2px
-- DEFAULT: 0.25rem / 4px
-- md: 0.375rem / 6px (standard buttons)
-- lg: 0.5rem / 8px
-- xl: 0.75rem / 12px
-- full: 9999px (pill-style buttons)
+Use the `--radius` CSS variable for consistency:
+
+| Element | Tailwind | CSS |
+|---------|----------|-----|
+| Buttons, inputs | `rounded-md` | `calc(var(--radius) - 2px)` |
+| Cards, containers | `rounded-lg` | `var(--radius)` |
+| Large cards | `rounded-xl` | `calc(var(--radius) + 4px)` |
+| Badges, pills | `rounded-full` | `9999px` |
 
 ## Shadows
 
-Light mode:
-- sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05)
-- DEFAULT: 0 1px 3px 0 rgba(0, 0, 0, 0.1)
-- md: 0 4px 6px -1px rgba(0, 0, 0, 0.1)
-- lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1)
+Minimal shadows, used sparingly for elevation:
 
-Dark mode:
-- sm: 0 1px 2px 0 rgba(255, 255, 255, 0.05)
-- DEFAULT: 0 1px 3px 0 rgba(255, 255, 255, 0.1)
-- md: 0 4px 6px -1px rgba(255, 255, 255, 0.1)
-- lg: 0 10px 15px -3px rgba(255, 255, 255, 0.1)
+```css
+/* Card hover state */
+.card:hover {
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+}
 
-## Focus States (Accessibility)
+/* Elevated elements */
+.elevated {
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+}
+```
 
-All interactive elements (buttons, links, inputs) must have visible focus indicators:
+## Focus States
+
+All interactive elements must have visible focus indicators:
 
 ```css
 button:focus-visible,
@@ -197,25 +220,22 @@ a:focus-visible,
 input:focus-visible,
 textarea:focus-visible,
 select:focus-visible {
-  outline: 2px solid var(--color-fg);
+  outline: 2px solid hsl(var(--ring));
   outline-offset: 2px;
 }
 ```
 
-**Why**: WCAG 2.1 Success Criterion 2.4.7 (Focus Visible) Level AA requires keyboard focus to be visible.
+## Touch Target Sizes
 
-## Touch Target Sizes (Mobile Usability)
+WCAG 2.5.5 compliant minimum sizes:
 
-Minimum touch target sizes per WCAG 2.5.5 (Level AAA):
-- Minimum: 44x44px
-- Recommended: 48x48px or larger
+| Size | Height | Usage |
+|------|--------|-------|
+| Small | `h-9` (36px) | Compact UI, badges |
+| Default | `h-10` (40px) | Standard buttons |
+| Large | `h-11` (44px) | Primary CTAs, mobile |
 
-**Button Sizing:**
-```
-Small:   px-5 py-2.5 text-sm  → ~44px height ✓
-Default: px-6 py-3            → ~48px height ✓
-Large:   px-8 py-4 text-lg    → ~56px height ✓
-```
+**Note:** 44px is the WCAG AAA minimum. Always prefer `h-11` for important actions.
 
 ## Screen Reader Utilities
 
@@ -233,36 +253,53 @@ Large:   px-8 py-4 text-lg    → ~56px height ✓
 }
 ```
 
-Use for:
-- Table captions that should be announced but not visible
-- Icon button labels
-- Skip links
-- Additional context for screen readers
-
 ## Design Principles
 
-1. **Generous Whitespace**: Use large gaps (8, 12, 16, 24) between sections
-2. **Clear Hierarchy**: Rely on font size and weight, not color
-3. **Subtle Accents**: Use muted colors for secondary text
-4. **Minimal Borders**: Prefer subtle dividers or whitespace
-5. **Readable Line Length**: Max 65-75 characters per line for text content (max-w-2xl)
-6. **Semantic Colors**: Use complete 5-color system consistently across components
-7. **Accessibility First**: Meet WCAG AA standards minimum (AAA when possible)
+1. **Generous Whitespace**: Large gaps (py-16, py-24) between sections
+2. **Clear Hierarchy**: Font size and weight, not color variations
+3. **Semantic Colors**: Use token names (`primary`, `muted`) not raw values
+4. **Subtle Accents**: Muted colors for secondary elements
+5. **Minimal Borders**: Prefer whitespace over dividers
+6. **Readable Lines**: Max 65-75 characters (max-w-2xl or max-w-prose)
+7. **Accessibility First**: WCAG AA minimum, prefer AAA
 8. **Touch-Friendly**: 44px minimum touch targets
-9. **Keyboard Navigation**: Always show focus states
+9. **Keyboard Navigation**: Visible focus states always
 10. **Consistent Patterns**: Same design language across all pages
+
+## Migration from v1.x
+
+### Color Token Mapping
+
+| Old (v1.x) | New (v2.0) |
+|------------|------------|
+| `--color-bg` | `--background` |
+| `--color-fg` | `--foreground` |
+| `--color-muted` | `--muted-foreground` |
+| `--color-border` | `--border` |
+| `--color-subtle-bg` | `--secondary` or `--muted` |
+| `--color-hover-bg` | `--accent` |
+
+### Usage Migration
+
+```html
+<!-- Old -->
+<p class="text-[var(--color-muted)]">Text</p>
+<div class="bg-[var(--color-subtle-bg)]">Card</div>
+
+<!-- New -->
+<p class="text-[hsl(var(--muted-foreground))]">Text</p>
+<div class="bg-[hsl(var(--secondary))]">Card</div>
+```
 
 ## Accessibility Checklist
 
-When implementing design tokens:
-
 - [ ] Color contrast meets 4.5:1 for normal text, 3:1 for large text (≥18px)
 - [ ] Focus visible indicators (2px outline with offset)
-- [ ] Touch targets ≥44x44px
+- [ ] Touch targets ≥44px (`h-11`)
 - [ ] Text sized ≥14px for body content (prefer 16px)
 - [ ] Semantic HTML structure
 - [ ] Aria labels for icon-only buttons
 - [ ] Aria-hidden on decorative SVGs
 - [ ] Table captions (can be .sr-only)
 - [ ] Proper heading hierarchy (h1 → h2 → h3, no skipping)
-- [ ] Skip links for keyboard navigation (optional but recommended)
+- [ ] Skip links for keyboard navigation

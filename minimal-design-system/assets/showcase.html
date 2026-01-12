@@ -11,23 +11,66 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   
   <style>
+    /* ========================================
+       MINIMAL DESIGN SYSTEM v2.0
+       HSL-based semantic color tokens
+       ======================================== */
+    
     :root {
-      --color-bg: #ffffff;
-      --color-fg: #000000;
-      --color-muted: #525252;
-      --color-border: #e5e7eb;
-      --color-subtle-bg: #f9fafb;
-      --color-hover-bg: #f3f4f6;
+      /* Semantic Colors - Light Mode */
+      --background: 0 0% 100%;
+      --foreground: 240 10% 3.9%;
+      --card: 0 0% 100%;
+      --card-foreground: 240 10% 3.9%;
+      --primary: 240 5.9% 10%;
+      --primary-foreground: 0 0% 98%;
+      --secondary: 240 4.8% 95.9%;
+      --secondary-foreground: 240 5.9% 10%;
+      --muted: 240 4.8% 95.9%;
+      --muted-foreground: 240 3.8% 46.1%;
+      --accent: 240 4.8% 95.9%;
+      --accent-foreground: 240 5.9% 10%;
+      --border: 240 5.9% 90%;
+      --input: 240 5.9% 90%;
+      --ring: 240 5.9% 10%;
+      
+      /* Border Radius */
+      --radius: 0.5rem;
+      
+      /* Legacy aliases for backwards compatibility */
+      --color-bg: hsl(var(--background));
+      --color-fg: hsl(var(--foreground));
+      --color-muted: hsl(var(--muted-foreground));
+      --color-border: hsl(var(--border));
+      --color-subtle-bg: hsl(var(--secondary));
+      --color-hover-bg: hsl(var(--accent));
     }
 
     @media (prefers-color-scheme: dark) {
       :root {
-        --color-bg: #000000;
-        --color-fg: #ffffff;
-        --color-muted: #a3a3a3;
-        --color-border: #1f2937;
-        --color-subtle-bg: #111111;
-        --color-hover-bg: #1a1a1a;
+        --background: 240 10% 3.9%;
+        --foreground: 0 0% 98%;
+        --card: 240 10% 3.9%;
+        --card-foreground: 0 0% 98%;
+        --primary: 0 0% 98%;
+        --primary-foreground: 240 5.9% 10%;
+        --secondary: 240 3.7% 15.9%;
+        --secondary-foreground: 0 0% 98%;
+        --muted: 240 3.7% 15.9%;
+        --muted-foreground: 240 5% 64.9%;
+        --accent: 240 3.7% 15.9%;
+        --accent-foreground: 0 0% 98%;
+        --border: 240 3.7% 15.9%;
+        --input: 240 3.7% 15.9%;
+        --ring: 240 4.9% 83.9%;
+        
+        /* Legacy aliases */
+        --color-bg: hsl(var(--background));
+        --color-fg: hsl(var(--foreground));
+        --color-muted: hsl(var(--muted-foreground));
+        --color-border: hsl(var(--border));
+        --color-subtle-bg: hsl(var(--secondary));
+        --color-hover-bg: hsl(var(--accent));
       }
     }
 
@@ -35,12 +78,13 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      border-color: hsl(var(--border));
     }
 
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background-color: var(--color-bg);
-      color: var(--color-fg);
+      background-color: hsl(var(--background));
+      color: hsl(var(--foreground));
       line-height: 1.5;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
@@ -49,6 +93,7 @@
     h1, h2, h3, h4, h5, h6 {
       font-weight: 600;
       line-height: 1.25;
+      letter-spacing: -0.025em;
     }
 
     button, a {
@@ -61,7 +106,7 @@
     input:focus-visible,
     textarea:focus-visible,
     select:focus-visible {
-      outline: 2px solid var(--color-fg);
+      outline: 2px solid hsl(var(--ring));
       outline-offset: 2px;
     }
 
@@ -79,7 +124,7 @@
     }
 
     .section-divider {
-      border-top: 1px solid var(--color-border);
+      border-top: 1px solid hsl(var(--border));
       margin: 4rem 0;
     }
 
@@ -109,6 +154,37 @@
     
     .menu-icon.rotate {
       transform: rotate(90deg);
+    }
+
+    /* Overflow Scroll Carousel */
+    :root {
+      --container-5xl: 64rem;
+      --container-7xl: 80rem;
+    }
+
+    .scroll-container {
+      --scroll-padding: max(1.5rem, calc((100vw - var(--container-5xl)) / 2));
+      /* Add container padding (1.5rem = px-6) to start side only for content alignment */
+      padding-inline-start: calc(var(--scroll-padding) + 1.5rem);
+      padding-inline-end: var(--scroll-padding);
+    }
+
+    @media (min-width: 1024px) {
+      .scroll-container {
+        --scroll-padding: max(2rem, calc((100vw - var(--container-7xl)) / 2));
+      }
+    }
+
+    .scroll-card {
+      scroll-margin-inline-start: calc(var(--scroll-padding) + 1.5rem);
+    }
+
+    .hide-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .hide-scrollbar::-webkit-scrollbar {
+      display: none;
     }
   </style>
 
@@ -208,6 +284,257 @@
     </section>
 
     <div class="section-divider"></div>
+
+    <!-- Overflow Scroll Carousel Section -->
+    <section class="mb-24">
+      <h2 class="text-3xl font-semibold mb-4">Overflow Scroll Carousel</h2>
+      <p class="text-[var(--color-muted)] max-w-2xl mb-4">A horizontal scroll slider aligned to the content container on the left, but extending beyond the viewport on the right. Also known as "Edge-to-Edge Carousel" or "Bleed Slider".</p>
+      <p class="text-[var(--color-muted)] max-w-2xl">No JavaScript required. Uses CSS scroll-snap for smooth card snapping and a dynamic --scroll-padding variable for container alignment.</p>
+    </section>
+  </main>
+
+  <!-- Overflow Scroll Carousel Demo (outside max-width container) -->
+  <section class="overflow-hidden mb-24">
+    
+    <!-- Section Header (uses scroll-container for alignment) -->
+    <header class="scroll-container">
+      <p class="text-sm font-medium tracking-wider uppercase text-[var(--color-muted)] mb-3">Testimonials</p>
+      <h3 class="text-2xl sm:text-3xl font-semibold">What our customers say</h3>
+    </header>
+    
+    <!-- Scroll Container -->
+    <div id="carousel-1" class="scroll-container mt-10 flex gap-6 overflow-x-auto hide-scrollbar snap-x snap-mandatory overscroll-x-contain scroll-smooth">
+      
+      <!-- Card 1 -->
+      <article class="scroll-card shrink-0 w-72 sm:w-96 snap-start">
+        <div class="bg-[var(--color-subtle-bg)] rounded-2xl p-8 h-full flex flex-col">
+          <blockquote class="flex-1 mb-6">
+            <p class="text-lg leading-relaxed">"An excellent product with outstanding support. Our productivity has increased significantly."</p>
+          </blockquote>
+          <footer class="flex items-center gap-4 pt-6 border-t border-[var(--color-border)]">
+            <div class="w-12 h-12 rounded-full bg-[var(--color-border)]"></div>
+            <div>
+              <p class="font-semibold">Anna Schmidt</p>
+              <p class="text-sm text-[var(--color-muted)]">VP of Sales, TechCorp</p>
+            </div>
+          </footer>
+        </div>
+      </article>
+      
+      <!-- Card 2 -->
+      <article class="scroll-card shrink-0 w-72 sm:w-96 snap-start">
+        <div class="bg-[var(--color-subtle-bg)] rounded-2xl p-8 h-full flex flex-col">
+          <blockquote class="flex-1 mb-6">
+            <p class="text-lg leading-relaxed">"The best investment of the year. Easy to implement and immediately visible results."</p>
+          </blockquote>
+          <footer class="flex items-center gap-4 pt-6 border-t border-[var(--color-border)]">
+            <div class="w-12 h-12 rounded-full bg-[var(--color-border)]"></div>
+            <div>
+              <p class="font-semibold">Marcus Weber</p>
+              <p class="text-sm text-[var(--color-muted)]">CTO, StartupAG</p>
+            </div>
+          </footer>
+        </div>
+      </article>
+      
+      <!-- Card 3 -->
+      <article class="scroll-card shrink-0 w-72 sm:w-96 snap-start">
+        <div class="bg-[var(--color-subtle-bg)] rounded-2xl p-8 h-full flex flex-col">
+          <blockquote class="flex-1 mb-6">
+            <p class="text-lg leading-relaxed">"We exceeded all our goals. The team is thrilled with how easy it is to use."</p>
+          </blockquote>
+          <footer class="flex items-center gap-4 pt-6 border-t border-[var(--color-border)]">
+            <div class="w-12 h-12 rounded-full bg-[var(--color-border)]"></div>
+            <div>
+              <p class="font-semibold">Lisa Müller</p>
+              <p class="text-sm text-[var(--color-muted)]">CEO, DigitalWerk</p>
+            </div>
+          </footer>
+        </div>
+      </article>
+      
+      <!-- Card 4 -->
+      <article class="scroll-card shrink-0 w-72 sm:w-96 snap-start">
+        <div class="bg-[var(--color-subtle-bg)] rounded-2xl p-8 h-full flex flex-col">
+          <blockquote class="flex-1 mb-6">
+            <p class="text-lg leading-relaxed">"A game-changer for our marketing. The analytics are detailed and the UI is intuitive."</p>
+          </blockquote>
+          <footer class="flex items-center gap-4 pt-6 border-t border-[var(--color-border)]">
+            <div class="w-12 h-12 rounded-full bg-[var(--color-border)]"></div>
+            <div>
+              <p class="font-semibold">Thomas Becker</p>
+              <p class="text-sm text-[var(--color-muted)]">CMO, MarketingHub</p>
+            </div>
+          </footer>
+        </div>
+      </article>
+      
+      <!-- Card 5 -->
+      <article class="scroll-card shrink-0 w-72 sm:w-96 snap-start">
+        <div class="bg-[var(--color-subtle-bg)] rounded-2xl p-8 h-full flex flex-col">
+          <blockquote class="flex-1 mb-6">
+            <p class="text-lg leading-relaxed">"Finally a solution that delivers on its promises. Highly recommended!"</p>
+          </blockquote>
+          <footer class="flex items-center gap-4 pt-6 border-t border-[var(--color-border)]">
+            <div class="w-12 h-12 rounded-full bg-[var(--color-border)]"></div>
+            <div>
+              <p class="font-semibold">Julia Hoffman</p>
+              <p class="text-sm text-[var(--color-muted)]">Product Lead, InnovateCo</p>
+            </div>
+          </footer>
+        </div>
+      </article>
+      
+      <!-- Spacer at end -->
+      <div class="shrink-0 w-[var(--scroll-padding)]" aria-hidden="true"></div>
+      
+    </div>
+    
+    <!-- Dots Navigation (functional) -->
+    <nav class="scroll-container mt-8 flex justify-end" aria-label="Carousel navigation">
+      <div id="dots-1" class="flex gap-2">
+        <button class="w-2.5 h-2.5 rounded-full bg-[var(--color-fg)] transition-colors" aria-label="Go to slide 1" aria-current="true"></button>
+        <button class="w-2.5 h-2.5 rounded-full bg-[var(--color-border)] hover:bg-[var(--color-muted)] transition-colors" aria-label="Go to slide 2"></button>
+        <button class="w-2.5 h-2.5 rounded-full bg-[var(--color-border)] hover:bg-[var(--color-muted)] transition-colors" aria-label="Go to slide 3"></button>
+        <button class="w-2.5 h-2.5 rounded-full bg-[var(--color-border)] hover:bg-[var(--color-muted)] transition-colors" aria-label="Go to slide 4"></button>
+        <button class="w-2.5 h-2.5 rounded-full bg-[var(--color-border)] hover:bg-[var(--color-muted)] transition-colors" aria-label="Go to slide 5"></button>
+      </div>
+    </nav>
+    
+  </section>
+
+  <!-- Carousel Navigation Script -->
+  <script>
+    function initCarousel(carouselId, dotsId) {
+      const carousel = document.getElementById(carouselId);
+      const dotsContainer = document.getElementById(dotsId);
+      if (!carousel || !dotsContainer) return;
+      
+      const dots = dotsContainer.querySelectorAll('button');
+      const cards = carousel.querySelectorAll('.scroll-card');
+      
+      // Click handler for dots
+      dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+          const card = cards[index];
+          if (card) {
+            card.scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
+          }
+        });
+      });
+      
+      // Scroll handler to update active dot
+      carousel.addEventListener('scroll', () => {
+        const scrollLeft = carousel.scrollLeft;
+        const cardWidth = cards[0]?.offsetWidth || 0;
+        const gap = 24; // gap-6 = 24px
+        const activeIndex = Math.round(scrollLeft / (cardWidth + gap));
+        
+        dots.forEach((dot, index) => {
+          if (index === activeIndex) {
+            dot.classList.remove('bg-[var(--color-border)]');
+            dot.classList.add('bg-[var(--color-fg)]');
+            dot.setAttribute('aria-current', 'true');
+          } else {
+            dot.classList.remove('bg-[var(--color-fg)]');
+            dot.classList.add('bg-[var(--color-border)]');
+            dot.removeAttribute('aria-current');
+          }
+        });
+      });
+    }
+    
+    // Initialize carousel
+    initCarousel('carousel-1', 'dots-1');
+  </script>
+
+  <!-- Dark Cards Variant -->
+  <section class="overflow-hidden py-16 bg-[var(--color-subtle-bg)] mb-24">
+    
+    <!-- Section Header (uses scroll-container for alignment) -->
+    <header class="scroll-container">
+      <p class="text-sm font-medium tracking-wider uppercase text-[var(--color-muted)] mb-3">Variant</p>
+      <h3 class="text-2xl sm:text-3xl font-semibold">Dark cards with overlay</h3>
+    </header>
+    
+    <div class="scroll-container mt-10 flex gap-6 overflow-x-auto hide-scrollbar snap-x snap-mandatory overscroll-x-contain scroll-smooth">
+      
+      <!-- Dark Card 1 -->
+      <article class="scroll-card shrink-0 w-72 sm:w-96 snap-start">
+        <div class="relative aspect-[9/16] sm:aspect-[3/4] rounded-2xl overflow-hidden flex flex-col justify-end">
+          <div class="absolute inset-0 bg-neutral-300 dark:bg-neutral-700"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-black from-[44%] sm:from-25%"></div>
+          <figure class="relative p-8">
+            <blockquote>
+              <p class="text-xl leading-7 text-white">"An excellent product with outstanding support."</p>
+            </blockquote>
+            <figcaption class="mt-6 pt-6 border-t border-white/20">
+              <p class="text-sm font-medium text-white">Anna Schmidt</p>
+              <p class="text-sm font-medium text-neutral-400">VP of Sales, TechCorp</p>
+            </figcaption>
+          </figure>
+        </div>
+      </article>
+      
+      <!-- Dark Card 2 -->
+      <article class="scroll-card shrink-0 w-72 sm:w-96 snap-start">
+        <div class="relative aspect-[9/16] sm:aspect-[3/4] rounded-2xl overflow-hidden flex flex-col justify-end">
+          <div class="absolute inset-0 bg-neutral-400 dark:bg-neutral-600"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-black from-[44%] sm:from-25%"></div>
+          <figure class="relative p-8">
+            <blockquote>
+              <p class="text-xl leading-7 text-white">"The best investment of the year."</p>
+            </blockquote>
+            <figcaption class="mt-6 pt-6 border-t border-white/20">
+              <p class="text-sm font-medium text-white">Marcus Weber</p>
+              <p class="text-sm font-medium text-neutral-400">CTO, StartupAG</p>
+            </figcaption>
+          </figure>
+        </div>
+      </article>
+      
+      <!-- Dark Card 3 -->
+      <article class="scroll-card shrink-0 w-72 sm:w-96 snap-start">
+        <div class="relative aspect-[9/16] sm:aspect-[3/4] rounded-2xl overflow-hidden flex flex-col justify-end">
+          <div class="absolute inset-0 bg-neutral-500"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-black from-[44%] sm:from-25%"></div>
+          <figure class="relative p-8">
+            <blockquote>
+              <p class="text-xl leading-7 text-white">"We exceeded all our goals."</p>
+            </blockquote>
+            <figcaption class="mt-6 pt-6 border-t border-white/20">
+              <p class="text-sm font-medium text-white">Lisa Müller</p>
+              <p class="text-sm font-medium text-neutral-400">CEO, DigitalWerk</p>
+            </figcaption>
+          </figure>
+        </div>
+      </article>
+      
+      <!-- Dark Card 4 -->
+      <article class="scroll-card shrink-0 w-72 sm:w-96 snap-start">
+        <div class="relative aspect-[9/16] sm:aspect-[3/4] rounded-2xl overflow-hidden flex flex-col justify-end">
+          <div class="absolute inset-0 bg-neutral-600 dark:bg-neutral-500"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-black from-[44%] sm:from-25%"></div>
+          <figure class="relative p-8">
+            <blockquote>
+              <p class="text-xl leading-7 text-white">"A game-changer for our marketing."</p>
+            </blockquote>
+            <figcaption class="mt-6 pt-6 border-t border-white/20">
+              <p class="text-sm font-medium text-white">Thomas Becker</p>
+              <p class="text-sm font-medium text-neutral-400">CMO, MarketingHub</p>
+            </figcaption>
+          </figure>
+        </div>
+      </article>
+      
+      <!-- Spacer -->
+      <div class="shrink-0 w-[var(--scroll-padding)]" aria-hidden="true"></div>
+      
+    </div>
+    
+  </section>
+
+  <main class="max-w-7xl mx-auto px-6 py-16 sm:px-8">
 
     <!-- Buttons Section -->
     <section class="mb-24">

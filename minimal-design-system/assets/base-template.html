@@ -3,315 +3,293 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Minimal Design System - Base Template</title>
+  <title>Minimal Design System - Base Template v2.0</title>
+  <meta name="description" content="A clean, minimal template with generous whitespace and modern typography.">
+  
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Inter Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   
   <style>
+    /* ========================================
+       MINIMAL DESIGN SYSTEM v2.0
+       HSL-based semantic color tokens
+       ======================================== */
+    
     :root {
-      --color-bg: #ffffff;
-      --color-fg: #000000;
-      --color-muted: #525252;
-      --color-border: #e5e7eb;
-      --color-subtle-bg: #f9fafb;
-      --color-hover-bg: #f3f4f6;
+      /* Semantic Colors - Light Mode */
+      --background: 0 0% 100%;
+      --foreground: 240 10% 3.9%;
+      --card: 0 0% 100%;
+      --card-foreground: 240 10% 3.9%;
+      --primary: 240 5.9% 10%;
+      --primary-foreground: 0 0% 98%;
+      --secondary: 240 4.8% 95.9%;
+      --secondary-foreground: 240 5.9% 10%;
+      --muted: 240 4.8% 95.9%;
+      --muted-foreground: 240 3.8% 46.1%;
+      --accent: 240 4.8% 95.9%;
+      --accent-foreground: 240 5.9% 10%;
+      --border: 240 5.9% 90%;
+      --input: 240 5.9% 90%;
+      --ring: 240 5.9% 10%;
+      
+      /* Border Radius */
+      --radius: 0.5rem;
     }
-
+    
     @media (prefers-color-scheme: dark) {
       :root {
-        --color-bg: #000000;
-        --color-fg: #ffffff;
-        --color-muted: #a3a3a3;
-        --color-border: #1f2937;
-        --color-subtle-bg: #111111;
-        --color-hover-bg: #1a1a1a;
+        --background: 240 10% 3.9%;
+        --foreground: 0 0% 98%;
+        --card: 240 10% 3.9%;
+        --card-foreground: 0 0% 98%;
+        --primary: 0 0% 98%;
+        --primary-foreground: 240 5.9% 10%;
+        --secondary: 240 3.7% 15.9%;
+        --secondary-foreground: 0 0% 98%;
+        --muted: 240 3.7% 15.9%;
+        --muted-foreground: 240 5% 64.9%;
+        --accent: 240 3.7% 15.9%;
+        --accent-foreground: 0 0% 98%;
+        --border: 240 3.7% 15.9%;
+        --input: 240 3.7% 15.9%;
+        --ring: 240 4.9% 83.9%;
       }
     }
-
+    
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-    }
-
-    body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background-color: var(--color-bg);
-      color: var(--color-fg);
+      border-color: hsl(var(--border));
+    }
+    
+    body {
+      background-color: hsl(var(--background));
+      color: hsl(var(--foreground));
       line-height: 1.5;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
-
-    h1, h2, h3, h4, h5, h6 {
-      font-weight: 600;
-      line-height: 1.25;
-    }
-
-    /* Focus visible styles for accessibility */
-    a:focus-visible {
-      outline: 2px solid var(--color-fg);
+    
+    /* Focus visible styles */
+    button:focus-visible,
+    a:focus-visible,
+    input:focus-visible,
+    textarea:focus-visible {
+      outline: 2px solid hsl(var(--ring));
       outline-offset: 2px;
     }
-
-    .text-muted {
-      color: var(--color-muted);
-    }
-
-    .border-border {
-      border-color: var(--color-border);
-    }
-
-    /* Mobile menu animation */
-    .mobile-menu {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease-out, opacity 0.3s ease-out, padding 0.3s ease-out, margin 0.3s ease-out;
-      opacity: 0;
+    
+    /* Screen reader only */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
       padding: 0;
-      margin: 0;
-      border-top: 1px solid transparent;
-    }
-    
-    .mobile-menu.open {
-      max-height: 300px;
-      opacity: 1;
-      padding-top: 1rem;
-      padding-bottom: 0.5rem;
-      margin-top: 1rem;
-      border-top-color: var(--color-border);
-    }
-
-    .menu-icon {
-      transition: transform 0.2s ease-out;
-    }
-    
-    .menu-icon.rotate {
-      transform: rotate(90deg);
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
     }
   </style>
-
-  <script>
-    tailwind.config = {
-      darkMode: 'media',
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
-          }
-        }
-      }
-    }
-  </script>
 </head>
-<body>
+<body class="min-h-screen antialiased">
   
-  <!-- Responsive Navigation Header -->
-  <header class="sticky top-0 z-50 bg-[var(--color-bg)] border-b border-[var(--color-border)]">
-    <div class="max-w-5xl mx-auto px-6 py-4 md:py-6 sm:px-8">
-      <div class="flex items-center justify-between">
-        <a href="#" class="text-lg md:text-xl font-bold">Brand</a>
-        
-        <!-- Desktop Navigation -->
-        <nav class="hidden md:flex items-center gap-8">
-          <a href="#" class="font-medium">Home</a>
-          <a href="#" class="text-[var(--color-muted)] hover:text-[var(--color-fg)] transition-colors">About</a>
-          <a href="#" class="text-[var(--color-muted)] hover:text-[var(--color-fg)] transition-colors">Contact</a>
-        </nav>
-
-        <!-- Mobile Menu Button -->
-        <button id="mobile-menu-btn" class="md:hidden p-2 -mr-2" aria-label="Toggle menu" aria-expanded="false">
-          <svg class="w-6 h-6 menu-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path id="menu-icon-path" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-            <path id="close-icon-path" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-          </svg>
-        </button>
-      </div>
-
-      <!-- Mobile Menu -->
-      <nav id="mobile-menu" class="mobile-menu md:hidden">
-        <div class="flex flex-col gap-4">
-          <a href="#" class="font-medium py-2">Home</a>
-          <a href="#" class="text-[var(--color-muted)] hover:text-[var(--color-fg)] transition-colors py-2">About</a>
-          <a href="#" class="text-[var(--color-muted)] hover:text-[var(--color-fg)] transition-colors py-2">Contact</a>
-        </div>
+  <!-- Header with Backdrop Blur -->
+  <header class="sticky top-0 z-50 w-full border-b border-[hsl(var(--border))] bg-[hsl(var(--background)/0.95)] backdrop-blur supports-[backdrop-filter]:bg-[hsl(var(--background)/0.6)]">
+    <div class="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="#" class="text-xl font-bold tracking-tight">Logo</a>
+      
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex items-center gap-6">
+        <a href="#" class="text-sm font-medium">Home</a>
+        <a href="#about" class="text-sm text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))] transition-colors">About</a>
+        <a href="#work" class="text-sm text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))] transition-colors">Work</a>
+        <a href="#contact" class="text-sm text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))] transition-colors">Contact</a>
       </nav>
+      
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-btn" class="md:hidden p-2 -mr-2 hover:bg-[hsl(var(--accent))] rounded-md transition-colors" aria-label="Toggle menu" aria-expanded="false">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
     </div>
+    
+    <!-- Mobile Navigation -->
+    <nav id="mobile-menu" class="hidden md:hidden border-t border-[hsl(var(--border))]">
+      <div class="max-w-4xl mx-auto px-6 py-4 space-y-2">
+        <a href="#" class="block py-2 text-sm font-medium">Home</a>
+        <a href="#about" class="block py-2 text-sm text-[hsl(var(--muted-foreground))]">About</a>
+        <a href="#work" class="block py-2 text-sm text-[hsl(var(--muted-foreground))]">Work</a>
+        <a href="#contact" class="block py-2 text-sm text-[hsl(var(--muted-foreground))]">Contact</a>
+      </div>
+    </nav>
   </header>
 
+  <main class="max-w-4xl mx-auto px-6">
+    
+    <!-- Hero Section -->
+    <section class="py-24 md:py-32">
+      <div class="max-w-2xl">
+        <p class="text-[hsl(var(--muted-foreground))] mb-4">Welcome</p>
+        <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-6">
+          Minimal Design System Template
+        </h1>
+        <p class="text-xl text-[hsl(var(--muted-foreground))] leading-relaxed mb-8">
+          A clean starting point with generous whitespace, semantic color tokens, 
+          and modern typography. Built with Tailwind CSS and Inter font.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="#" class="inline-flex items-center justify-center h-11 px-8 bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] text-sm font-medium rounded-md hover:bg-[hsl(var(--primary)/0.9)] transition-colors">
+            Primary Action
+          </a>
+          <a href="#" class="inline-flex items-center justify-center h-11 px-8 border border-[hsl(var(--input))] bg-[hsl(var(--background))] text-sm font-medium rounded-md hover:bg-[hsl(var(--accent))] hover:text-[hsl(var(--accent-foreground))] transition-colors">
+            Secondary Action
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 border-t border-[hsl(var(--border))]">
+      <h2 class="text-2xl font-semibold tracking-tight mb-8">About</h2>
+      <div class="grid md:grid-cols-3 gap-12">
+        <div class="md:col-span-2 space-y-4">
+          <p class="text-[hsl(var(--muted-foreground))] leading-relaxed">
+            This template demonstrates the core patterns of the Minimal Design System v2.0. 
+            It uses HSL-based color tokens for flexibility and semantic naming for maintainability.
+          </p>
+          <p class="text-[hsl(var(--muted-foreground))] leading-relaxed">
+            The design philosophy centers on generous whitespace, clear typography hierarchy, 
+            and automatic light/dark mode switching via prefers-color-scheme.
+          </p>
+        </div>
+        <div class="space-y-6">
+          <div>
+            <h3 class="text-sm font-semibold mb-1">Version</h3>
+            <p class="text-sm text-[hsl(var(--muted-foreground))]">2.0</p>
+          </div>
+          <div>
+            <h3 class="text-sm font-semibold mb-1">Stack</h3>
+            <p class="text-sm text-[hsl(var(--muted-foreground))]">Tailwind CSS + Inter</p>
+          </div>
+          <div>
+            <h3 class="text-sm font-semibold mb-1">Features</h3>
+            <p class="text-sm text-[hsl(var(--muted-foreground))]">HSL Colors, Auto Dark Mode</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cards Section -->
+    <section id="work" class="py-16 border-t border-[hsl(var(--border))]">
+      <h2 class="text-2xl font-semibold tracking-tight mb-8">Featured Work</h2>
+      <div class="space-y-4">
+        
+        <!-- Card 1 -->
+        <article class="rounded-lg border border-[hsl(var(--border))] bg-[hsl(var(--card))] p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-start justify-between mb-3">
+            <div>
+              <h3 class="font-semibold mb-1">Project Alpha</h3>
+              <p class="text-sm text-[hsl(var(--muted-foreground))]">Design System • 2024</p>
+            </div>
+            <span class="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold bg-emerald-500/10 text-emerald-600 border border-emerald-500/20">
+              Active
+            </span>
+          </div>
+          <p class="text-sm text-[hsl(var(--muted-foreground))] mb-4">
+            A comprehensive design system built for scalability and accessibility. 
+            Includes 50+ components and detailed documentation.
+          </p>
+          <div class="flex gap-2">
+            <span class="inline-flex items-center rounded-full border border-[hsl(var(--border))] bg-[hsl(var(--muted))] px-2.5 py-0.5 text-xs text-[hsl(var(--muted-foreground))]">React</span>
+            <span class="inline-flex items-center rounded-full border border-[hsl(var(--border))] bg-[hsl(var(--muted))] px-2.5 py-0.5 text-xs text-[hsl(var(--muted-foreground))]">TypeScript</span>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="rounded-lg border border-[hsl(var(--border))] bg-[hsl(var(--card))] p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-start justify-between mb-3">
+            <div>
+              <h3 class="font-semibold mb-1">Project Beta</h3>
+              <p class="text-sm text-[hsl(var(--muted-foreground))]">Web Application • 2023</p>
+            </div>
+            <span class="inline-flex items-center rounded-full border border-[hsl(var(--border))] bg-[hsl(var(--secondary))] px-2.5 py-0.5 text-xs font-semibold text-[hsl(var(--secondary-foreground))]">
+              Completed
+            </span>
+          </div>
+          <p class="text-sm text-[hsl(var(--muted-foreground))] mb-4">
+            A full-stack application with real-time collaboration features. 
+            Optimized for performance and accessibility.
+          </p>
+          <div class="flex gap-2">
+            <span class="inline-flex items-center rounded-full border border-[hsl(var(--border))] bg-[hsl(var(--muted))] px-2.5 py-0.5 text-xs text-[hsl(var(--muted-foreground))]">Next.js</span>
+            <span class="inline-flex items-center rounded-full border border-[hsl(var(--border))] bg-[hsl(var(--muted))] px-2.5 py-0.5 text-xs text-[hsl(var(--muted-foreground))]">PostgreSQL</span>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 border-t border-[hsl(var(--border))]">
+      <h2 class="text-2xl font-semibold tracking-tight mb-4">Get in Touch</h2>
+      <p class="text-[hsl(var(--muted-foreground))] mb-8 max-w-xl">
+        Interested in working together? Feel free to reach out.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <a href="mailto:hello@example.com" class="inline-flex items-center justify-center gap-2 h-10 px-4 bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] text-sm font-medium rounded-md hover:bg-[hsl(var(--primary)/0.9)] transition-colors">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+          </svg>
+          Email
+        </a>
+        <a href="#" class="inline-flex items-center justify-center gap-2 h-10 px-4 border border-[hsl(var(--input))] bg-[hsl(var(--background))] text-sm font-medium rounded-md hover:bg-[hsl(var(--accent))] transition-colors">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+          </svg>
+          GitHub
+        </a>
+        <a href="#" class="inline-flex items-center justify-center gap-2 h-10 px-4 border border-[hsl(var(--input))] bg-[hsl(var(--background))] text-sm font-medium rounded-md hover:bg-[hsl(var(--accent))] transition-colors">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+          </svg>
+          LinkedIn
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-[hsl(var(--border))] mt-16">
+    <div class="max-w-4xl mx-auto px-6 py-8">
+      <p class="text-sm text-[hsl(var(--muted-foreground))]">
+        © 2024 Your Name. Built with Minimal Design System v2.0.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Mobile Menu Toggle Script -->
   <script>
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
-    const menuIconPath = document.getElementById('menu-icon-path');
-    const closeIconPath = document.getElementById('close-icon-path');
-    const menuSvg = mobileMenuBtn.querySelector('svg');
-
+    
     mobileMenuBtn.addEventListener('click', () => {
-      const isOpen = mobileMenu.classList.contains('open');
-      mobileMenu.classList.toggle('open');
-      menuIconPath.classList.toggle('hidden');
-      closeIconPath.classList.toggle('hidden');
-      menuSvg.classList.toggle('rotate');
+      const isOpen = !mobileMenu.classList.contains('hidden');
+      mobileMenu.classList.toggle('hidden');
       mobileMenuBtn.setAttribute('aria-expanded', !isOpen);
     });
   </script>
-  
-  <div class="max-w-5xl mx-auto px-6 py-16 sm:px-8">
-    
-    <!-- Header -->
-    <header class="mb-16">
-      <h1 class="text-4xl sm:text-5xl font-bold mb-4">The Art of Minimal Design</h1>
-      <p class="text-lg text-muted">Exploring simplicity, whitespace, and clarity in modern web design</p>
-    </header>
 
-    <main class="space-y-16">
-      
-      <!-- Introduction -->
-      <section>
-        <h2 class="text-2xl font-semibold mb-6">Introduction</h2>
-        
-        <!-- Lead Paragraph -->
-        <p class="text-lg text-muted mb-6 max-w-2xl">
-          In an era of digital noise and visual complexity, minimal design stands as a powerful counterpoint. It's not about removing everything—it's about finding what truly matters and presenting it with intention and clarity.
-        </p>
-        
-        <!-- Regular Paragraphs -->
-        <div class="max-w-2xl space-y-4">
-          <p>
-            Minimal design is often misunderstood as simply "less stuff." In reality, it requires more thought, more discipline, and a deeper understanding of hierarchy and composition. Every element must earn its place. Every pixel of whitespace serves a purpose.
-          </p>
-          
-          <p>
-            The foundation of minimal design lies in typography and spacing. When you strip away decorative elements, what remains must be perfectly balanced. Line length, font size, weight, and the space between elements become the primary tools for creating visual hierarchy and guiding the reader's eye.
-          </p>
-          
-          <p>
-            Whitespace—or more accurately, negative space—is not empty. It's an active element of your design. It creates breathing room, establishes relationships between elements, and directs attention. In minimal design, the space around your content is as important as the content itself.
-          </p>
-        </div>
-      </section>
-
-      <!-- Featured Image -->
-      <section>
-        <figure class="max-w-4xl">
-          <div class="aspect-video bg-gray-100 dark:bg-gray-900 rounded-lg flex items-center justify-center">
-            <div class="text-center">
-              <svg class="w-16 h-16 mx-auto mb-4 text-gray-400 dark:text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-              </svg>
-              <p class="text-sm text-muted">Placeholder for Hero Image</p>
-            </div>
-          </div>
-          <figcaption class="mt-3 text-sm text-muted">
-            Figure 1: An example of minimal design principles applied to a modern interface
-          </figcaption>
-        </figure>
-      </section>
-
-      <!-- Main Article Content -->
-      <section>
-        <h2 class="text-2xl font-semibold mb-6">The Power of Constraint</h2>
-        
-        <div class="max-w-2xl space-y-6">
-          <p>
-            Constraints breed creativity. When you limit yourself to black, white, and shades of gray, you're forced to think more carefully about every decision. Color becomes a powerful accent, reserved for moments of true importance. A single splash of color in a minimal interface carries more weight than a rainbow of hues fighting for attention.
-          </p>
-          
-          <p>
-            This philosophy extends beyond color to every aspect of design. Limited typography forces you to create hierarchy through size, weight, and spacing rather than font variety. A restricted component library encourages consistency and teaches you to solve problems within a framework rather than inventing new solutions for every scenario.
-          </p>
-
-          <!-- Blockquote -->
-          <blockquote class="my-12 py-8 pl-8 border-l-4 border-black dark:border-white">
-            <p class="text-2xl font-normal mb-4 leading-relaxed">
-              "Perfection is achieved, not when there is nothing more to add, but when there is nothing left to take away."
-            </p>
-            <footer class="text-base font-medium">
-              — <cite>Antoine de Saint-Exupéry</cite>
-            </footer>
-          </blockquote>
-
-          <p>
-            The quote above captures the essence of minimal design. It's an iterative process of refinement, constantly asking "what can we remove?" until only the essential remains. This doesn't mean the final product is sparse or barren—it means every element that survived the editing process is there for a reason.
-          </p>
-
-          <p>
-            Consider the white space in this very document. The margins aren't arbitrary—they're carefully chosen to create comfortable line lengths for reading. The space between paragraphs provides visual rhythm and allows ideas to breathe. The generous padding around sections creates clear separation without requiring decorative dividers.
-          </p>
-        </div>
-      </section>
-
-      <!-- Second Article Section -->
-      <section>
-        <h2 class="text-2xl font-semibold mb-6">Typography as Foundation</h2>
-        
-        <div class="max-w-2xl space-y-6">
-          <p>
-            In minimal design, typography isn't just about choosing a nice font—it's the primary vehicle for communication and hierarchy. Without color gradients, shadows, or decorative elements to guide the eye, your typography must do all the heavy lifting.
-          </p>
-
-          <div>
-            <h3 class="text-xl font-semibold mb-3">Scale and Hierarchy</h3>
-            <p class="mb-4">
-              A well-defined type scale is crucial. The difference between your heading sizes must be significant enough to establish clear hierarchy, but harmonious enough to feel like part of a unified system. Each level should have a clear purpose—H1 for page titles, H2 for major sections, H3 for subsections, and so on.
-            </p>
-            <p>
-              Line height and spacing between elements are equally important. Dense text feels cramped and difficult to read. Too much space feels disconnected. The goal is to find the sweet spot where related elements group naturally while distinct sections remain clearly separated.
-            </p>
-          </div>
-
-          <div>
-            <h3 class="text-xl font-semibold mb-3">Readable Line Lengths</h3>
-            <p class="mb-4">
-              Notice how this text never exceeds about 65-75 characters per line? That's intentional. Longer lines tire the eye and make it harder to track from the end of one line to the beginning of the next. Shorter lines feel choppy and create awkward reading rhythm.
-            </p>
-            <p>
-              This constraint—limiting the maximum width of text blocks—is one of the most impactful decisions you can make for readability. It's why newspapers use columns. It's why books have margins. And it's why minimal interfaces often feel more comfortable to read than their busier counterparts.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <!-- Conclusion -->
-      <section>
-        <h2 class="text-2xl font-semibold mb-6">Conclusion</h2>
-        
-        <div class="max-w-2xl space-y-4">
-          <p>
-            Minimal design is not a trend—it's a philosophy rooted in clarity, intentionality, and respect for the user's attention. It acknowledges that every element on the screen has a cognitive cost, and it seeks to minimize that cost while maximizing value.
-          </p>
-          
-          <p>
-            As you apply these principles to your own work, remember that minimal doesn't mean cold or impersonal. A minimal interface can still be warm and inviting through thoughtful typography, generous whitespace, and careful attention to detail. The goal is not to make everything look the same—it's to strip away the unnecessary so that what remains can shine.
-          </p>
-          
-          <p>
-            Start with the fundamentals: good typography, proper spacing, and clear hierarchy. Everything else should serve these foundations. And when in doubt, remember Saint-Exupéry's wisdom—keep removing until there's nothing left to take away.
-          </p>
-
-          <!-- Small Text / Footnote -->
-          <div class="mt-8 pt-6 border-t border-border">
-            <p class="text-sm text-muted leading-relaxed">
-              Note: This article explores principles of minimal design in web interfaces. The concepts discussed are based on established design practices and have been adapted for modern digital contexts. For further reading on typography and layout principles, see Robert Bringhurst's "The Elements of Typographic Style" and Jan Tschichold's "The New Typography."
-            </p>
-          </div>
-        </div>
-      </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer class="mt-24 pt-8 border-t border-border">
-      <div class="max-w-2xl space-y-4">
-        <p class="text-sm text-muted">© 2025 Minimal Design System</p>
-        <p class="text-xs text-muted leading-relaxed">
-          This template is part of the Minimal Design System for Claude AI. Built with Tailwind CSS and Inter UI font. All examples and content are for demonstration purposes.
-        </p>
-      </div>
-    </footer>
-
-  </div>
 </body>
 </html>
